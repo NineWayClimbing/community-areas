@@ -1,0 +1,620 @@
+{
+  "name": "Nossa Senhora da Assunção",
+  "type": "Bouldering",
+  "coordinates": {
+    "latitude": 41.9133,
+    "longitude": -8.6092
+  },
+  "country": "Portugal",
+  "city": "Santo Tirso",
+  "description": "O Sector Boulder é sem dúvida de todos o mais frequentado. Talvez pela sua localização central, pelo acesso ser dos mais fáceis de seguir, e é claro por ser a zona de Boulder mais antiga. A aproximação aeste sector é feita desde o mosteiro, descendo pela estrada larga de empedrado e seguindo as placas queindicam a sala de visitas.",
+  "imageFilename": "assuncao-croqui.jpg",
+  "boulders": [
+    {
+      "name": "Travessia Assunção Bleau",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Dinâmico Assunção Bleau",
+      "grade": "6a",
+      "notes": "Lançamento a duas mãos"
+    },
+    {
+      "name": "Directa",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Jump",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Lançamento",
+      "grade": "6b+",
+      "notes": ""
+    },
+    {
+      "name": "Efeitos Sonoros",
+      "grade": "6c",
+      "notes": "CS"
+    },
+    {
+      "name": "Enxóto Cão",
+      "grade": "5+",
+      "notes": "CS"
+    },
+    {
+      "name": "Devorador de Lanches Mistos",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Aquecimento",
+      "grade": "4+",
+      "notes": "Travessia"
+    },
+    {
+      "name": "Crack",
+      "grade": "4",
+      "notes": "CS"
+    },
+    {
+      "name": "Chamó Gato",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Idade da Pedra",
+      "grade": "7a",
+      "notes": "R, Sem talhados"
+    },
+    {
+      "name": "Salto na Lama",
+      "grade": "5+",
+      "notes": "CS"
+    },
+    {
+      "name": "Xl de Força",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Investida Pélvica",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Coquilha",
+      "grade": "6b+",
+      "notes": "Pela Direita ??"
+    },
+    {
+      "name": "Caracol",
+      "grade": "6a",
+      "notes": "Sem talhados"
+    },
+    {
+      "name": "Tá Tola Ná",
+      "grade": "5+",
+      "notes": "Sem talhados"
+    },
+    {
+      "name": "Bloca",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Blocada",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Força Maligna",
+      "grade": "6a",
+      "notes": "CS, SD"
+    },
+    {
+      "name": "Huf Huf",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Zé Gato",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Moto-Serra",
+      "grade": "6b+",
+      "notes": ""
+    },
+    {
+      "name": "??",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Limonete",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Passeio Micológico",
+      "grade": "7a",
+      "notes": ""
+    },
+    {
+      "name": "(Sit Start) Passeio Micológico",
+      "grade": "7b",
+      "notes": "Começo sentado"
+    },
+    {
+      "name": "Mancha Negra",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Passeio Aplatológico",
+      "grade": "7a",
+      "notes": "CS"
+    },
+    {
+      "name": "Costas à Mesa",
+      "grade": "5+",
+      "notes": "CS, SD. Pela Esquerda 6b+/6c CS"
+    },
+    {
+      "name": "Bicep's Mu!",
+      "grade": "7c",
+      "notes": ""
+    },
+    {
+      "name": "Micro II",
+      "grade": "6c",
+      "notes": ""
+    },
+    {
+      "name": "Aresta dos Básicos",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Tabu",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Campus I",
+      "grade": "5",
+      "notes": "TOP"
+    },
+    {
+      "name": "Easy Rider",
+      "grade": "5+",
+      "notes": "TOP"
+    },
+    {
+      "name": "Scarpa",
+      "grade": "5",
+      "notes": "R, TOP"
+    },
+    {
+      "name": "Geração à rasca",
+      "grade": "5",
+      "notes": "R, TOP"
+    },
+    {
+      "name": "Karma",
+      "grade": "7a",
+      "notes": "CS"
+    },
+    {
+      "name": "Agarra-te Aqui",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Pinça",
+      "grade": "6c",
+      "notes": ""
+    },
+    {
+      "name": "Dedos de Aço",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Twister",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Lusco Fusco",
+      "grade": "7a+",
+      "notes": "CS"
+    },
+    {
+      "name": "Bico do Patelo I",
+      "grade": "6a",
+      "notes": ""
+    },
+    {
+      "name": "Bico do Patelo II",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Salta-lhe",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Baltar",
+      "grade": "6b+",
+      "notes": ""
+    },
+    {
+      "name": "Bareja Berde",
+      "grade": "6a",
+      "notes": ""
+    },
+    {
+      "name": "Rolinha",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Lançamento Descola",
+      "grade": "8a",
+      "notes": ""
+    },
+    {
+      "name": "Descola Estático",
+      "grade": "7c",
+      "notes": ""
+    },
+    {
+      "name": "Descola Swing",
+      "grade": "7a",
+      "notes": ""
+    },
+    {
+      "name": "Descola",
+      "grade": "8a+",
+      "notes": "CS"
+    },
+    {
+      "name": "Descola 21",
+      "grade": "8c",
+      "notes": "CS"
+    },
+    {
+      "name": "Pedra Filosofal",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Super Bota",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Sardanisca",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Revenge From Mars",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Tsunami",
+      "grade": "5",
+      "notes": "R"
+    },
+    {
+      "name": "Quebra Noz",
+      "grade": "7b",
+      "notes": ""
+    },
+    {
+      "name": "Força",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Monstro",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Tetozinho",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Viagra",
+      "grade": "7a+",
+      "notes": ""
+    },
+    {
+      "name": "Rapidinha da Manhã",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Abre Costas",
+      "grade": "7b",
+      "notes": "CS"
+    },
+    {
+      "name": "Agora com Calma",
+      "grade": "6a",
+      "notes": "CS"
+    },
+    {
+      "name": "S.M.",
+      "grade": "6b+",
+      "notes": "CS"
+    },
+    {
+      "name": "O Olho",
+      "grade": "7a",
+      "notes": ""
+    },
+    {
+      "name": "Espinha",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Crista",
+      "grade": "7a",
+      "notes": ""
+    },
+    {
+      "name": "Bico",
+      "grade": "6c",
+      "notes": ""
+    },
+    {
+      "name": "Pão Pão Queijo Queijo",
+      "grade": "3",
+      "notes": "R"
+    },
+    {
+      "name": "Bimbo",
+      "grade": "3",
+      "notes": "R"
+    },
+    {
+      "name": "Bocadinho",
+      "grade": "3",
+      "notes": "R"
+    },
+    {
+      "name": "Micro",
+      "grade": "6c",
+      "notes": ""
+    },
+    {
+      "name": "Travessia do Corvo",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Espinhinha",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Salto do Corvo",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Pelo Rabo",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Dunfer",
+      "grade": "5",
+      "notes": "5+ CS"
+    },
+    {
+      "name": "American Pie",
+      "grade": "4",
+      "notes": "6b+ CS"
+    },
+    {
+      "name": "Crócódilo",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Escada",
+      "grade": "5+",
+      "notes": "6b+/6c CS"
+    },
+    {
+      "name": "Ouvir o Coração",
+      "grade": "6b+",
+      "notes": "R ?"
+    },
+    {
+      "name": "Oposição",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Novas Guerras",
+      "grade": "7a",
+      "notes": ""
+    },
+    {
+      "name": "American Pie I",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Projecto",
+      "grade": "6c",
+      "notes": "CS"
+    },
+    {
+      "name": "Magia Negra",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Moon Light",
+      "grade": "6b+",
+      "notes": ""
+    },
+    {
+      "name": "Pôr do Sol",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Guaxinim",
+      "grade": "4",
+      "notes": ""
+    },
+    {
+      "name": "Travessia Crux",
+      "grade": "7b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Crux",
+      "grade": "6c",
+      "notes": "CS"
+    },
+    {
+      "name": "Vi-me e Desejei-me",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Muita Força",
+      "grade": "6a",
+      "notes": ""
+    },
+    {
+      "name": "Esquilo Vaz",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Borboleta",
+      "grade": "6c",
+      "notes": "CS, R"
+    },
+    {
+      "name": "Ode to my Friends",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Pinças II",
+      "grade": "6c",
+      "notes": "CS"
+    },
+    {
+      "name": "Picachu",
+      "grade": "3",
+      "notes": "CS"
+    },
+    {
+      "name": "Happy Hour",
+      "grade": "3",
+      "notes": "CS"
+    },
+    {
+      "name": "Toupeira",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Gioconda",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Torre de Pizza",
+      "grade": "Project",
+      "notes": ""
+    },
+    {
+      "name": "História Interminável",
+      "grade": "4+",
+      "notes": "R"
+    },
+    {
+      "name": "Dino",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Blair Witch Project",
+      "grade": "7b",
+      "notes": ""
+    },
+    {
+      "name": "Gritos",
+      "grade": "6a",
+      "notes": ""
+    },
+    {
+      "name": "Pizzart",
+      "grade": "4+",
+      "notes": ""
+    },
+    {
+      "name": "Guilhotina",
+      "grade": "6b+",
+      "notes": ""
+    },
+    {
+      "name": "Garfield",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "My Fair Lady",
+      "grade": "3",
+      "notes": ""
+    },
+    {
+      "name": "Golias",
+      "grade": "5+",
+      "notes": ""
+    },
+    {
+      "name": "Pelo Tronco Acima",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Cubo",
+      "grade": "5",
+      "notes": ""
+    },
+    {
+      "name": "Saramela",
+      "grade": "3",
+      "notes": ""
+    },
+
+    {
+      "name": "Cobra Mirona",
+      "grade": "5+",
+      "notes": "CS"
+    }
+  ]
+}

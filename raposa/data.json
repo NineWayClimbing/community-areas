@@ -1,0 +1,44 @@
+{
+  "name": "Raposa",
+  "type": "Bouldering",
+  "coordinates": {
+    "latitude": 41.9133,
+    "longitude": -8.6092
+  },
+  "country": "Portugal",
+  "city": "Santo Tirso",
+  "description": "O sector Raposa fica situado do lado direito da estrada para Santa Cruz. Desde o mosteiro seguir pela estrada principal até ao cruzeiro, tomar estrada em empedrado à esquerda durante cerca de 600 metros. Quando começar a avistar a primeira descida bem acentuada cortar logo por trilho à direita. É aconselhável deixar o carro perto da entrada. Seguir trilho durante uns 200 metros e as vias vão surgir do lado direito.",
+  "imageFilename": "raposa.jpg",
+  "boulders": [
+    {
+      "name": "Limonete Podre",
+      "grade": "5",
+      "notes": "CS"
+    },
+    {
+      "name": "Regletes Voadoras",
+      "grade": "7b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Salto da Raposa",
+      "grade": "7b+",
+      "notes": "CS"
+    },
+    {
+      "name": "Buraco Chato",
+      "grade": "7b",
+      "notes": "CS"
+    },
+    {
+      "name": "Musgosida",
+      "grade": "3",
+      "notes": ""
+   },
+    {
+       "name": "BMX",
+       "grade": "5+",
+       "notes": "CS"
+     }
+  ]
+}

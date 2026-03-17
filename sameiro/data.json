@@ -1,0 +1,511 @@
+{
+  "name": "Sameiro",
+  "type": "Bouldering",
+  "coordinates": {
+    "latitude": 41.9133,
+    "longitude": -8.6092
+  },
+  "country": "Portugal",
+  "city": "Braga",
+  "imageFilename": "sameiro.jpg",
+  "description": "Depois de dias de chuva, é preciso deixar a rocha secar pelo menos 2 dias, para evitar que as presas partam.",
+  "boulders": [
+    {
+      "name": "Mistério do João",
+      "grade": "7a+",
+      "notes": "Start with side pull and micro crimp on the left. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "misterio_do_joao.jpg"
+    },
+    {
+      "name": "Misério",
+      "grade": "Project",
+      "notes": "Start on side pull and white crimp above right. Exit straight between Fissura Pingada and Mistério do João",
+      "sector": "Sobreiro",
+      "imageFilename": "miserio.jpg"
+    },
+    {
+      "name": "Fissura Pingada",
+      "grade": "6b+",
+      "notes": "Sit start. Follow the crack",
+      "sector": "Sobreiro",
+      "imageFilename": "fissura_pingada.jpg"
+    },
+    {
+      "name": "Sobreiro Morto",
+      "grade": "6c",
+      "notes": "Start on the pinches. Follow the crack. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "sobreiro_morto.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start on crimp. Tra4+erse right and finish on Sobreiro Morto",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_1.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "6a+",
+      "notes": "Start on the crimp. Follow the arete and exit on Placa da Estrada after the jug",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_2.jpg"
+    },
+    {
+      "name": "Placa da Estrada",
+      "grade": "5+",
+      "notes": "Sit start. Follow the crack",
+      "sector": "Sobreiro",
+      "imageFilename": "placa_da_estrada.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "4+",
+      "notes": "Start on the pinches. Follow the crack. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_3.jpg"
+    },
+    {
+      "name": "Pseudo Dinâmico",
+      "grade": "6a",
+      "notes": "Start on the jugs. Exit straight with the crystals",
+      "sector": "Sobreiro",
+      "imageFilename": "pseudo_dinamico.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start with the undercling. Tra4+erse right into Pseudo Dinâmico",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_4.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_5.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_6.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_7.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_8.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_9.jpg"
+    },
+    {
+      "name": "Mini Lançamento",
+      "grade": "5+",
+      "notes": "Sit start. Dynamic mo4+e into the jug",
+      "sector": "Sobreiro",
+      "imageFilename": "mini_lancamento.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "4+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_10.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "4+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_11.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "4+",
+      "notes": "Feet only",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_12.jpg"
+    },
+    {
+      "name": "Full House",
+      "grade": "6a",
+      "notes": "Start on the crimp. Exit straight with crystals",
+      "sector": "Sobreiro",
+      "imageFilename": "full_house.jpg"
+    },
+    {
+      "name": "Salsa",
+      "grade": "5+",
+      "notes": "Sit start with the crimps. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "salsa.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Left of Pé Sujo",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_13.jpg"
+    },
+    {
+      "name": "Clyde",
+      "grade": "6a+",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "clyde.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "Project",
+      "notes": "Sit start. Follow the crack",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_14.jpg"
+    },
+    {
+      "name": "Pé Sujo",
+      "grade": "Project",
+      "notes": "Start with left side pull and right crystal. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "pe_sujo.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Sit start. Follow the arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_15.jpg"
+    },
+    {
+      "name": "Bonnie",
+      "grade": "6a+",
+      "notes": "Arete",
+      "sector": "Sobreiro",
+      "imageFilename": "bonnie.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start, follow the arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_16.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start with big undercling, follow the arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_17.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start on the crimp. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_18.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Slab",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_19.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start on the slab, exit on Parmigiano",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_20.jpg"
+    },
+    {
+      "name": "Parmigiano Right",
+      "grade": "Project",
+      "notes": "Start on Parmigiano, tra4+erse right from the big undercling",
+      "sector": "Sobreiro",
+      "imageFilename": "parmigiano_right.jpg"
+    },
+    {
+      "name": "Parmigiano",
+      "grade": "6b+",
+      "notes": "Sit start on crimp and side pull. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "parmigiano.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_21.jpg"
+    },
+    {
+      "name": "Mini motoserra",
+      "grade": "5+",
+      "notes": "Sit start. Follow the arete",
+      "sector": "Sobreiro",
+      "imageFilename": "mini_motoserra.jpg"
+    },
+    {
+      "name": "Micro motoserra",
+      "grade": "5+",
+      "notes": "Sit start (??) exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "micro_motoserra.jpg"
+    },
+    {
+      "name": "Dona Rosa",
+      "grade": "6a",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "dona_rosa.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_22.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_23.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start on the cramp. Exit straight following the arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_24.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Start on crack, tra4+erse left. Exit on the opposite arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_25.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_26.jpg"
+    },
+    {
+      "name": "Toca",
+      "grade": "Project",
+      "notes": "Start with undercling. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "toca.jpg"
+    },
+    {
+      "name": "Toca stand",
+      "grade": "6b",
+      "notes": "Sit start. Traverse right into Complicometro",
+      "sector": "Sobreiro",
+      "imageFilename": "toca_stand.jpg"
+    },
+    {
+      "name": "História de dois mundos",
+      "grade": "Project",
+      "notes": "Sit start. Use only left arete",
+      "sector": "Sobreiro",
+      "imageFilename": "historia_de_dois_mundos.jpg"
+    },
+    {
+      "name": "Complicometro",
+      "grade": "6c",
+      "notes": "Sit start. Use both aretes",
+      "sector": "Sobreiro",
+      "imageFilename": "complicometro.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "6c",
+      "notes": "Sit start. Use right arete",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_27.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Sit start tra4+erse left",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_28.jpg"
+    },
+    {
+      "name": "Ninho",
+      "grade": "Project",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "ninho.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "Project",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_29.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "Sit start traverse left",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_30.jpg"
+    },
+    {
+      "name": "Pé Roto",
+      "grade": "6a",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "pe_roto.jpg"
+    },
+    {
+      "name": "Pés de Rosa",
+      "grade": "7b",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "pes_de_rosa.jpg"
+    },
+    {
+      "name": "Presa Temido",
+      "grade": "6a",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "presa_temido.jpg"
+    },
+    {
+      "name": "FA Educado",
+      "grade": "6b",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "fa_educado.jpg"
+    },
+    {
+      "name": "Raspa Queixos",
+      "grade": "6a+",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "raspa_queixos.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_31.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_32.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "Project",
+      "notes": "Sit start on the left crimp",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_33.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_34.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "5+",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_35.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "Project",
+      "notes": "Sit start. Exit straight",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_36.jpg"
+    },
+    {
+      "name": "Sem Nome",
+      "grade": "Project",
+      "notes": "Sit start. Exit left",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_37.jpg"
+    },
+    {
+      "name": "Raspa canelas",
+      "grade": "6a+",
+      "notes": "Traverse",
+      "sector": "Sobreiro",
+      "imageFilename": "raspa_canelas.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_38.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "Project",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_39.jpg"
+    },
+    {
+      "name": "Raspa joelhos",
+      "grade": "6a+",
+      "notes": "Sit start",
+      "sector": "Sobreiro",
+      "imageFilename": "raspa_joelhos.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "6a",
+      "notes": "",
+      "sector": "Sobreiro",
+      "imageFilename": "sem_nome_40.jpg"
+    },
+    {
+      "name": "Sem nome",
+      "grade": "6b",
+      "notes": "Sit start. Traverse left and exit after the corner of the prow",
+      "sector": "Primatas",
+      "imageFilename": "sem_nome_41.jpg"
+    },
+    {
+      "name": "Guilhotina",
+      "grade": "6a",
+      "notes": "Sit start. Exit straight",
+      "sector": "Primatas",
+      "imageFilename": "guilhotina.jpg"
+    }
+  ]
+}
