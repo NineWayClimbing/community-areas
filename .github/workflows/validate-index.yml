@@ -1,0 +1,88 @@
+name: Validate index.json
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate index.json matches area directories
+        run: |
+          errors=0
+
+          # Get all area directories (directories containing data.json)
+          for data_file in */data.json; do
+            [ -f "$data_file" ] || continue
+            slug="$(dirname "$data_file")"
+
+            # Check area exists in index.json
+            entry=$(jq -r --arg s "$slug" '.[] | select(.slug == $s)' index.json)
+            if [ -z "$entry" ]; then
+              echo "::error::Area directory '$slug' has no entry in index.json"
+              errors=$((errors + 1))
+              continue
+            fi
+
+            # Compare boulderCount
+            actual_count=$(jq '.boulders | length' "$data_file")
+            index_count=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .boulderCount' index.json)
+            if [ "$actual_count" != "$index_count" ]; then
+              echo "::error::boulderCount mismatch for '$slug': index.json has $index_count, data.json has $actual_count boulders"
+              errors=$((errors + 1))
+            fi
+
+            # Compare name
+            actual_name=$(jq -r '.name' "$data_file")
+            index_name=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .name' index.json)
+            if [ "$actual_name" != "$index_name" ]; then
+              echo "::error::name mismatch for '$slug': index.json has '$index_name', data.json has '$actual_name'"
+              errors=$((errors + 1))
+            fi
+
+            # Compare country
+            actual_country=$(jq -r '.country' "$data_file")
+            index_country=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .country' index.json)
+            if [ "$actual_country" != "$index_country" ]; then
+              echo "::error::country mismatch for '$slug': index.json has '$index_country', data.json has '$actual_country'"
+              errors=$((errors + 1))
+            fi
+
+            # Compare city
+            actual_city=$(jq -r '.city' "$data_file")
+            index_city=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .city' index.json)
+            if [ "$actual_city" != "$index_city" ]; then
+              echo "::error::city mismatch for '$slug': index.json has '$index_city', data.json has '$actual_city'"
+              errors=$((errors + 1))
+            fi
+
+            # Compare type
+            actual_type=$(jq -r '.type' "$data_file")
+            index_type=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .type' index.json)
+            if [ "$actual_type" != "$index_type" ]; then
+              echo "::error::type mismatch for '$slug': index.json has '$index_type', data.json has '$actual_type'"
+              errors=$((errors + 1))
+            fi
+
+            echo "✓ $slug — OK"
+          done
+
+          # Check for orphan entries in index.json (slug with no directory)
+          for slug in $(jq -r '.[].slug' index.json); do
+            if [ ! -f "$slug/data.json" ]; then
+              echo "::error::index.json has entry '$slug' but no '$slug/data.json' exists"
+              errors=$((errors + 1))
+            fi
+          done
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors error(s). Please update index.json to match your area data."
+            exit 1
+          fi
+
+          echo ""
+          echo "All areas validated successfully."
