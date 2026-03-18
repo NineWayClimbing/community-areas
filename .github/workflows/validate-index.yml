@@ -86,3 +86,47 @@ jobs:
 
           echo ""
           echo "All areas validated successfully."
+
+      - name: Validate image file sizes (max 100KB)
+        run: |
+          max_bytes=102400
+          errors=0
+
+          while IFS= read -r img; do
+            size=$(stat --format="%s" "$img")
+            if [ "$size" -gt "$max_bytes" ]; then
+              size_kb=$(( (size + 1023) / 1024 ))
+              echo "::error::Image '$img' is ${size_kb}KB, exceeds 100KB limit"
+              errors=$((errors + 1))
+            fi
+          done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors image(s) exceeding the 100KB size limit."
+            exit 1
+          fi
+
+          echo "All images are within the 100KB size limit."
+
+      - name: Validate images are JPG format
+        run: |
+          errors=0
+
+          # Check for non-JPG files in images directories
+          while IFS= read -r img; do
+            ext="${img##*.}"
+            ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+            if [ "$ext_lower" != "jpg" ] && [ "$ext_lower" != "jpeg" ]; then
+              echo "::error::Image '$img' is not a JPG file. Only .jpg/.jpeg images are allowed."
+              errors=$((errors + 1))
+            fi
+          done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors non-JPG image(s). Please convert them to JPG format."
+            exit 1
+          fi
+
+          echo "All images are in JPG format."

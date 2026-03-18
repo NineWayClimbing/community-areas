@@ -73,3 +73,5 @@ Every PR is validated by CI — your changes to area directories **must** be ref
 - An area directory exists but has no entry in `index.json`.
 - The `boulderCount` in `index.json` doesn't match the actual number of boulders in `data.json`.
 - The `slug`, `name`, `country`, `city`, or `type` fields are out of sync.
+- Any image file exceeds the **100KB** size limit.
+- Any image is not in **JPG** format (only `.jpg`/`.jpeg` files are allowed).
