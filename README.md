@@ -25,6 +25,7 @@ The root `index.json` is a registry of all areas. Each entry has:
 | `city`         | string | City name                          |
 | `type`         | string | Activity type (e.g. `"Bouldering"`)  |
 | `boulderCount` | number | Total number of boulder problems   |
+| `version`      | number | Version number (positive integer, bumped on each change) |
 
 ### `data.json`
 
@@ -58,13 +59,14 @@ Each boulder object:
 1. Create a new directory using a URL-safe slug (lowercase, hyphens): `my-new-area/`
 2. Add a `data.json` following the schema above.
 3. Add images to `my-new-area/images/`.
-4. Add an entry to `index.json` with the matching `slug`, `name`, `country`, `city`, `type`, and `boulderCount`.
+4. Add an entry to `index.json` with the matching `slug`, `name`, `country`, `city`, `type`, `boulderCount`, and `version` set to `1`.
 
 ### Updating an existing area
 
 1. Edit the area's `data.json` with your changes.
 2. If the boulder count changed, update `boulderCount` in `index.json`.
 3. If area metadata (name, city, etc.) changed, update the corresponding entry in `index.json`.
+4. Bump the `version` field in `index.json` by 1 for each changed area.
 
 ### Important
 
@@ -73,5 +75,6 @@ Every PR is validated by CI — your changes to area directories **must** be ref
 - An area directory exists but has no entry in `index.json`.
 - The `boulderCount` in `index.json` doesn't match the actual number of boulders in `data.json`.
 - The `slug`, `name`, `country`, `city`, or `type` fields are out of sync.
+- The `version` field is missing, not a positive integer, or was not bumped by 1 for changed areas.
 - Any image file exceeds the **100KB** size limit.
 - Any image is not in **JPG** format (only `.jpg`/`.jpeg` files are allowed).
