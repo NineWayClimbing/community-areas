@@ -4,23 +4,26 @@
       "name": "Nossa Senhora da Assunção",                                              
       "country": "Portugal",
       "city": "Santo Tirso",                                                            
-      "type": "Bouldering",                                 
-      "boulderCount": 121                                                                
+      "type": "Bouldering",
+      "boulderCount": 121,
+      "version": 1
     },                                                                                  
     {                                                                                   
       "slug": "raposa",                                                                 
       "name": "Raposa",                                     
       "country": "Portugal",                                                            
       "city": "Santo Tirso",
-      "type": "Bouldering",                                                             
-      "boulderCount": 6                                     
+      "type": "Bouldering",
+      "boulderCount": 6,
+      "version": 1
     },
     {                                                                                   
       "slug": "sameiro",                                                                 
       "name": "Sameiro",                                     
       "country": "Portugal",                                                            
       "city": "Braga",
-      "type": "Bouldering",                                                             
-      "boulderCount": 71                                  
+      "type": "Bouldering",
+      "boulderCount": 71,
+      "version": 1
     }
   ]

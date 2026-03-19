@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Validate index.json matches area directories
         run: |
@@ -67,6 +69,16 @@ jobs:
               errors=$((errors + 1))
             fi
 
+            # Check version exists and is a positive integer
+            version=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .version' index.json)
+            if [ -z "$version" ] || [ "$version" = "null" ]; then
+              echo "::error::Missing 'version' for '$slug' in index.json"
+              errors=$((errors + 1))
+            elif ! echo "$version" | grep -qE '^[1-9][0-9]*$'; then
+              echo "::error::Invalid 'version' for '$slug': must be a positive integer, got '$version'"
+              errors=$((errors + 1))
+            fi
+
             echo "✓ $slug — OK"
           done
 
@@ -86,6 +98,62 @@ jobs:
 
           echo ""
           echo "All areas validated successfully."
+
+      - name: Validate version bump for changed areas
+        run: |
+          errors=0
+          base_ref="${{ github.event.pull_request.base.sha }}"
+
+          # Get list of changed files compared to base
+          changed_files=$(git diff --name-only "$base_ref"...HEAD)
+
+          # Collect slugs of areas that have changes (files inside area directories)
+          changed_slugs=()
+          for file in $changed_files; do
+            # Skip files not inside an area directory (e.g. root-level files)
+            [[ "$file" == */* ]] || continue
+            slug="${file%%/*}"
+            # Only consider it an area if it has a data.json
+            [ -f "$slug/data.json" ] || continue
+            # Deduplicate
+            if [[ ! " ${changed_slugs[*]} " =~ " ${slug} " ]]; then
+              changed_slugs+=("$slug")
+            fi
+          done
+
+          for slug in "${changed_slugs[@]}"; do
+            # Get current version from PR branch
+            current_version=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .version' index.json)
+
+            # Get base version from base branch
+            base_version=$(git show "$base_ref":index.json | jq -r --arg s "$slug" '.[] | select(.slug == $s) | .version // 0')
+
+            if [ "$base_version" = "null" ] || [ -z "$base_version" ]; then
+              base_version=0
+            fi
+
+            expected_version=$((base_version + 1))
+
+            if [ "$current_version" != "$expected_version" ]; then
+              echo "::error::Area '$slug' has changes but version was not bumped correctly. Expected version $expected_version (was $base_version), got $current_version"
+              errors=$((errors + 1))
+            else
+              echo "✓ $slug — version bumped $base_version → $current_version"
+            fi
+          done
+
+          if [ "${#changed_slugs[@]}" -eq 0 ]; then
+            echo "No area directories were changed."
+          fi
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors error(s). Please bump the 'version' field in index.json by 1 for each changed area."
+            exit 1
+          fi
+
+          echo ""
+          echo "All version bumps validated successfully."
 
       - name: Validate image file sizes (max 100KB)
         run: |
