@@ -1,6 +1,6 @@
 # Community Areas
 
-9Way Climbing public community areas — a collection of bouldering locations in Portugal.
+9Way Climbing public community areas — a collection of community maintained climbing locations.
 
 ## Structure
 
