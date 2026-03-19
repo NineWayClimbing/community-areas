@@ -3,6 +3,9 @@ name: Validate index.json
 on:
   pull_request:
     branches: [main]
+    paths:
+      - 'areas/**'
+      - 'index.json'
 
 permissions:
   pull-requests: write
@@ -23,9 +26,9 @@ jobs:
           error_messages=""
 
           # Get all area directories (directories containing data.json)
-          for data_file in */data.json; do
+          for data_file in areas/*/data.json; do
             [ -f "$data_file" ] || continue
-            slug="$(dirname "$data_file")"
+            slug="$(basename "$(dirname "$data_file")")"
 
             # Check area exists in index.json
             entry=$(jq -r --arg s "$slug" '.[] | select(.slug == $s)' index.json)
@@ -106,8 +109,8 @@ jobs:
 
           # Check for orphan entries in index.json (slug with no directory)
           for slug in $(jq -r '.[].slug' index.json); do
-            if [ ! -f "$slug/data.json" ]; then
-              msg="index.json has entry '$slug' but no '$slug/data.json' exists"
+            if [ ! -f "areas/$slug/data.json" ]; then
+              msg="index.json has entry '$slug' but no 'areas/$slug/data.json' exists"
               echo "::error::$msg"
               error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
@@ -137,14 +140,16 @@ jobs:
           # Get list of changed files compared to base
           changed_files=$(git diff --name-only "$base_ref"...HEAD)
 
-          # Collect slugs of areas that have changes (files inside area directories)
+          # Collect slugs of areas that have changes (files inside areas/ directory)
           changed_slugs=()
           for file in $changed_files; do
-            # Skip files not inside an area directory (e.g. root-level files)
-            [[ "$file" == */* ]] || continue
-            slug="${file%%/*}"
+            # Skip files not inside the areas/ directory
+            [[ "$file" == areas/* ]] || continue
+            # Extract slug (second path component)
+            slug="${file#areas/}"
+            slug="${slug%%/*}"
             # Only consider it an area if it has a data.json
-            [ -f "$slug/data.json" ] || continue
+            [ -f "areas/$slug/data.json" ] || continue
             # Deduplicate
             if [[ ! " ${changed_slugs[*]} " =~ " ${slug} " ]]; then
               changed_slugs+=("$slug")
@@ -207,7 +212,7 @@ jobs:
               error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
-          done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+          done < <(find ./areas -path '*/images/*' -type f)
 
           # Save errors to file for the comment step
           printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
@@ -237,7 +242,7 @@ jobs:
               error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
-          done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+          done < <(find ./areas -path '*/images/*' -type f)
 
           # Save errors to file for the comment step
           printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
