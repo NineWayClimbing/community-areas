@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  pull-requests: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -13,8 +16,11 @@ jobs:
           fetch-depth: 0
 
       - name: Validate index.json matches area directories
+        id: validate-index
+        if: always()
         run: |
           errors=0
+          error_messages=""
 
           # Get all area directories (directories containing data.json)
           for data_file in */data.json; do
@@ -24,7 +30,9 @@ jobs:
             # Check area exists in index.json
             entry=$(jq -r --arg s "$slug" '.[] | select(.slug == $s)' index.json)
             if [ -z "$entry" ]; then
-              echo "::error::Area directory '$slug' has no entry in index.json"
+              msg="Area directory '$slug' has no entry in index.json"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
               continue
             fi
@@ -33,7 +41,9 @@ jobs:
             actual_count=$(jq '.boulders | length' "$data_file")
             index_count=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .boulderCount' index.json)
             if [ "$actual_count" != "$index_count" ]; then
-              echo "::error::boulderCount mismatch for '$slug': index.json has $index_count, data.json has $actual_count boulders"
+              msg="boulderCount mismatch for '$slug': index.json has $index_count, data.json has $actual_count boulders"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
@@ -41,7 +51,9 @@ jobs:
             actual_name=$(jq -r '.name' "$data_file")
             index_name=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .name' index.json)
             if [ "$actual_name" != "$index_name" ]; then
-              echo "::error::name mismatch for '$slug': index.json has '$index_name', data.json has '$actual_name'"
+              msg="name mismatch for '$slug': index.json has '$index_name', data.json has '$actual_name'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
@@ -49,7 +61,9 @@ jobs:
             actual_country=$(jq -r '.country' "$data_file")
             index_country=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .country' index.json)
             if [ "$actual_country" != "$index_country" ]; then
-              echo "::error::country mismatch for '$slug': index.json has '$index_country', data.json has '$actual_country'"
+              msg="country mismatch for '$slug': index.json has '$index_country', data.json has '$actual_country'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
@@ -57,7 +71,9 @@ jobs:
             actual_city=$(jq -r '.city' "$data_file")
             index_city=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .city' index.json)
             if [ "$actual_city" != "$index_city" ]; then
-              echo "::error::city mismatch for '$slug': index.json has '$index_city', data.json has '$actual_city'"
+              msg="city mismatch for '$slug': index.json has '$index_city', data.json has '$actual_city'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
@@ -65,17 +81,23 @@ jobs:
             actual_type=$(jq -r '.type' "$data_file")
             index_type=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .type' index.json)
             if [ "$actual_type" != "$index_type" ]; then
-              echo "::error::type mismatch for '$slug': index.json has '$index_type', data.json has '$actual_type'"
+              msg="type mismatch for '$slug': index.json has '$index_type', data.json has '$actual_type'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
             # Check version exists and is a positive integer
             version=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .version' index.json)
             if [ -z "$version" ] || [ "$version" = "null" ]; then
-              echo "::error::Missing 'version' for '$slug' in index.json"
+              msg="Missing 'version' for '$slug' in index.json"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             elif ! echo "$version" | grep -qE '^[1-9][0-9]*$'; then
-              echo "::error::Invalid 'version' for '$slug': must be a positive integer, got '$version'"
+              msg="Invalid 'version' for '$slug': must be a positive integer, got '$version'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
 
@@ -85,10 +107,15 @@ jobs:
           # Check for orphan entries in index.json (slug with no directory)
           for slug in $(jq -r '.[].slug' index.json); do
             if [ ! -f "$slug/data.json" ]; then
-              echo "::error::index.json has entry '$slug' but no '$slug/data.json' exists"
+              msg="index.json has entry '$slug' but no '$slug/data.json' exists"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
           done
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
 
           if [ "$errors" -gt 0 ]; then
             echo ""
@@ -100,8 +127,11 @@ jobs:
           echo "All areas validated successfully."
 
       - name: Validate version bump for changed areas
+        id: validate-version
+        if: always()
         run: |
           errors=0
+          error_messages=""
           base_ref="${{ github.event.pull_request.base.sha }}"
 
           # Get list of changed files compared to base
@@ -135,7 +165,9 @@ jobs:
             expected_version=$((base_version + 1))
 
             if [ "$current_version" != "$expected_version" ]; then
-              echo "::error::Area '$slug' has changes but version was not bumped correctly. Expected version $expected_version (was $base_version), got $current_version"
+              msg="Area '$slug' has changes but version was not bumped correctly. Expected version $expected_version (was $base_version), got $current_version"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             else
               echo "✓ $slug — version bumped $base_version → $current_version"
@@ -145,6 +177,9 @@ jobs:
           if [ "${#changed_slugs[@]}" -eq 0 ]; then
             echo "No area directories were changed."
           fi
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
 
           if [ "$errors" -gt 0 ]; then
             echo ""
@@ -156,18 +191,26 @@ jobs:
           echo "All version bumps validated successfully."
 
       - name: Validate image file sizes (max 100KB)
+        id: validate-image-size
+        if: always()
         run: |
           max_bytes=102400
           errors=0
+          error_messages=""
 
           while IFS= read -r img; do
             size=$(stat --format="%s" "$img")
             if [ "$size" -gt "$max_bytes" ]; then
               size_kb=$(( (size + 1023) / 1024 ))
-              echo "::error::Image '$img' is ${size_kb}KB, exceeds 100KB limit"
+              msg="Image '$img' is ${size_kb}KB, exceeds 100KB limit"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
           done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
 
           if [ "$errors" -gt 0 ]; then
             echo ""
@@ -178,18 +221,26 @@ jobs:
           echo "All images are within the 100KB size limit."
 
       - name: Validate images are JPG format
+        id: validate-image-format
+        if: always()
         run: |
           errors=0
+          error_messages=""
 
           # Check for non-JPG files in images directories
           while IFS= read -r img; do
             ext="${img##*.}"
             ext_lower=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
             if [ "$ext_lower" != "jpg" ] && [ "$ext_lower" != "jpeg" ]; then
-              echo "::error::Image '$img' is not a JPG file. Only .jpg/.jpeg images are allowed."
+              msg="Image '$img' is not a JPG file. Only .jpg/.jpeg images are allowed."
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
               errors=$((errors + 1))
             fi
           done < <(find . -path '*/images/*' -type f ! -path './.git/*')
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
 
           if [ "$errors" -gt 0 ]; then
             echo ""
@@ -198,3 +249,86 @@ jobs:
           fi
 
           echo "All images are in JPG format."
+
+      - name: Comment on PR with validation errors
+        if: always() && (steps.validate-index.outcome == 'failure' || steps.validate-version.outcome == 'failure' || steps.validate-image-size.outcome == 'failure' || steps.validate-image-format.outcome == 'failure')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const errorsFile = `${process.env.RUNNER_TEMP}/validation_errors.txt`;
+            let errorDetails = '';
+            if (fs.existsSync(errorsFile)) {
+              errorDetails = fs.readFileSync(errorsFile, 'utf8').trim();
+            }
+
+            const sections = [];
+
+            if ('${{ steps.validate-index.outcome }}' === 'failure') {
+              sections.push('### Index Validation\nThe `index.json` file is out of sync with the area data files.');
+            }
+            if ('${{ steps.validate-version.outcome }}' === 'failure') {
+              sections.push('### Version Bump\nAreas with changes need their `version` field bumped by 1 in `index.json`.');
+            }
+            if ('${{ steps.validate-image-size.outcome }}' === 'failure') {
+              sections.push('### Image Size\nSome images exceed the 100KB size limit.');
+            }
+            if ('${{ steps.validate-image-format.outcome }}' === 'failure') {
+              sections.push('### Image Format\nOnly `.jpg`/`.jpeg` images are allowed in `images/` directories.');
+            }
+
+            let body = '## Validation Failed\n\n' + sections.join('\n\n');
+
+            if (errorDetails) {
+              body += '\n\n### Error Details\n' + errorDetails;
+            }
+
+            // Find and update existing bot comment, or create a new one
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const marker = '<!-- validation-bot -->';
+            body = marker + '\n' + body;
+
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+      - name: Remove validation comment on success
+        if: always() && steps.validate-index.outcome == 'success' && steps.validate-version.outcome == 'success' && steps.validate-image-size.outcome == 'success' && steps.validate-image-format.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const marker = '<!-- validation-bot -->';
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.deleteComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+              });
+            }
