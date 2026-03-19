@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9Way Community Area Editor</title>
+<link rel="icon" type="image/png" href="icon.png">
+<style>
+  :root {
+    --gold: #E6BD00;
+    --gold-light: #fdf6d8;
+    --gold-dark: #b8960a;
+    --bg: #1a1a1a;
+    --surface: #252525;
+    --surface2: #2f2f2f;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --danger: #D8000C;
+    --danger-bg: rgba(216,0,12,0.15);
+    --radius: 10px;
+    --max-image: 1200;
+    --max-kb: 300;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  h1 { font-size: 22px; font-weight: 800; }
+  h2 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+  h3 { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+
+  /* Layout */
+  .app { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .header { display: flex; align-items: center; gap: 12px; padding: 16px 0 24px; border-bottom: 1px solid var(--surface2); margin-bottom: 24px; }
+  .header-logo { width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0; }
+  .panels { display: grid; grid-template-columns: 340px 1fr; gap: 24px; }
+  @media (max-width: 800px) { .panels { grid-template-columns: 1fr; } }
+
+  /* Form elements */
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; margin-top: 14px; }
+  input[type="text"], input[type="number"], select, textarea {
+    width: 100%; padding: 10px 12px; background: var(--surface2); border: 1px solid #444; border-radius: var(--radius);
+    color: var(--text); font-size: 14px; outline: none;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  textarea { resize: vertical; min-height: 60px; }
+  select { cursor: pointer; }
+
+  /* Buttons */
+  .btn {
+    padding: 9px 18px; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn:disabled { opacity: 0.35; cursor: default; }
+  .btn-gold { background: var(--gold); color: #fff; }
+  .btn-outline { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); }
+  .btn-danger { background: var(--danger-bg); color: #ff6b6b; }
+  .btn-dim { background: var(--surface2); color: var(--text-dim); }
+  .btn-sm { padding: 6px 12px; font-size: 13px; }
+  .btn-row { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+
+  /* Chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    padding: 6px 12px; border-radius: 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+    background: var(--surface2); color: var(--text-dim); border: 1.5px solid transparent; transition: all 0.15s; user-select: none;
+  }
+  .chip.active { background: var(--gold-light); color: var(--gold-dark); border-color: var(--gold); }
+  .chip:hover { border-color: var(--gold); }
+
+  /* Cards */
+  .card { background: var(--surface); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  .boulder-card { display: flex; gap: 12px; align-items: center; cursor: pointer; transition: border-color 0.15s; border: 2px solid transparent; }
+  .boulder-card:hover { border-color: var(--gold); }
+  .boulder-card.active { border-color: var(--gold); }
+  .boulder-thumb { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; background: var(--surface2); flex-shrink: 0; }
+  .boulder-thumb-empty { display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 11px; }
+  .boulder-card-info { flex: 1; min-width: 0; }
+  .boulder-card-name { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .boulder-card-meta { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; background: var(--gold); color: #fff; margin-right: 6px; }
+  .badge-line { background: #2d6a2e; }
+
+  /* Image drawing area */
+  .draw-area { position: relative; background: #000; border-radius: var(--radius); overflow: hidden; cursor: crosshair; user-select: none; touch-action: none; }
+  .draw-area img { display: block; width: 100%; height: auto; pointer-events: none; }
+  .draw-area canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+  .draw-placeholder {
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
+    min-height: 300px; border: 2px dashed #444; border-radius: var(--radius); color: var(--text-dim);
+    cursor: pointer; transition: border-color 0.15s;
+  }
+  .draw-placeholder:hover { border-color: var(--gold); }
+  .draw-placeholder input { display: none; }
+  .draw-hint { text-align: center; color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+
+  /* Boulder list */
+  .boulder-list { max-height: calc(100vh - 200px); overflow-y: auto; }
+  .section-divider { border-top: 1px solid var(--surface2); margin: 20px 0; }
+
+  /* Export area */
+  .export-box { background: var(--surface); border-radius: var(--radius); padding: 16px; margin-top: 16px; }
+  .export-box pre { background: var(--surface2); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; color: #aaa; max-height: 300px; overflow-y: auto; white-space: pre-wrap; word-break: break-all; }
+  .export-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+
+  /* Compression info */
+  .compress-info { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 12px; color: var(--text-dim); }
+  .compress-info .size { font-weight: 700; }
+  .compress-info .ok { color: #6a994e; }
+  .compress-info .warn { color: #e65100; }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--gold);
+    color: #000; padding: 10px 24px; border-radius: 20px; font-size: 14px; font-weight: 600;
+    z-index: 100; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+
+  .star-picker { display: inline-flex; gap: 2px; cursor: pointer; }
+  .star-picker span { font-size: 22px; color: #444; transition: color 0.1s; }
+  .star-picker span.on { color: var(--gold); }
+
+  .empty-msg { text-align: center; color: var(--text-dim); padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <img class="header-logo" src="icon.png" alt="9Way">
+    <div>
+      <h1>Community Area Editor</h1>
+      <div style="font-size:13px;color:var(--text-dim);margin-top:2px;">Upload images, draw route lines, export data.json + compressed images</div>
+    </div>
+  </div>
+
+  <div class="panels">
+    <!-- LEFT: Boulder list + area info -->
+    <div>
+      <div class="card">
+        <h2>Area Info</h2>
+        <label>Area Name *</label>
+        <input type="text" id="areaName" placeholder="e.g. Fontainebleau - Bas Cuvier">
+        <label>Country</label>
+        <input type="text" id="areaCountry" placeholder="e.g. Portugal">
+        <label>City</label>
+        <input type="text" id="areaCity" placeholder="e.g. Santo Tirso">
+        <label>Type</label>
+        <select id="areaType"><option value="Bouldering">Bouldering</option><option value="Sport Climbing">Sport Climbing</option></select>
+        <label>Description</label>
+        <textarea id="areaDesc" placeholder="Optional description"></textarea>
+        <label>Latitude</label>
+        <input type="number" id="areaLat" step="any" placeholder="e.g. 41.3456">
+        <label>Longitude</label>
+        <input type="number" id="areaLng" step="any" placeholder="e.g. -8.4789">
+        <label>Cover Image</label>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-dim btn-sm" onclick="pickCoverImage()">Choose File</button>
+          <span id="coverInfo" style="font-size:12px;color:var(--text-dim);">No image</span>
+        </div>
+        <input type="file" id="coverInput" accept="image/*" style="display:none" onchange="handleCoverImage(this)">
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <h2 style="margin:0;">Boulders</h2>
+        <button class="btn btn-gold btn-sm" onclick="addBoulder()">+ Add</button>
+      </div>
+
+      <div id="boulderList" class="boulder-list">
+        <div class="empty-msg">No boulders yet. Click + Add.</div>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2>Export</h2>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="exportAll()">Download ZIP</button>
+        <button class="btn btn-outline" onclick="showJSON()">Preview JSON</button>
+        <button class="btn btn-dim" onclick="importJSON()">Import JSON</button>
+        <input type="file" id="importInput" accept=".json,application/json" style="display:none" onchange="handleImportJSON(this)">
+      </div>
+      <div id="exportPreview"></div>
+    </div>
+
+    <!-- RIGHT: Boulder editor + drawing -->
+    <div id="editorPanel">
+      <div id="noSelection" class="card" style="text-align:center;padding:60px 20px;">
+        <div style="font-size:40px;margin-bottom:12px;">&#9650;</div>
+        <div style="color:var(--text-dim);">Select or add a boulder to start editing</div>
+      </div>
+      <div id="boulderEditor" style="display:none;">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h2 style="margin:0;">Edit Boulder</h2>
+            <button class="btn btn-danger btn-sm" onclick="deleteBoulder()">Delete</button>
+          </div>
+
+          <label>Name *</label>
+          <input type="text" id="bName" placeholder="e.g. La Marie Rose" oninput="saveBoulderField('name', this.value)">
+
+          <label>Grade</label>
+          <select id="bGrade" onchange="saveBoulderField('grade', this.value)"></select>
+
+          <label>Stars</label>
+          <div class="star-picker" id="bStars"></div>
+
+          <label>Rock Type</label>
+          <select id="bRockType" onchange="saveBoulderField('rockType', this.value)"></select>
+
+          <label>Tags</label>
+          <div class="chip-row" id="bTags"></div>
+
+          <label>Sector</label>
+          <input type="text" id="bSector" placeholder="e.g. Main Wall" oninput="saveBoulderField('sector', this.value)">
+
+          <label>Notes</label>
+          <textarea id="bNotes" placeholder="Optional notes" oninput="saveBoulderField('notes', this.value)"></textarea>
+
+          <label>Latitude</label>
+          <input type="number" id="bLat" step="any" placeholder="Optional" oninput="saveBoulderCoord()">
+          <label>Longitude</label>
+          <input type="number" id="bLng" step="any" placeholder="Optional" oninput="saveBoulderCoord()">
+        </div>
+
+        <div class="card">
+          <h2>Image & Route Line</h2>
+          <div id="drawContainer">
+            <div class="draw-placeholder" onclick="document.getElementById('bImageInput').click()">
+              <div style="font-size:32px;">&#128247;</div>
+              <div>Click or drag & drop to upload image</div>
+              <input type="file" id="bImageInput" accept="image/*" onchange="handleBoulderImage(this)">
+            </div>
+          </div>
+          <div id="compressInfo" class="compress-info" style="display:none;"></div>
+          <div id="drawHint" class="draw-hint" style="display:none;">Click on the image to place route points (bottom to top)</div>
+          <div class="btn-row" id="drawControls" style="display:none;">
+            <button class="btn btn-dim btn-sm" onclick="undoPoint()">Undo</button>
+            <button class="btn btn-dim btn-sm" onclick="clearPoints()">Clear</button>
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('bImageInput').click()">Change Image</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// --- Constants ---
+const GRADES = ['Project','3','4','4+','5','5+','6a','6a+','6b','6b+','6c','6c+','7a','7a+','7b','7b+','7c','7c+','8a','8a+','8b','8b+','8c','8c+','9a','9a+','9b','9b+','9c'];
+const TAGS = ['Crimpy','Sloper','Athletic','Technical','Endurance','Cruxy'];
+const ROCK_TYPES = {
+  'Hydrothermal': ['Quartz'],
+  'Igneous Volcanic': ['Agglomerate','Rhyolite','Basalt','Dolerite','Ignimbrite','Andesite','Breccia (volcanic)','Phonolite','Trachyte','Tephrite','Tuff'],
+  'Igneous Plutonic': ['Monzonite','Granite','Tonalite','Gabbro','Syenite','Granodiorite','Diorite','Peridotite','Anorthosite'],
+  'Sedimentary': ['Sandstone','Gritstone','Chert','Conglomerate','Limestone','Greywacke','Dolomite','Breccia (sedimentary)','Arkose'],
+  'Metamorphic': ['Amphibolite','Greenschist and Prasinite','Migmatite','Slate','Quartzite','Hornfels','Serpentinite','Marble','Schist','Gneiss'],
+};
+const MAX_PX = 1200;
+const MAX_KB = 300;
+const QUALITY_STEPS = [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1];
+
+// --- State ---
+let boulders = [];
+let selectedIdx = -1;
+let coverImageData = null; // { original: File, compressed: Blob, dataUrl: string }
+
+// --- Init ---
+(function init() {
+  // Populate grade select
+  const gs = document.getElementById('bGrade');
+  GRADES.forEach(g => { const o = document.createElement('option'); o.value = g; o.textContent = g; gs.appendChild(o); });
+
+  // Populate rock type select
+  const rs = document.getElementById('bRockType');
+  Object.entries(ROCK_TYPES).forEach(([cat, types]) => {
+    const og = document.createElement('optgroup');
+    og.label = cat;
+    types.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; og.appendChild(o); });
+    rs.appendChild(og);
+  });
+  const otherOpt = document.createElement('option');
+  otherOpt.value = 'Other'; otherOpt.textContent = 'Other';
+  rs.insertBefore(otherOpt, rs.firstChild);
+
+  // Build tags
+  const tc = document.getElementById('bTags');
+  TAGS.forEach(tag => {
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    chip.textContent = tag;
+    chip.dataset.tag = tag;
+    chip.onclick = () => toggleTag(tag);
+    tc.appendChild(chip);
+  });
+
+  // Build stars
+  buildStars();
+
+  // Drag & drop on draw container
+  const dc = document.getElementById('drawContainer');
+  dc.addEventListener('dragover', e => { e.preventDefault(); e.stopPropagation(); });
+  dc.addEventListener('drop', e => {
+    e.preventDefault(); e.stopPropagation();
+    if (e.dataTransfer.files.length > 0) {
+      const input = document.getElementById('bImageInput');
+      const dt = new DataTransfer();
+      dt.items.add(e.dataTransfer.files[0]);
+      input.files = dt.files;
+      handleBoulderImage(input);
+    }
+  });
+})();
+
+function buildStars() {
+  const sp = document.getElementById('bStars');
+  sp.innerHTML = '';
+  for (let i = 1; i <= 3; i++) {
+    const s = document.createElement('span');
+    s.textContent = '\u2605';
+    s.dataset.v = i;
+    s.onclick = () => { saveBoulderField('stars', i); renderStars(); };
+    sp.appendChild(s);
+  }
+}
+
+function renderStars() {
+  if (selectedIdx < 0) return;
+  const val = boulders[selectedIdx].stars;
+  document.querySelectorAll('#bStars span').forEach(s => {
+    s.classList.toggle('on', parseInt(s.dataset.v) <= val);
+  });
+}
+
+// --- Toast ---
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// --- Image compression (matches app: always resize to 1200px width, step down quality) ---
+async function compressImage(file) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = async () => {
+      // Always resize to MAX_PX width (matching the app's { resize: { width: 1200 } })
+      const w = MAX_PX;
+      const h = Math.round(img.naturalHeight * MAX_PX / img.naturalWidth);
+
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+
+      // Step down quality until under MAX_KB, keep last attempt if all exceed
+      let blob;
+      for (const q of QUALITY_STEPS) {
+        blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', q));
+        if (blob.size <= MAX_KB * 1024 || q === QUALITY_STEPS[QUALITY_STEPS.length - 1]) break;
+      }
+
+      const dataUrl = URL.createObjectURL(blob);
+      resolve({ blob, dataUrl, width: w, height: h, originalSize: file.size, compressedSize: blob.size });
+    };
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+function formatSize(bytes) {
+  return bytes < 1024 ? bytes + ' B' : (bytes / 1024).toFixed(1) + ' KB';
+}
+
+// --- Cover image ---
+function pickCoverImage() { document.getElementById('coverInput').click(); }
+
+async function handleCoverImage(input) {
+  if (!input.files[0]) return;
+  const result = await compressImage(input.files[0]);
+  coverImageData = result;
+  document.getElementById('coverInfo').innerHTML =
+    `<span class="size ${result.compressedSize <= MAX_KB * 1024 ? 'ok' : 'warn'}">${formatSize(result.compressedSize)}</span> (from ${formatSize(result.originalSize)})`;
+  toast('Cover image compressed');
+}
+
+// --- Boulder CRUD ---
+function addBoulder() {
+  boulders.push({
+    name: '', grade: '6a', stars: 1, tags: [], rockType: 'Granite',
+    sector: '', notes: '', coordinates: null,
+    imageData: null, // { blob, dataUrl, width, height, ... }
+    routeLine: null, // [{x,y}, ...]
+    imageFilename: null,
+  });
+  selectedIdx = boulders.length - 1;
+  renderBoulderList();
+  loadBoulderEditor();
+}
+
+function selectBoulder(idx) {
+  selectedIdx = idx;
+  renderBoulderList();
+  loadBoulderEditor();
+}
+
+function deleteBoulder() {
+  if (selectedIdx < 0) return;
+  boulders.splice(selectedIdx, 1);
+  selectedIdx = boulders.length > 0 ? Math.min(selectedIdx, boulders.length - 1) : -1;
+  renderBoulderList();
+  if (selectedIdx >= 0) loadBoulderEditor();
+  else { document.getElementById('boulderEditor').style.display = 'none'; document.getElementById('noSelection').style.display = ''; }
+}
+
+function renderBoulderList() {
+  const list = document.getElementById('boulderList');
+  if (boulders.length === 0) {
+    list.innerHTML = '<div class="empty-msg">No boulders yet. Click + Add.</div>';
+    return;
+  }
+  list.innerHTML = boulders.map((b, i) => {
+    const thumb = b.imageData
+      ? `<img class="boulder-thumb" src="${b.imageData.dataUrl}">`
+      : `<div class="boulder-thumb boulder-thumb-empty">No img</div>`;
+    const name = b.name || '<em style="color:var(--text-dim)">Unnamed</em>';
+    const lineBadge = b.routeLine && b.routeLine.length >= 2 ? '<span class="badge badge-line">LINE</span>' : '';
+    return `<div class="card boulder-card ${i === selectedIdx ? 'active' : ''}" onclick="selectBoulder(${i})">
+      ${thumb}
+      <div class="boulder-card-info">
+        <div class="boulder-card-name">${name}</div>
+        <div class="boulder-card-meta"><span class="badge">${b.grade}</span>${lineBadge}${'&#9733;'.repeat(b.stars)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// --- Boulder editor ---
+function loadBoulderEditor() {
+  if (selectedIdx < 0) return;
+  document.getElementById('noSelection').style.display = 'none';
+  document.getElementById('boulderEditor').style.display = '';
+
+  const b = boulders[selectedIdx];
+  document.getElementById('bName').value = b.name;
+  document.getElementById('bGrade').value = b.grade;
+  document.getElementById('bRockType').value = b.rockType;
+  document.getElementById('bSector').value = b.sector;
+  document.getElementById('bNotes').value = b.notes;
+  document.getElementById('bLat').value = b.coordinates?.latitude ?? '';
+  document.getElementById('bLng').value = b.coordinates?.longitude ?? '';
+
+  renderStars();
+  renderTags();
+  renderDrawArea();
+}
+
+function saveBoulderField(field, value) {
+  if (selectedIdx < 0) return;
+  boulders[selectedIdx][field] = value;
+  renderBoulderList();
+}
+
+function saveBoulderCoord() {
+  if (selectedIdx < 0) return;
+  const lat = parseFloat(document.getElementById('bLat').value);
+  const lng = parseFloat(document.getElementById('bLng').value);
+  boulders[selectedIdx].coordinates = (!isNaN(lat) && !isNaN(lng)) ? { latitude: lat, longitude: lng } : null;
+}
+
+function toggleTag(tag) {
+  if (selectedIdx < 0) return;
+  const b = boulders[selectedIdx];
+  const idx = b.tags.indexOf(tag);
+  if (idx >= 0) b.tags.splice(idx, 1);
+  else b.tags.push(tag);
+  renderTags();
+  renderBoulderList();
+}
+
+function renderTags() {
+  if (selectedIdx < 0) return;
+  const tags = boulders[selectedIdx].tags;
+  document.querySelectorAll('#bTags .chip').forEach(c => {
+    c.classList.toggle('active', tags.includes(c.dataset.tag));
+  });
+}
+
+// --- Image & Drawing ---
+async function handleBoulderImage(input) {
+  if (!input.files[0] || selectedIdx < 0) return;
+  const result = await compressImage(input.files[0]);
+  boulders[selectedIdx].imageData = result;
+  boulders[selectedIdx].routeLine = null;
+  renderDrawArea();
+  renderBoulderList();
+  toast('Image compressed: ' + formatSize(result.compressedSize));
+}
+
+function renderDrawArea() {
+  const container = document.getElementById('drawContainer');
+  const controls = document.getElementById('drawControls');
+  const hint = document.getElementById('drawHint');
+  const info = document.getElementById('compressInfo');
+  const b = boulders[selectedIdx];
+
+  if (!b || !b.imageData) {
+    container.innerHTML = `<div class="draw-placeholder" onclick="document.getElementById('bImageInput').click()">
+      <div style="font-size:32px;">&#128247;</div>
+      <div>Click or drag & drop to upload image</div>
+      <input type="file" id="bImageInput" accept="image/*" onchange="handleBoulderImage(this)">
+    </div>`;
+    controls.style.display = 'none';
+    hint.style.display = 'none';
+    info.style.display = 'none';
+    return;
+  }
+
+  const sizeClass = b.imageData.compressedSize <= MAX_KB * 1024 ? 'ok' : 'warn';
+  info.style.display = '';
+  info.innerHTML = `Compressed: <span class="size ${sizeClass}">${formatSize(b.imageData.compressedSize)}</span> <span style="color:#555">(from ${formatSize(b.imageData.originalSize)})</span>`;
+
+  container.innerHTML = `<div class="draw-area" id="drawArea">
+    <img src="${b.imageData.dataUrl}" id="drawImg">
+    <canvas id="drawCanvas"></canvas>
+    <input type="file" id="bImageInput" accept="image/*" style="display:none" onchange="handleBoulderImage(this)">
+  </div>`;
+
+  controls.style.display = '';
+  hint.style.display = '';
+  updateHint();
+
+  const area = document.getElementById('drawArea');
+  const img = document.getElementById('drawImg');
+  const canvas = document.getElementById('drawCanvas');
+
+  img.onload = () => {
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    drawRoute();
+  };
+
+  area.addEventListener('click', (e) => {
+    const rect = area.getBoundingClientRect();
+    const scaleX = img.naturalWidth / rect.width;
+    const scaleY = img.naturalHeight / rect.height;
+    const x = (e.clientX - rect.left) * scaleX / img.naturalWidth;
+    const y = (e.clientY - rect.top) * scaleY / img.naturalHeight;
+    if (!b.routeLine) b.routeLine = [];
+    b.routeLine.push({ x, y });
+    drawRoute();
+    updateHint();
+    renderBoulderList();
+  });
+}
+
+function updateHint() {
+  const hint = document.getElementById('drawHint');
+  if (selectedIdx < 0 || !boulders[selectedIdx].imageData) return;
+  const pts = boulders[selectedIdx].routeLine;
+  if (!pts || pts.length === 0) hint.textContent = 'Click the start of the route (bottom)';
+  else if (pts.length === 1) hint.textContent = 'Click the next point along the route';
+  else hint.textContent = `${pts.length} points placed. Keep clicking to refine, or export when done.`;
+}
+
+function undoPoint() {
+  if (selectedIdx < 0) return;
+  const b = boulders[selectedIdx];
+  if (b.routeLine && b.routeLine.length > 0) {
+    b.routeLine.pop();
+    if (b.routeLine.length === 0) b.routeLine = null;
+    drawRoute();
+    updateHint();
+    renderBoulderList();
+  }
+}
+
+function clearPoints() {
+  if (selectedIdx < 0) return;
+  boulders[selectedIdx].routeLine = null;
+  drawRoute();
+  updateHint();
+  renderBoulderList();
+}
+
+function drawRoute() {
+  const canvas = document.getElementById('drawCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const b = boulders[selectedIdx];
+  if (!b || !b.routeLine || b.routeLine.length === 0) return;
+
+  const pts = b.routeLine.map(p => ({ x: p.x * w, y: p.y * h }));
+
+  // Draw line
+  if (pts.length >= 2) {
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+
+    if (pts.length === 2) {
+      ctx.lineTo(pts[1].x, pts[1].y);
+    } else {
+      for (let i = 0; i < pts.length - 1; i++) {
+        const p0 = pts[Math.max(i - 1, 0)];
+        const p1 = pts[i];
+        const p2 = pts[i + 1];
+        const p3 = pts[Math.min(i + 2, pts.length - 1)];
+        const cp1x = p1.x + (p2.x - p0.x) / 6;
+        const cp1y = p1.y + (p2.y - p0.y) / 6;
+        const cp2x = p2.x - (p3.x - p1.x) / 6;
+        const cp2y = p2.y - (p3.y - p1.y) / 6;
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
+      }
+    }
+
+    ctx.strokeStyle = '#E6BD00';
+    ctx.lineWidth = Math.max(3, w * 0.005);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+  }
+
+  // Draw points
+  const r = Math.max(5, w * 0.008);
+  pts.forEach((p, i) => {
+    if (i === 0) {
+      ctx.beginPath(); ctx.arc(p.x, p.y, r * 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(230,189,0,0.9)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff'; ctx.fill();
+    } else {
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = '#E6BD00'; ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+    }
+  });
+}
+
+// --- Export ---
+function buildDataJSON() {
+  const area = {
+    name: document.getElementById('areaName').value || 'Unnamed Area',
+    type: document.getElementById('areaType').value,
+    country: document.getElementById('areaCountry').value || null,
+    city: document.getElementById('areaCity').value || null,
+    description: document.getElementById('areaDesc').value || null,
+  };
+
+  const lat = parseFloat(document.getElementById('areaLat').value);
+  const lng = parseFloat(document.getElementById('areaLng').value);
+  area.coordinates = (!isNaN(lat) && !isNaN(lng)) ? { latitude: lat, longitude: lng } : null;
+
+  if (coverImageData) {
+    area.imageFilename = 'cover.jpg';
+  }
+
+  area.boulders = boulders.map((b, i) => {
+    const slug = (b.name || `boulder_${i + 1}`).replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+    const filename = b.imageData ? `${slug}.jpg` : null;
+    b.imageFilename = filename;
+
+    const boulder = { name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
+    if (b.tags.length > 0) boulder.tags = b.tags;
+    boulder.rockType = b.rockType;
+    if (b.coordinates) boulder.coordinates = b.coordinates;
+    if (filename) boulder.imageFilename = filename;
+    if (b.sector) boulder.sector = b.sector;
+    if (b.notes) boulder.notes = b.notes;
+    if (b.routeLine && b.routeLine.length >= 2) {
+      boulder.routeLine = b.routeLine.map(p => ({
+        x: Math.round(p.x * 10000) / 10000,
+        y: Math.round(p.y * 10000) / 10000
+      }));
+    }
+    return boulder;
+  });
+
+  return area;
+}
+
+function showJSON() {
+  const data = buildDataJSON();
+  const json = JSON.stringify(data, null, 2);
+  const preview = document.getElementById('exportPreview');
+  preview.innerHTML = `<div class="export-box">
+    <h3>data.json preview</h3>
+    <pre>${escapeHtml(json)}</pre>
+    <div class="export-actions">
+      <button class="btn btn-dim btn-sm" onclick="copyJSON()">Copy JSON</button>
+      <button class="btn btn-dim btn-sm" onclick="downloadJSON()">Download data.json</button>
+    </div>
+  </div>`;
+}
+
+function copyJSON() {
+  const data = buildDataJSON();
+  navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+  toast('JSON copied to clipboard');
+}
+
+function downloadJSON() {
+  const data = buildDataJSON();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  downloadBlob(blob, 'data.json');
+}
+
+async function exportAll() {
+  const data = buildDataJSON();
+
+  // Use JSZip if available, otherwise download files individually
+  if (typeof JSZip === 'undefined') {
+    // Load JSZip dynamically
+    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js');
+  }
+
+  const zip = new JSZip();
+  const slug = (data.name || 'area').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+  const folder = zip.folder(slug);
+  const imgFolder = folder.folder('images');
+
+  // data.json
+  folder.file('data.json', JSON.stringify(data, null, 2));
+
+  // Cover image
+  if (coverImageData) {
+    imgFolder.file('cover.jpg', coverImageData.blob);
+  }
+
+  // Boulder images
+  boulders.forEach((b) => {
+    if (b.imageData && b.imageFilename) {
+      imgFolder.file(b.imageFilename, b.imageData.blob);
+    }
+  });
+
+  const zipBlob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
+  downloadBlob(zipBlob, `${slug}.zip`);
+  toast('ZIP downloaded!');
+}
+
+function importJSON() {
+  document.getElementById('importInput').click();
+}
+
+async function handleImportJSON(input) {
+  if (!input.files[0]) return;
+  const text = await input.files[0].text();
+  try {
+    const data = JSON.parse(text);
+    document.getElementById('areaName').value = data.name || '';
+    document.getElementById('areaType').value = data.type || 'Bouldering';
+    document.getElementById('areaCountry').value = data.country || '';
+    document.getElementById('areaCity').value = data.city || '';
+    document.getElementById('areaDesc').value = data.description || '';
+    document.getElementById('areaLat').value = data.coordinates?.latitude ?? '';
+    document.getElementById('areaLng').value = data.coordinates?.longitude ?? '';
+
+    if (data.boulders && Array.isArray(data.boulders)) {
+      boulders = data.boulders.map(b => ({
+        name: b.name || '',
+        grade: b.grade || '6a',
+        stars: b.stars || 1,
+        tags: b.tags || [],
+        rockType: b.rockType || 'Granite',
+        sector: b.sector || '',
+        notes: b.notes || '',
+        coordinates: b.coordinates || null,
+        imageData: null,
+        routeLine: b.routeLine || null,
+        imageFilename: b.imageFilename || null,
+      }));
+      selectedIdx = boulders.length > 0 ? 0 : -1;
+      renderBoulderList();
+      if (selectedIdx >= 0) loadBoulderEditor();
+    }
+    toast('JSON imported!');
+  } catch (e) {
+    toast('Invalid JSON file');
+  }
+  input.value = '';
+}
+
+// --- Helpers ---
+function downloadBlob(blob, filename) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+</script>
+</body>
+</html>
