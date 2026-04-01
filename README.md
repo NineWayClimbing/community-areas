@@ -1,6 +1,6 @@
 # Community Areas
 
-9Way Climbing public community areas — a collection of community maintained climbing locations.
+9Way Climbing public community areas — a collection of community-maintained climbing locations to be used by [9Way Climbing](https://play.google.com/store/apps/details?id=com.jogomes.ninewayclimbing&pcampaignid=web_share)
 
 ## Structure
 
