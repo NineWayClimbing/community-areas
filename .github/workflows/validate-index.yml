@@ -90,6 +90,24 @@ jobs:
               errors=$((errors + 1))
             fi
 
+            # Compare status
+            actual_status=$(jq -r '.status' "$data_file")
+            index_status=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .status' index.json)
+            if [ "$actual_status" != "$index_status" ]; then
+              msg="status mismatch for '$slug': index.json has '$index_status', data.json has '$actual_status'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
+              errors=$((errors + 1))
+            fi
+
+            # Check status is valid (DRAFT or READY)
+            if [ "$index_status" != "DRAFT" ] && [ "$index_status" != "READY" ]; then
+              msg="Invalid 'status' for '$slug': must be 'DRAFT' or 'READY', got '$index_status'"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
+              errors=$((errors + 1))
+            fi
+
             # Check version exists and is a positive integer
             version=$(jq -r --arg s "$slug" '.[] | select(.slug == $s) | .version' index.json)
             if [ -z "$version" ] || [ "$version" = "null" ]; then

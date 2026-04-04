@@ -1,6 +1,7 @@
 {
   "name": "Sameiro",
   "type": "Bouldering",
+  "status": "DRAFT",
   "coordinates": {
     "latitude": 41.53856,
     "longitude": -8.379229

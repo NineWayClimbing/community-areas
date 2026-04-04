@@ -24,6 +24,7 @@ The root `index.json` is a registry of all areas. Each entry has:
 | `country`      | string | Country (e.g. `"Portugal"`)        |
 | `city`         | string | City name                          |
 | `type`         | string | Activity type (e.g. `"Bouldering"`)  |
+| `status`       | string | Area status: `"DRAFT"` or `"READY"` |
 | `boulderCount` | number | Total number of boulder problems   |
 | `version`      | number | Version number (positive integer, bumped on each change) |
 
@@ -35,6 +36,7 @@ Each area's `data.json` contains the full details:
 | --------------- | ------ | ---------------------------------------- |
 | `name`          | string | Area name                                |
 | `type`          | string | Activity type                            |
+| `status`        | string | Area status: `"DRAFT"` or `"READY"`      |
 | `coordinates`   | object | `{ latitude, longitude }`                |
 | `country`       | string | Country                                  |
 | `city`          | string | City                                     |
@@ -83,7 +85,7 @@ Click the **+** button on the home page to open a blank editor. Fill in the area
 1. Create a new directory using a URL-safe slug (lowercase, hyphens): `my-new-area/`
 2. Add a `data.json` following the schema above.
 3. Add images to `my-new-area/images/`.
-4. Add an entry to `index.json` with the matching `slug`, `name`, `country`, `city`, `type`, `boulderCount`, and `version` set to `1`.
+4. Add an entry to `index.json` with the matching `slug`, `name`, `country`, `city`, `type`, `status` (set to `"DRAFT"` or `"READY"`), `boulderCount`, and `version` set to `1`.
 
 ### Updating an existing area
 
@@ -98,7 +100,8 @@ Every PR is validated by CI — your changes to area directories **must** be ref
 
 - An area directory exists but has no entry in `index.json`.
 - The `boulderCount` in `index.json` doesn't match the actual number of boulders in `data.json`.
-- The `slug`, `name`, `country`, `city`, or `type` fields are out of sync.
+- The `slug`, `name`, `country`, `city`, `type`, or `status` fields are out of sync.
+- The `status` field is not `"DRAFT"` or `"READY"`.
 - The `version` field is missing, not a positive integer, or was not bumped by 1 for changed areas.
 - Any image file exceeds the **300KB** size limit.
 - Any image is not in **JPG** format (only `.jpg`/`.jpeg` files are allowed).

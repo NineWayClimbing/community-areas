@@ -267,6 +267,8 @@
         <input type="text" id="areaCity" placeholder="e.g. Santo Tirso">
         <label>Type</label>
         <select id="areaType"><option value="Bouldering">Bouldering</option><option value="Sport Climbing">Sport Climbing</option></select>
+        <label>Status</label>
+        <select id="areaStatus"><option value="DRAFT">DRAFT</option><option value="READY">READY</option></select>
         <label>Description</label>
         <textarea id="areaDesc" placeholder="Optional description"></textarea>
         <label>Latitude</label>
@@ -440,9 +442,9 @@ let existingCoverFilename = null;
 // --- Home: Load & display areas ---
 // Embedded fallback data for file:// usage (kept in sync with index.json)
 const EMBEDDED_AREAS = [
-  {"slug":"nossa-senhora-da-assuncao","name":"Nossa Senhora da Assunção","country":"Portugal","city":"Santo Tirso","type":"Bouldering","boulderCount":121,"imageFilename":"assuncao-croqui.jpg","version":2},
-  {"slug":"raposa","name":"Raposa","country":"Portugal","city":"Santo Tirso","type":"Bouldering","boulderCount":6,"imageFilename":"raposa.jpg","version":2},
-  {"slug":"sameiro","name":"Sameiro","country":"Portugal","city":"Braga","type":"Bouldering","boulderCount":71,"imageFilename":"sameiro.jpg","version":3}
+  {"slug":"nossa-senhora-da-assuncao","name":"Nossa Senhora da Assunção","country":"Portugal","city":"Santo Tirso","type":"Bouldering","status":"READY","boulderCount":121,"imageFilename":"assuncao-croqui.jpg","version":2},
+  {"slug":"raposa","name":"Raposa","country":"Portugal","city":"Santo Tirso","type":"Bouldering","status":"READY","boulderCount":6,"imageFilename":"raposa.jpg","version":2},
+  {"slug":"sameiro","name":"Sameiro","country":"Portugal","city":"Braga","type":"Bouldering","status":"READY","boulderCount":71,"imageFilename":"sameiro.jpg","version":3}
 ];
 
 async function loadAreas() {
@@ -499,7 +501,7 @@ function filterAreas() {
           ${a.city ? `<span>&#127963; ${escapeHtml(a.city)}</span>` : ''}
           ${a.type ? `<span>${escapeHtml(a.type)}</span>` : ''}
         </div>
-        <div class="area-card-badge">${a.boulderCount || 0} boulders</div>
+        <div class="area-card-badge">${a.boulderCount || 0} boulders · ${a.status || 'DRAFT'}</div>
       </div>
     </div>`;
   }).join('');
@@ -532,6 +534,7 @@ function resetEditor() {
   document.getElementById('areaCountry').value = '';
   document.getElementById('areaCity').value = '';
   document.getElementById('areaType').value = 'Bouldering';
+  document.getElementById('areaStatus').value = 'DRAFT';
   document.getElementById('areaDesc').value = '';
   document.getElementById('areaLat').value = '';
   document.getElementById('areaLng').value = '';
@@ -553,6 +556,7 @@ async function openArea(slug) {
 
     document.getElementById('areaName').value = data.name || '';
     document.getElementById('areaType').value = data.type || 'Bouldering';
+    document.getElementById('areaStatus').value = data.status || 'DRAFT';
     document.getElementById('areaCountry').value = data.country || '';
     document.getElementById('areaCity').value = data.city || '';
     document.getElementById('areaDesc').value = data.description || '';
@@ -632,6 +636,7 @@ async function openArea(slug) {
       document.getElementById('areaCountry').value = meta.country || '';
       document.getElementById('areaCity').value = meta.city || '';
       document.getElementById('areaType').value = meta.type || 'Bouldering';
+      document.getElementById('areaStatus').value = meta.status || 'DRAFT';
     }
     showEditor(meta?.name || slug);
     toast('Area metadata loaded (use Import JSON to load full data)');
@@ -977,6 +982,7 @@ function buildDataJSON() {
   const area = {
     name: document.getElementById('areaName').value || 'Unnamed Area',
     type: document.getElementById('areaType').value,
+    status: document.getElementById('areaStatus').value || 'DRAFT',
     country: document.getElementById('areaCountry').value || null,
     city: document.getElementById('areaCity').value || null,
     description: document.getElementById('areaDesc').value || null,
@@ -1081,6 +1087,7 @@ async function handleImportJSON(input) {
     const data = JSON.parse(text);
     document.getElementById('areaName').value = data.name || '';
     document.getElementById('areaType').value = data.type || 'Bouldering';
+    document.getElementById('areaStatus').value = data.status || 'DRAFT';
     document.getElementById('areaCountry').value = data.country || '';
     document.getElementById('areaCity').value = data.city || '';
     document.getElementById('areaDesc').value = data.description || '';

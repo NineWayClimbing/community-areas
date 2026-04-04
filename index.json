@@ -5,26 +5,29 @@
       "country": "Portugal",
       "city": "Santo Tirso",                                                            
       "type": "Bouldering",
+      "status": "DRAFT",
       "boulderCount": 121,
       "imageFilename": "assuncao-croqui.jpg",
       "version": 2
-    },                                                                                  
-    {                                                                                   
-      "slug": "raposa",                                                                 
-      "name": "Raposa",                                     
-      "country": "Portugal",                                                            
+    },
+    {
+      "slug": "raposa",
+      "name": "Raposa",
+      "country": "Portugal",
       "city": "Santo Tirso",
       "type": "Bouldering",
+      "status": "DRAFT",
       "boulderCount": 6,
       "imageFilename": "raposa.jpg",
       "version": 2
     },
-    {                                                                                   
-      "slug": "sameiro",                                                                 
-      "name": "Sameiro",                                     
-      "country": "Portugal",                                                            
+    {
+      "slug": "sameiro",
+      "name": "Sameiro",
+      "country": "Portugal",
       "city": "Braga",
       "type": "Bouldering",
+      "status": "DRAFT",
       "boulderCount": 71,
       "imageFilename": "sameiro.jpg",
       "version": 3
