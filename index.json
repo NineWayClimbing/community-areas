@@ -1,27 +1,5 @@
  [
     {
-      "slug": "nossa-senhora-da-assuncao",
-      "name": "Nossa Senhora da Assunção",                                              
-      "country": "Portugal",
-      "city": "Santo Tirso",                                                            
-      "type": "Bouldering",
-      "status": "DRAFT",
-      "boulderCount": 121,
-      "imageFilename": "assuncao-croqui.jpg",
-      "version": 2
-    },
-    {
-      "slug": "raposa",
-      "name": "Raposa",
-      "country": "Portugal",
-      "city": "Santo Tirso",
-      "type": "Bouldering",
-      "status": "DRAFT",
-      "boulderCount": 6,
-      "imageFilename": "raposa.jpg",
-      "version": 2
-    },
-    {
       "slug": "sameiro",
       "name": "Sameiro",
       "country": "Portugal",
@@ -30,6 +8,17 @@
       "status": "DRAFT",
       "boulderCount": 71,
       "imageFilename": "sameiro.jpg",
+      "version": 3
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao",
+      "name": "Nossa Senhora da Assunção",
+      "country": "Portugal",
+      "city": "Santo Tirso",
+      "type": "Bouldering",
+      "status": "DRAFT",
+      "boulderCount": 135,
+      "imageFilename": "cover.jpg",
       "version": 3
     }
   ]

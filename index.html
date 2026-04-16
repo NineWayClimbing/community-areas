@@ -176,6 +176,20 @@
   .draw-placeholder input { display: none; }
   .draw-hint { text-align: center; color: var(--text-dim); font-size: 13px; margin-top: 8px; }
 
+  /* Sibling info */
+  .sibling-info { margin-top: 10px; }
+  .sibling-info-label { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; }
+  .sibling-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; font-size: 12px; cursor: pointer; margin: 0 4px 4px 0; transition: border-color 0.15s; }
+  .sibling-chip:hover { border-color: var(--gold); }
+  .sibling-chip .badge { margin: 0; font-size: 10px; padding: 1px 6px; }
+
+  /* Image picker grid */
+  .image-picker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; padding: 12px; background: var(--surface2); border-radius: var(--radius); border: 1px solid var(--border); }
+  .image-picker-item { cursor: pointer; border: 2px solid transparent; border-radius: 8px; overflow: hidden; transition: border-color 0.15s; background: var(--surface); }
+  .image-picker-item:hover { border-color: var(--gold); }
+  .image-picker-item img { width: 100%; height: 64px; object-fit: cover; display: block; }
+  .image-picker-item .name { font-size: 11px; padding: 3px 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-dim); }
+
   /* Boulder list */
   .boulder-list { max-height: calc(100vh - 200px); overflow-y: auto; }
   .section-divider { border-top: 1px solid var(--border-light); margin: 20px 0; }
@@ -358,7 +372,10 @@
             <button class="btn btn-dim btn-sm" onclick="undoPoint()">Undo</button>
             <button class="btn btn-dim btn-sm" onclick="clearPoints()">Clear</button>
             <button class="btn btn-outline btn-sm" onclick="document.getElementById('bImageInput').click()">Change Image</button>
+            <button class="btn btn-outline btn-sm" id="useExistingBtn" style="display:none;" onclick="toggleImagePicker()">Use Existing Image</button>
           </div>
+          <div id="imagePicker" style="display:none;"></div>
+          <div id="siblingInfo" style="display:none;"></div>
         </div>
       </div>
     </div>
@@ -444,7 +461,8 @@ let existingCoverFilename = null;
 const EMBEDDED_AREAS = [
   {"slug":"nossa-senhora-da-assuncao","name":"Nossa Senhora da Assunção","country":"Portugal","city":"Santo Tirso","type":"Bouldering","status":"READY","boulderCount":121,"imageFilename":"assuncao-croqui.jpg","version":2},
   {"slug":"raposa","name":"Raposa","country":"Portugal","city":"Santo Tirso","type":"Bouldering","status":"READY","boulderCount":6,"imageFilename":"raposa.jpg","version":2},
-  {"slug":"sameiro","name":"Sameiro","country":"Portugal","city":"Braga","type":"Bouldering","status":"READY","boulderCount":71,"imageFilename":"sameiro.jpg","version":3}
+  {"slug":"sameiro","name":"Sameiro","country":"Portugal","city":"Braga","type":"Bouldering","status":"READY","boulderCount":71,"imageFilename":"sameiro.jpg","version":3},
+  {"slug":"santo-tirso","name":"Santo Tirso","country":"Portugal","city":"Santo Tirso","type":"Bouldering","status":"DRAFT","boulderCount":87,"imageFilename":"boulder_1.jpeg","version":1}
 ];
 
 async function loadAreas() {
@@ -763,11 +781,13 @@ function renderBoulderList() {
       : `<div class="boulder-thumb boulder-thumb-empty">No img</div>`;
     const name = b.name || '<em style="color:var(--text-hint)">Unnamed</em>';
     const lineBadge = b.routeLine && b.routeLine.length >= 2 ? '<span class="badge badge-line">LINE</span>' : '';
+    const sharedCount = getSiblings(i).length;
+    const sharedBadge = sharedCount > 0 ? `<span style="font-size:11px;color:var(--text-hint);" title="Shares image with ${sharedCount} other boulder(s)">&#128247;${sharedCount + 1}</span>` : '';
     return `<div class="card boulder-card ${i === selectedIdx ? 'active' : ''}" onclick="selectBoulder(${i})">
       ${thumb}
       <div class="boulder-card-info">
         <div class="boulder-card-name">${name}</div>
-        <div class="boulder-card-meta"><span class="badge">${b.grade}</span>${lineBadge}${'&#9733;'.repeat(b.stars)}</div>
+        <div class="boulder-card-meta"><span class="badge">${b.grade}</span>${lineBadge}${sharedBadge}${'&#9733;'.repeat(b.stars)}</div>
       </div>
     </div>`;
   }).join('');
@@ -843,14 +863,17 @@ function renderDrawArea() {
   const b = boulders[selectedIdx];
 
   if (!b || !b.imageData) {
+    const hasOtherImages = getBouldersWithImages(selectedIdx).length > 0;
     container.innerHTML = `<div class="draw-placeholder" onclick="document.getElementById('bImageInput').click()">
       <div style="font-size:32px;">&#128247;</div>
       <div>Click or drag & drop to upload image</div>
       <input type="file" id="bImageInput" accept="image/*" onchange="handleBoulderImage(this)">
-    </div>`;
+    </div>` + (hasOtherImages ? `<div style="text-align:center;margin-top:8px;"><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();toggleImagePicker()">Use image from another boulder</button></div>` : '');
     controls.style.display = 'none';
     hint.style.display = 'none';
     info.style.display = 'none';
+    document.getElementById('imagePicker').style.display = 'none';
+    document.getElementById('siblingInfo').style.display = 'none';
     return;
   }
 
@@ -890,6 +913,14 @@ function renderDrawArea() {
     updateHint();
     renderBoulderList();
   });
+
+  // Show/hide "Use Existing Image" button
+  const useExistingBtn = document.getElementById('useExistingBtn');
+  const hasOtherImages = getBouldersWithImages(selectedIdx).length > 0;
+  useExistingBtn.style.display = hasOtherImages ? '' : 'none';
+
+  // Render sibling info
+  renderSiblingInfo();
 }
 
 function updateHint() {
@@ -921,6 +952,113 @@ function clearPoints() {
   renderBoulderList();
 }
 
+// --- Shared images & siblings ---
+function getSiblings(idx) {
+  if (idx < 0) return [];
+  const b = boulders[idx];
+  if (!b || (!b.imageData && !b.imageFilename)) return [];
+  return boulders.reduce((acc, other, i) => {
+    if (i === idx) return acc;
+    const sameData = b.imageData && other.imageData && b.imageData === other.imageData;
+    const sameName = b.imageFilename && other.imageFilename && b.imageFilename === other.imageFilename;
+    if (sameData || sameName) acc.push({ boulder: other, index: i });
+    return acc;
+  }, []);
+}
+
+function getBouldersWithImages(excludeIdx) {
+  const seen = new Set();
+  return boulders.reduce((acc, b, i) => {
+    if (i === excludeIdx) return acc;
+    if (!b.imageData && !b.imageFilename) return acc;
+    // Deduplicate by imageFilename or imageData reference
+    const key = b.imageFilename || (b.imageData ? b.imageData.dataUrl : null);
+    if (!key || seen.has(key)) return acc;
+    seen.add(key);
+    acc.push({ boulder: b, index: i });
+    return acc;
+  }, []);
+}
+
+function toggleImagePicker() {
+  const picker = document.getElementById('imagePicker');
+  if (picker.style.display !== 'none') {
+    picker.style.display = 'none';
+    return;
+  }
+  const candidates = getBouldersWithImages(selectedIdx);
+  if (candidates.length === 0) {
+    toast('No other boulders have images');
+    return;
+  }
+  picker.style.display = '';
+  picker.innerHTML = '<div class="image-picker-grid">' + candidates.map(({ boulder: b, index: i }) => {
+    const src = b.imageData ? b.imageData.dataUrl : (currentSlug ? `areas/${currentSlug}/images/${b.imageFilename}` : '');
+    return `<div class="image-picker-item" onclick="pickBoulderImage(${i})">
+      <img src="${src}" onerror="this.style.display='none'">
+      <div class="name">${escapeHtml(b.name || 'Unnamed')} (${b.grade})</div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+function pickBoulderImage(sourceIdx) {
+  if (selectedIdx < 0) return;
+  const source = boulders[sourceIdx];
+  boulders[selectedIdx].imageData = source.imageData;
+  boulders[selectedIdx].imageFilename = source.imageFilename;
+  // Don't clear routeLine - user wants to draw a different line on the same image
+  document.getElementById('imagePicker').style.display = 'none';
+  renderDrawArea();
+  renderBoulderList();
+  toast('Using image from ' + (source.name || 'boulder'));
+}
+
+function renderSiblingInfo() {
+  const infoEl = document.getElementById('siblingInfo');
+  if (selectedIdx < 0) { infoEl.style.display = 'none'; return; }
+  const siblings = getSiblings(selectedIdx);
+  if (siblings.length === 0) { infoEl.style.display = 'none'; return; }
+  infoEl.style.display = '';
+  infoEl.innerHTML = '<div class="sibling-info"><div class="sibling-info-label">Other lines on this image:</div>' +
+    siblings.map(({ boulder: sib, index: i }) => {
+      const name = escapeHtml(sib.name || 'Unnamed');
+      return `<span class="sibling-chip" onclick="selectBoulder(${i})">${name} <span class="badge">${sib.grade}</span></span>`;
+    }).join('') + '</div>';
+}
+
+function drawCurve(ctx, pts, w, color, opacity) {
+  if (pts.length < 2) return;
+  ctx.save();
+  ctx.globalAlpha = opacity;
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  if (pts.length === 2) {
+    ctx.lineTo(pts[1].x, pts[1].y);
+  } else {
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[Math.max(i - 1, 0)];
+      const p1 = pts[i];
+      const p2 = pts[i + 1];
+      const p3 = pts[Math.min(i + 2, pts.length - 1)];
+      ctx.bezierCurveTo(
+        p1.x + (p2.x - p0.x) / 6, p1.y + (p2.y - p0.y) / 6,
+        p2.x - (p3.x - p1.x) / 6, p2.y - (p3.y - p1.y) / 6,
+        p2.x, p2.y
+      );
+    }
+  }
+  ctx.strokeStyle = color;
+  ctx.lineWidth = Math.max(3, w * 0.005);
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+  // Start circle
+  const r = Math.max(5, w * 0.008);
+  ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, r * 2, 0, Math.PI * 2);
+  ctx.fillStyle = color; ctx.fill();
+  ctx.restore();
+}
+
 function drawRoute() {
   const canvas = document.getElementById('drawCanvas');
   if (!canvas) return;
@@ -929,6 +1067,15 @@ function drawRoute() {
   ctx.clearRect(0, 0, w, h);
 
   const b = boulders[selectedIdx];
+
+  // Draw sibling lines first (dimmed, behind main line)
+  const siblings = getSiblings(selectedIdx);
+  siblings.forEach(({ boulder: sib }) => {
+    if (!sib.routeLine || sib.routeLine.length < 2) return;
+    const sibPts = sib.routeLine.map(p => ({ x: p.x * w, y: p.y * h }));
+    drawCurve(ctx, sibPts, w, 'rgba(255,255,255,0.9)', 0.55);
+  });
+
   if (!b || !b.routeLine || b.routeLine.length === 0) return;
 
   const pts = b.routeLine.map(p => ({ x: p.x * w, y: p.y * h }));
@@ -963,12 +1110,22 @@ function drawRoute() {
 
   // Draw points
   const r = Math.max(5, w * 0.008);
+  const sw = Math.max(3, w * 0.005);
   pts.forEach((p, i) => {
     if (i === 0) {
       ctx.beginPath(); ctx.arc(p.x, p.y, r * 2, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(230,189,0,0.9)'; ctx.fill();
-      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(p.x, p.y, r * 1.2, 0, Math.PI * 2);
       ctx.fillStyle = '#fff'; ctx.fill();
+    } else if (i === pts.length - 1 && pts.length >= 2) {
+      // End point marker: gold circle with white chevron
+      ctx.beginPath(); ctx.arc(p.x, p.y, r * 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(230,189,0,0.9)'; ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(p.x - sw, p.y + sw * 0.5);
+      ctx.lineTo(p.x, p.y - sw);
+      ctx.lineTo(p.x + sw, p.y + sw * 0.5);
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = sw * 0.6; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
     } else {
       ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
       ctx.fillStyle = '#E6BD00'; ctx.fill();
@@ -998,9 +1155,27 @@ function buildDataJSON() {
     area.imageFilename = existingCoverFilename;
   }
 
+  // Assign filenames, ensuring shared images get the same filename
+  const imageKeyToFilename = new Map();
+  boulders.forEach((b, i) => {
+    if (!b.imageData && !b.imageFilename) return;
+    // Find if this boulder shares imageData with an earlier boulder
+    const sharedIdx = boulders.findIndex((other, j) => j < i && (
+      (b.imageData && other.imageData && b.imageData === other.imageData) ||
+      (b.imageFilename && other.imageFilename && b.imageFilename === other.imageFilename)
+    ));
+    if (sharedIdx >= 0 && imageKeyToFilename.has(sharedIdx)) {
+      b._exportFilename = imageKeyToFilename.get(sharedIdx);
+    } else {
+      const slug = (b.name || `boulder_${i + 1}`).replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+      const filename = b.imageData ? `${slug}.jpg` : b.imageFilename;
+      b._exportFilename = filename;
+      imageKeyToFilename.set(i, filename);
+    }
+  });
+
   area.boulders = boulders.map((b, i) => {
-    const slug = (b.name || `boulder_${i + 1}`).replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
-    const filename = b.imageData ? `${slug}.jpg` : b.imageFilename;
+    const filename = b._exportFilename || null;
     b.imageFilename = filename;
 
     const boulder = { name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
@@ -1016,6 +1191,7 @@ function buildDataJSON() {
         y: Math.round(p.y * 10000) / 10000
       }));
     }
+    delete b._exportFilename;
     return boulder;
   });
 
@@ -1065,9 +1241,11 @@ async function exportAll() {
     imgFolder.file('cover.jpg', coverImageData.blob);
   }
 
+  const addedImages = new Set();
   boulders.forEach((b) => {
-    if (b.imageData && b.imageFilename) {
+    if (b.imageData && b.imageFilename && !addedImages.has(b.imageFilename)) {
       imgFolder.file(b.imageFilename, b.imageData.blob);
+      addedImages.add(b.imageFilename);
     }
   });
 
