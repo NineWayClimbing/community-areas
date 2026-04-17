@@ -1,0 +1,32 @@
+{
+  "name": "Sintra",
+  "type": "Bouldering",
+  "status": "DRAFT",
+  "country": "Portugal",
+  "city": "Sintra",
+  "description": "Mostly forested area with more than 500 lines.",
+  "coordinates": null,
+  "boulders": [
+    {
+      "id": "bf57cebb-25e3-4826-90d4-bbd4b4945012",
+      "name": "Visão Distorcida",
+      "grade": "7a+",
+      "stars": 3,
+      "rockType": "Granite",
+      "sector": "Vivendas",
+      "notes": "Sit start with both hands on the ledge."
+    },
+    {
+      "id": "605c72fe-3753-4abc-84de-914c32f08133",
+      "name": "H2O",
+      "grade": "6c",
+      "stars": 3,
+      "tags": [
+        "Crimpy"
+      ],
+      "rockType": "Granite",
+      "sector": "Vivendas",
+      "notes": "Sit start with both hands on the low side pull."
+    }
+  ]
+}

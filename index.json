@@ -20,5 +20,16 @@
     "boulderCount": 136,
     "imageFilename": "cover.jpg",
     "version": 9
+  },
+  {
+    "slug": "sintra",
+    "name": "Sintra",
+    "country": "Portugal",
+    "city": "Sintra",
+    "type": "Bouldering",
+    "status": "DRAFT",
+    "boulderCount": 2,
+    "imageFilename": null,
+    "version": 1
   }
 ]
