@@ -273,8 +273,66 @@ jobs:
 
           echo "All images are in JPG format."
 
+      - name: Validate boulder IDs are stable
+        id: validate-boulder-ids
+        if: always()
+        run: |
+          errors=0
+          error_messages=""
+          base_ref="${{ github.event.pull_request.base.sha }}"
+
+          for data_file in areas/*/data.json; do
+            [ -f "$data_file" ] || continue
+            slug="$(basename "$(dirname "$data_file")")"
+
+            # Check all boulders have an id field
+            missing=$(jq '[.boulders[] | select(.id == null or .id == "")] | length' "$data_file")
+            if [ "$missing" -gt 0 ]; then
+              msg="Area '$slug': $missing boulder(s) missing required 'id' field"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
+              errors=$((errors + 1))
+            fi
+
+            # Check for duplicate ids within the area
+            dupes=$(jq '[.boulders[].id] | group_by(.) | map(select(length > 1)) | length' "$data_file")
+            if [ "$dupes" -gt 0 ]; then
+              msg="Area '$slug': found duplicate boulder IDs"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
+              errors=$((errors + 1))
+            fi
+
+            # Check no existing IDs were changed or removed compared to base
+            if git show "$base_ref":"$data_file" > /dev/null 2>&1; then
+              base_ids=$(git show "$base_ref":"$data_file" | jq -r '[.boulders[].id // empty] | sort | .[]')
+              current_ids=$(jq -r '[.boulders[].id] | sort | .[]' "$data_file")
+
+              while IFS= read -r old_id; do
+                [ -z "$old_id" ] && continue
+                if ! echo "$current_ids" | grep -qxF "$old_id"; then
+                  msg="Area '$slug': boulder ID '$old_id' was removed or changed. Boulder IDs must be stable."
+                  echo "::error::$msg"
+                  error_messages="$error_messages- $msg\n"
+                  errors=$((errors + 1))
+                fi
+              done <<< "$base_ids"
+            fi
+          done
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors boulder ID error(s). IDs must be present, unique, and never changed once set."
+            exit 1
+          fi
+
+          echo "All boulder IDs are valid and stable."
+
       - name: Comment on PR with validation errors
-        if: always() && (steps.validate-index.outcome == 'failure' || steps.validate-version.outcome == 'failure' || steps.validate-image-size.outcome == 'failure' || steps.validate-image-format.outcome == 'failure')
+        if: always() && (steps.validate-index.outcome == 'failure' || steps.validate-version.outcome == 'failure' || steps.validate-image-size.outcome == 'failure' || steps.validate-image-format.outcome == 'failure' || steps.validate-boulder-ids.outcome == 'failure')
         uses: actions/github-script@v7
         with:
           script: |
@@ -298,6 +356,9 @@ jobs:
             }
             if ('${{ steps.validate-image-format.outcome }}' === 'failure') {
               sections.push('### Image Format\nOnly `.jpg`/`.jpeg` images are allowed in `images/` directories.');
+            }
+            if ('${{ steps.validate-boulder-ids.outcome }}' === 'failure') {
+              sections.push('### Boulder IDs\nEvery boulder must have a unique `id` field (UUID). Existing IDs must never be changed or removed.');
             }
 
             let body = '## Validation Failed\n\n' + sections.join('\n\n');
@@ -335,7 +396,7 @@ jobs:
             }
 
       - name: Remove validation comment on success
-        if: always() && steps.validate-index.outcome == 'success' && steps.validate-version.outcome == 'success' && steps.validate-image-size.outcome == 'success' && steps.validate-image-format.outcome == 'success'
+        if: always() && steps.validate-index.outcome == 'success' && steps.validate-version.outcome == 'success' && steps.validate-image-size.outcome == 'success' && steps.validate-image-format.outcome == 'success' && steps.validate-boulder-ids.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |

@@ -637,6 +637,7 @@ async function openArea(slug) {
 
     if (data.boulders && Array.isArray(data.boulders)) {
       boulders = data.boulders.map(b => ({
+        id: b.id || crypto.randomUUID(),
         name: b.name || '',
         grade: b.grade || '6a',
         stars: b.stars ?? 0,
@@ -790,6 +791,7 @@ async function handleCoverImage(input) {
 // --- Boulder CRUD ---
 function addBoulder() {
   boulders.push({
+    id: crypto.randomUUID(),
     name: '', grade: '6a', stars: 0, tags: [], rockType: 'Granite',
     sector: '', notes: '', coordinates: null,
     imageData: null,
@@ -1225,7 +1227,7 @@ function buildDataJSON() {
     const filename = b._exportFilename || null;
     b.imageFilename = filename;
 
-    const boulder = { name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
+    const boulder = { id: b.id, name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
     if (b.tags.length > 0) boulder.tags = b.tags;
     boulder.rockType = b.rockType;
     if (b.coordinates) boulder.coordinates = b.coordinates;

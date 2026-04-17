@@ -12,6 +12,7 @@
   "description": "Depois de dias de chuva, é preciso deixar a rocha secar pelo menos 2 dias, para evitar que as presas partam.",
   "boulders": [
     {
+      "id": "30e41170-4f1f-4502-a8d9-3aca31725699",
       "name": "Mistério do João",
       "grade": "7a+",
       "notes": "Start with side pull and micro crimp on the left. Exit straight",
@@ -19,6 +20,7 @@
       "imageFilename": "misterio_do_joao.jpg"
     },
     {
+      "id": "5f0a9e2e-8b20-4634-9a9b-7763ae07e4c2",
       "name": "Misério",
       "grade": "Project",
       "notes": "Start on side pull and white crimp above right. Exit straight between Fissura Pingada and Mistério do João",
@@ -26,6 +28,7 @@
       "imageFilename": "miserio.jpg"
     },
     {
+      "id": "860ce091-aab2-4069-8e02-40c7838ad5f5",
       "name": "Fissura Pingada",
       "grade": "6b+",
       "notes": "Sit start. Follow the crack",
@@ -33,6 +36,7 @@
       "imageFilename": "fissura_pingada.jpg"
     },
     {
+      "id": "324553be-01aa-42ad-bd18-3225f01fd3ee",
       "name": "Sobreiro Morto",
       "grade": "6c",
       "notes": "Start on the pinches. Follow the crack. Exit straight",
@@ -40,6 +44,7 @@
       "imageFilename": "sobreiro_morto.jpg"
     },
     {
+      "id": "a4f1c8ff-8065-4dbc-82ce-eccfc4761ead",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start on crimp. Tra4+erse right and finish on Sobreiro Morto",
@@ -47,6 +52,7 @@
       "imageFilename": "sem_nome_1.jpg"
     },
     {
+      "id": "7653b1c6-a2d6-4430-bcab-5e99258385c6",
       "name": "Sem nome",
       "grade": "6a+",
       "notes": "Start on the crimp. Follow the arete and exit on Placa da Estrada after the jug",
@@ -54,6 +60,7 @@
       "imageFilename": "sem_nome_2.jpg"
     },
     {
+      "id": "241cd2fe-ff35-4899-8a9e-b9cc1f46f93a",
       "name": "Placa da Estrada",
       "grade": "5+",
       "notes": "Sit start. Follow the crack",
@@ -61,6 +68,7 @@
       "imageFilename": "placa_da_estrada.jpg"
     },
     {
+      "id": "896ad9d0-a907-4f3f-b2a0-126d3cfc3421",
       "name": "Sem nome",
       "grade": "4+",
       "notes": "Start on the pinches. Follow the crack. Exit straight",
@@ -68,6 +76,7 @@
       "imageFilename": "sem_nome_3.jpg"
     },
     {
+      "id": "f1cdd2c3-b209-4e96-8f09-28864bb61f39",
       "name": "Pseudo Dinâmico",
       "grade": "6a",
       "notes": "Start on the jugs. Exit straight with the crystals",
@@ -75,6 +84,7 @@
       "imageFilename": "pseudo_dinamico.jpg"
     },
     {
+      "id": "209630ec-1a44-49bc-8489-86d1fa8e3fb2",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start with the undercling. Tra4+erse right into Pseudo Dinâmico",
@@ -82,6 +92,7 @@
       "imageFilename": "sem_nome_4.jpg"
     },
     {
+      "id": "405f5d89-bd2c-4eab-81ae-e78b880d87cf",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
@@ -89,6 +100,7 @@
       "imageFilename": "sem_nome_5.jpg"
     },
     {
+      "id": "94d199e5-d75d-4559-8ca9-ae8ecc28c52e",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
@@ -96,6 +108,7 @@
       "imageFilename": "sem_nome_6.jpg"
     },
     {
+      "id": "c36b1230-68d2-4df6-9b18-a85ab41069e3",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Feet only",
@@ -103,6 +116,7 @@
       "imageFilename": "sem_nome_7.jpg"
     },
     {
+      "id": "5f9fe199-aa97-44e2-8c48-37db057ed780",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Feet only",
@@ -110,6 +124,7 @@
       "imageFilename": "sem_nome_8.jpg"
     },
     {
+      "id": "7e368060-9ac9-48f4-9a2a-59a59b023c8c",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Feet only",
@@ -117,6 +132,7 @@
       "imageFilename": "sem_nome_9.jpg"
     },
     {
+      "id": "ff1a78a6-74a0-431f-ae8e-2473eede3c11",
       "name": "Mini Lançamento",
       "grade": "5+",
       "notes": "Sit start. Dynamic mo4+e into the jug",
@@ -124,6 +140,7 @@
       "imageFilename": "mini_lancamento.jpg"
     },
     {
+      "id": "b6a1d4db-9dea-49a8-bc2c-0ae7f6c425bf",
       "name": "Sem nome",
       "grade": "4+",
       "notes": "Feet only",
@@ -131,6 +148,7 @@
       "imageFilename": "sem_nome_10.jpg"
     },
     {
+      "id": "58aef325-463e-4f31-aa12-70b7ab5084aa",
       "name": "Sem nome",
       "grade": "4+",
       "notes": "Feet only",
@@ -138,6 +156,7 @@
       "imageFilename": "sem_nome_11.jpg"
     },
     {
+      "id": "83df571c-98d3-4f21-9563-6a93f10cf41c",
       "name": "Sem nome",
       "grade": "4+",
       "notes": "Feet only",
@@ -145,6 +164,7 @@
       "imageFilename": "sem_nome_12.jpg"
     },
     {
+      "id": "3ac1a36b-c9ce-4f75-84e0-da9db61ff006",
       "name": "Full House",
       "grade": "6a",
       "notes": "Start on the crimp. Exit straight with crystals",
@@ -152,6 +172,7 @@
       "imageFilename": "full_house.jpg"
     },
     {
+      "id": "3d3f5ddf-d749-4201-b8f8-8a7436b08882",
       "name": "Salsa",
       "grade": "5+",
       "notes": "Sit start with the crimps. Exit straight",
@@ -159,6 +180,7 @@
       "imageFilename": "salsa.jpg"
     },
     {
+      "id": "e29aeb78-28b8-4103-af0e-31997971357d",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Left of Pé Sujo",
@@ -166,6 +188,7 @@
       "imageFilename": "sem_nome_13.jpg"
     },
     {
+      "id": "df23a4cf-c19d-413b-b0d9-8c94798131b6",
       "name": "Clyde",
       "grade": "6a+",
       "notes": "Sit start",
@@ -173,6 +196,7 @@
       "imageFilename": "clyde.jpg"
     },
     {
+      "id": "add537ab-779a-4827-855f-97f2bc4e12bf",
       "name": "Sem Nome",
       "grade": "Project",
       "notes": "Sit start. Follow the crack",
@@ -180,6 +204,7 @@
       "imageFilename": "sem_nome_14.jpg"
     },
     {
+      "id": "9059b6d1-051b-4fef-966f-f3eb1c666bb7",
       "name": "Pé Sujo",
       "grade": "Project",
       "notes": "Start with left side pull and right crystal. Exit straight",
@@ -187,6 +212,7 @@
       "imageFilename": "pe_sujo.jpg"
     },
     {
+      "id": "8e5a6bcd-6a95-4cf0-9229-56f228ca9889",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Sit start. Follow the arete",
@@ -194,6 +220,7 @@
       "imageFilename": "sem_nome_15.jpg"
     },
     {
+      "id": "2cbc8e42-e6e0-4a74-9b09-9974d68d23c3",
       "name": "Bonnie",
       "grade": "6a+",
       "notes": "Arete",
@@ -201,6 +228,7 @@
       "imageFilename": "bonnie.jpg"
     },
     {
+      "id": "e2a67bde-5a65-4880-9c9b-c10a1da9c9d7",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start, follow the arete",
@@ -208,6 +236,7 @@
       "imageFilename": "sem_nome_16.jpg"
     },
     {
+      "id": "4cf8bdf7-8eda-41e0-9d11-c0218aafc11b",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start with big undercling, follow the arete",
@@ -215,6 +244,7 @@
       "imageFilename": "sem_nome_17.jpg"
     },
     {
+      "id": "58fc7899-4fed-4852-924f-08136fb830f4",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start on the crimp. Exit straight",
@@ -222,6 +252,7 @@
       "imageFilename": "sem_nome_18.jpg"
     },
     {
+      "id": "abdecd29-b279-46c7-917a-de635c5f1804",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Slab",
@@ -229,6 +260,7 @@
       "imageFilename": "sem_nome_19.jpg"
     },
     {
+      "id": "439ea105-755a-44ac-9472-1ee31e642bba",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start on the slab, exit on Parmigiano",
@@ -236,6 +268,7 @@
       "imageFilename": "sem_nome_20.jpg"
     },
     {
+      "id": "e2da4354-8fdd-47c3-be20-99870b55833a",
       "name": "Parmigiano Right",
       "grade": "Project",
       "notes": "Start on Parmigiano, tra4+erse right from the big undercling",
@@ -243,6 +276,7 @@
       "imageFilename": "parmigiano_right.jpg"
     },
     {
+      "id": "aab0425e-cc55-47de-be50-0d8f8655ee32",
       "name": "Parmigiano",
       "grade": "6b+",
       "notes": "Sit start on crimp and side pull. Exit straight",
@@ -250,6 +284,7 @@
       "imageFilename": "parmigiano.jpg"
     },
     {
+      "id": "be0cd857-5e99-401c-9c4a-d6894f87d9d7",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start. Exit straight",
@@ -257,6 +292,7 @@
       "imageFilename": "sem_nome_21.jpg"
     },
     {
+      "id": "eff4c1dc-e7b5-4244-9b6b-ea17a5257807",
       "name": "Mini motoserra",
       "grade": "5+",
       "notes": "Sit start. Follow the arete",
@@ -264,6 +300,7 @@
       "imageFilename": "mini_motoserra.jpg"
     },
     {
+      "id": "11591966-a1a1-4233-8072-eda54bf68dde",
       "name": "Micro motoserra",
       "grade": "5+",
       "notes": "Sit start (??) exit straight",
@@ -271,6 +308,7 @@
       "imageFilename": "micro_motoserra.jpg"
     },
     {
+      "id": "0f5fa54b-a867-40d2-8bcc-b41c7f71663e",
       "name": "Dona Rosa",
       "grade": "6a",
       "notes": "Sit start",
@@ -278,6 +316,7 @@
       "imageFilename": "dona_rosa.jpg"
     },
     {
+      "id": "80fbeb31-769a-4387-91e7-39d7212ed346",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start",
@@ -285,6 +324,7 @@
       "imageFilename": "sem_nome_22.jpg"
     },
     {
+      "id": "e1ac1856-dd83-46d6-8dc2-f193ce0aa0ac",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start",
@@ -292,6 +332,7 @@
       "imageFilename": "sem_nome_23.jpg"
     },
     {
+      "id": "8afe1a04-6a9f-4d7e-80d7-dd6b286a8215",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start on the cramp. Exit straight following the arete",
@@ -299,6 +340,7 @@
       "imageFilename": "sem_nome_24.jpg"
     },
     {
+      "id": "dacd54ba-0a03-4c67-bf5c-e997eb58aabb",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Start on crack, tra4+erse left. Exit on the opposite arete",
@@ -306,6 +348,7 @@
       "imageFilename": "sem_nome_25.jpg"
     },
     {
+      "id": "7fc8c974-8ff4-4ffc-96bf-42d8981f6653",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "Sit start",
@@ -313,6 +356,7 @@
       "imageFilename": "sem_nome_26.jpg"
     },
     {
+      "id": "8c7a8f64-0b7d-4463-bc6d-1ad571bde4b9",
       "name": "Toca",
       "grade": "Project",
       "notes": "Start with undercling. Exit straight",
@@ -320,6 +364,7 @@
       "imageFilename": "toca.jpg"
     },
     {
+      "id": "a9adba13-d72a-4e66-b91d-32e66258f34a",
       "name": "Toca stand",
       "grade": "6b",
       "notes": "Sit start. Traverse right into Complicometro",
@@ -327,6 +372,7 @@
       "imageFilename": "toca_stand.jpg"
     },
     {
+      "id": "0e28025a-765b-4d37-9809-c09404917ee5",
       "name": "História de dois mundos",
       "grade": "Project",
       "notes": "Sit start. Use only left arete",
@@ -334,6 +380,7 @@
       "imageFilename": "historia_de_dois_mundos.jpg"
     },
     {
+      "id": "00a9818e-1d1a-4c62-bd72-ca9ed03e4635",
       "name": "Complicometro",
       "grade": "6c",
       "notes": "Sit start. Use both aretes",
@@ -341,6 +388,7 @@
       "imageFilename": "complicometro.jpg"
     },
     {
+      "id": "553a38d4-656e-4421-b7a8-8dd9583badf7",
       "name": "Sem Nome",
       "grade": "6c",
       "notes": "Sit start. Use right arete",
@@ -348,6 +396,7 @@
       "imageFilename": "sem_nome_27.jpg"
     },
     {
+      "id": "d1981690-a83b-4968-951b-ed7c71a212e0",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Sit start tra4+erse left",
@@ -355,6 +404,7 @@
       "imageFilename": "sem_nome_28.jpg"
     },
     {
+      "id": "620f0329-4006-484a-9cde-196fcce10e94",
       "name": "Ninho",
       "grade": "Project",
       "notes": "Sit start",
@@ -362,6 +412,7 @@
       "imageFilename": "ninho.jpg"
     },
     {
+      "id": "a36be2e5-1976-4384-aeac-b98649047480",
       "name": "Sem Nome",
       "grade": "Project",
       "notes": "Sit start",
@@ -369,6 +420,7 @@
       "imageFilename": "sem_nome_29.jpg"
     },
     {
+      "id": "b94cea34-72e5-4a91-a464-78a5dcc36373",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "Sit start traverse left",
@@ -376,6 +428,7 @@
       "imageFilename": "sem_nome_30.jpg"
     },
     {
+      "id": "55962ecb-2248-41cd-807a-4f22a014122c",
       "name": "Pé Roto",
       "grade": "6a",
       "notes": "Sit start",
@@ -383,6 +436,7 @@
       "imageFilename": "pe_roto.jpg"
     },
     {
+      "id": "dde1b853-b5cf-4fe4-b769-5290d99b14fa",
       "name": "Pés de Rosa",
       "grade": "7b",
       "notes": "Sit start",
@@ -390,6 +444,7 @@
       "imageFilename": "pes_de_rosa.jpg"
     },
     {
+      "id": "410aa1d6-bac6-4d57-9c0e-5b9c9297d96e",
       "name": "Presa Temido",
       "grade": "6a",
       "notes": "Sit start",
@@ -397,6 +452,7 @@
       "imageFilename": "presa_temido.jpg"
     },
     {
+      "id": "9ee08845-d075-49a9-913f-2c89ac47dd4c",
       "name": "FA Educado",
       "grade": "6b",
       "notes": "Sit start",
@@ -404,6 +460,7 @@
       "imageFilename": "fa_educado.jpg"
     },
     {
+      "id": "f31c31a4-bda4-42fd-b99f-d0970a72f90c",
       "name": "Raspa Queixos",
       "grade": "6a+",
       "notes": "",
@@ -411,6 +468,7 @@
       "imageFilename": "raspa_queixos.jpg"
     },
     {
+      "id": "6f9fad0c-6a67-44ae-a337-7ddf78795864",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "",
@@ -418,6 +476,7 @@
       "imageFilename": "sem_nome_31.jpg"
     },
     {
+      "id": "eb06b676-f75a-4657-a200-122d5387fcab",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "",
@@ -425,6 +484,7 @@
       "imageFilename": "sem_nome_32.jpg"
     },
     {
+      "id": "cb1ddbcc-9bef-439f-9a9d-9a6366f781b0",
       "name": "Sem Nome",
       "grade": "Project",
       "notes": "Sit start on the left crimp",
@@ -432,6 +492,7 @@
       "imageFilename": "sem_nome_33.jpg"
     },
     {
+      "id": "1ec2ec93-b128-4bdb-a688-675c5912a217",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "",
@@ -439,6 +500,7 @@
       "imageFilename": "sem_nome_34.jpg"
     },
     {
+      "id": "2604d72d-987a-4b9c-969a-e0be0dc7aefa",
       "name": "Sem nome",
       "grade": "5+",
       "notes": "",
@@ -446,6 +508,7 @@
       "imageFilename": "sem_nome_35.jpg"
     },
     {
+      "id": "197a78ae-50f4-4053-9697-2f5b90fe2a1b",
       "name": "Sem Nome",
       "grade": "Project",
       "notes": "Sit start. Exit straight",
@@ -453,6 +516,7 @@
       "imageFilename": "sem_nome_36.jpg"
     },
     {
+      "id": "95a917af-1ab2-4764-a209-b32fe6e79fdc",
       "name": "Sem Nome",
       "grade": "Project",
       "notes": "Sit start. Exit left",
@@ -460,6 +524,7 @@
       "imageFilename": "sem_nome_37.jpg"
     },
     {
+      "id": "cacf810e-5152-413e-b55e-49060e0293f3",
       "name": "Raspa canelas",
       "grade": "6a+",
       "notes": "Traverse",
@@ -467,6 +532,7 @@
       "imageFilename": "raspa_canelas.jpg"
     },
     {
+      "id": "87b38eb3-c6b8-4cde-9f28-f89e1aafbe95",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "",
@@ -474,6 +540,7 @@
       "imageFilename": "sem_nome_38.jpg"
     },
     {
+      "id": "78491859-c7bf-4cd4-a320-37de4d478c90",
       "name": "Sem nome",
       "grade": "Project",
       "notes": "",
@@ -481,6 +548,7 @@
       "imageFilename": "sem_nome_39.jpg"
     },
     {
+      "id": "bd767984-9b5f-40b1-8bde-c295cea02ae4",
       "name": "Raspa joelhos",
       "grade": "6a+",
       "notes": "Sit start",
@@ -488,6 +556,7 @@
       "imageFilename": "raspa_joelhos.jpg"
     },
     {
+      "id": "fcc255eb-2609-407e-9d09-e000530c3e59",
       "name": "Sem nome",
       "grade": "6a",
       "notes": "",
@@ -495,6 +564,7 @@
       "imageFilename": "sem_nome_40.jpg"
     },
     {
+      "id": "39920abb-53a7-4b51-82c9-2a6b0d653127",
       "name": "Sem nome",
       "grade": "6b",
       "notes": "Sit start. Traverse left and exit after the corner of the prow",
@@ -502,6 +572,7 @@
       "imageFilename": "sem_nome_41.jpg"
     },
     {
+      "id": "80a4e758-543a-4085-bace-471b3a195161",
       "name": "Guilhotina",
       "grade": "6a",
       "notes": "Sit start. Exit straight",
