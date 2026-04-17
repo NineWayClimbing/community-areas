@@ -685,7 +685,10 @@ async function openArea(slug) {
                 width: img.naturalWidth, height: img.naturalHeight,
                 originalSize: blob.size, compressedSize: blob.size
               };
-              if (currentSlug === loadSlug && selectedIdx === i) loadBoulderEditor();
+              if (currentSlug === loadSlug) {
+                renderBoulderList();
+                if (selectedIdx === i) loadBoulderEditor();
+              }
             }
           } catch (e) { /* image not available, that's ok */ }
           loaded++;
