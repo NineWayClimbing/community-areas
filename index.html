@@ -195,9 +195,7 @@
   .section-divider { border-top: 1px solid var(--border-light); margin: 20px 0; }
 
   /* Export area */
-  .export-box { background: var(--surface); border-radius: var(--radius); padding: 16px; margin-top: 16px; box-shadow: var(--shadow); }
-  .export-box pre { background: var(--surface2); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; color: var(--text-dim); max-height: 300px; overflow-y: auto; white-space: pre-wrap; word-break: break-all; }
-  .export-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+
 
   /* Compression info */
   .compress-info { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 12px; color: var(--text-dim); }
@@ -245,6 +243,52 @@
 
   /* Hidden */
   .hidden { display: none !important; }
+
+  /* Auth modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal {
+    background: var(--surface); border-radius: var(--radius-lg); padding: 28px;
+    max-width: 420px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+  .modal h2 { margin-bottom: 16px; }
+  .modal-code {
+    font-size: 32px; font-weight: 800; letter-spacing: 6px;
+    background: var(--surface2); padding: 16px; border-radius: var(--radius);
+    margin: 16px 0; font-family: monospace; user-select: all;
+  }
+  .modal-link {
+    display: inline-block; margin: 12px 0; padding: 10px 20px;
+    background: #24292e; color: #fff; border-radius: var(--radius);
+    text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .modal-link:hover { background: #1a1e22; }
+  .modal-status { color: var(--text-dim); font-size: 13px; margin-top: 12px; }
+  .modal-close {
+    background: none; border: none; color: var(--text-hint); font-size: 13px;
+    cursor: pointer; margin-top: 16px; text-decoration: underline;
+  }
+
+  /* PR progress */
+  .pr-progress { margin-top: 12px; text-align: left; }
+  .pr-step {
+    padding: 4px 0; font-size: 13px; color: var(--text-dim);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pr-step.done { color: var(--success); }
+  .pr-step.active { color: var(--text); font-weight: 600; }
+  .pr-step.error { color: var(--danger); }
+
+  /* GitHub user badge */
+  .gh-user {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: rgba(255,255,255,0.85);
+  }
+  .gh-user img { width: 20px; height: 20px; border-radius: 50%; }
+  .gh-user a { color: rgba(255,255,255,0.7); text-decoration: underline; cursor: pointer; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -254,6 +298,8 @@
   <button class="back-btn hidden" id="backBtn" onclick="showHome()">&larr;</button>
   <img src="icon.png" alt="9Way">
   <div class="top-bar-title" id="topBarTitle">Community Areas</div>
+  <div id="ghUserBadge" class="gh-user" style="display:none;"></div>
+  <button class="btn hidden" id="submitPRBtn" onclick="submitPR()" style="background:#fff;color:var(--gold-dark);font-weight:700;border:none;padding:10px 22px;font-size:15px;">Submit PR</button>
 </div>
 
 <!-- ============ HOME VIEW ============ -->
@@ -306,15 +352,6 @@
         <div class="empty-msg">No boulders yet. Click + Add.</div>
       </div>
 
-      <div class="section-divider"></div>
-      <h2>Export</h2>
-      <div class="btn-row">
-        <button class="btn btn-gold" onclick="exportAll()">Download ZIP</button>
-        <button class="btn btn-outline" onclick="showJSON()">Preview JSON</button>
-        <button class="btn btn-dim" onclick="importJSON()">Import JSON</button>
-        <input type="file" id="importInput" accept=".json,application/json" style="display:none" onchange="handleImportJSON(this)">
-      </div>
-      <div id="exportPreview"></div>
     </div>
 
     <!-- RIGHT: Boulder editor + drawing -->
@@ -379,6 +416,14 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div id="authModal" class="modal-overlay hidden">
+  <div class="modal">
+    <h2 id="authModalTitle">Sign in with GitHub</h2>
+    <div id="authModalBody"></div>
+    <button class="modal-close" onclick="closeAuthModal()">Cancel</button>
   </div>
 </div>
 
@@ -530,6 +575,7 @@ function showHome() {
   document.getElementById('homeView').classList.remove('hidden');
   document.getElementById('editorView').classList.add('hidden');
   document.getElementById('backBtn').classList.add('hidden');
+  document.getElementById('submitPRBtn').classList.add('hidden');
   document.getElementById('topBarTitle').textContent = 'Community Areas';
   currentSlug = null;
   resetEditor();
@@ -540,6 +586,7 @@ function showEditor(title) {
   document.getElementById('homeView').classList.add('hidden');
   document.getElementById('editorView').classList.remove('hidden');
   document.getElementById('backBtn').classList.remove('hidden');
+  document.getElementById('submitPRBtn').classList.remove('hidden');
   document.getElementById('topBarTitle').textContent = title || 'New Area';
 }
 
@@ -557,7 +604,7 @@ function resetEditor() {
   document.getElementById('areaLat').value = '';
   document.getElementById('areaLng').value = '';
   document.getElementById('coverInfo').textContent = 'No image';
-  document.getElementById('exportPreview').innerHTML = '';
+
   renderBoulderList();
   document.getElementById('boulderEditor').style.display = 'none';
   document.getElementById('noSelection').style.display = '';
@@ -1198,130 +1245,7 @@ function buildDataJSON() {
   return area;
 }
 
-function showJSON() {
-  const data = buildDataJSON();
-  const json = JSON.stringify(data, null, 2);
-  const preview = document.getElementById('exportPreview');
-  preview.innerHTML = `<div class="export-box">
-    <h3>data.json preview</h3>
-    <pre>${escapeHtml(json)}</pre>
-    <div class="export-actions">
-      <button class="btn btn-dim btn-sm" onclick="copyJSON()">Copy JSON</button>
-      <button class="btn btn-dim btn-sm" onclick="downloadJSON()">Download data.json</button>
-    </div>
-  </div>`;
-}
-
-function copyJSON() {
-  const data = buildDataJSON();
-  navigator.clipboard.writeText(JSON.stringify(data, null, 2));
-  toast('JSON copied to clipboard');
-}
-
-function downloadJSON() {
-  const data = buildDataJSON();
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  downloadBlob(blob, 'data.json');
-}
-
-async function exportAll() {
-  const data = buildDataJSON();
-  if (typeof JSZip === 'undefined') {
-    await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js');
-  }
-
-  const zip = new JSZip();
-  const slug = (data.name || 'area').replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
-  const folder = zip.folder(slug);
-  const imgFolder = folder.folder('images');
-
-  folder.file('data.json', JSON.stringify(data, null, 2));
-
-  if (coverImageData) {
-    imgFolder.file('cover.jpg', coverImageData.blob);
-  }
-
-  const addedImages = new Set();
-  boulders.forEach((b) => {
-    if (b.imageData && b.imageFilename && !addedImages.has(b.imageFilename)) {
-      imgFolder.file(b.imageFilename, b.imageData.blob);
-      addedImages.add(b.imageFilename);
-    }
-  });
-
-  const zipBlob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
-  downloadBlob(zipBlob, `${slug}.zip`);
-  toast('ZIP downloaded!');
-}
-
-function importJSON() {
-  document.getElementById('importInput').click();
-}
-
-async function handleImportJSON(input) {
-  if (!input.files[0]) return;
-  const text = await input.files[0].text();
-  try {
-    const data = JSON.parse(text);
-    document.getElementById('areaName').value = data.name || '';
-    document.getElementById('areaType').value = data.type || 'Bouldering';
-    document.getElementById('areaStatus').value = data.status || 'DRAFT';
-    document.getElementById('areaCountry').value = data.country || '';
-    document.getElementById('areaCity').value = data.city || '';
-    document.getElementById('areaDesc').value = data.description || '';
-    document.getElementById('areaLat').value = data.coordinates?.latitude ?? '';
-    document.getElementById('areaLng').value = data.coordinates?.longitude ?? '';
-
-    if (data.imageFilename) {
-      existingCoverFilename = data.imageFilename;
-      document.getElementById('coverInfo').innerHTML =
-        `<span style="color:var(--text-dim)">${escapeHtml(data.imageFilename)}</span>`;
-    }
-
-    if (data.boulders && Array.isArray(data.boulders)) {
-      boulders = data.boulders.map(b => ({
-        name: b.name || '',
-        grade: b.grade || '6a',
-        stars: b.stars ?? 0,
-        tags: b.tags || [],
-        rockType: b.rockType || 'Granite',
-        sector: b.sector || '',
-        notes: b.notes || '',
-        coordinates: b.coordinates || null,
-        imageData: null,
-        routeLine: b.routeLine || null,
-        imageFilename: b.imageFilename || null,
-      }));
-      selectedIdx = boulders.length > 0 ? 0 : -1;
-      renderBoulderList();
-      if (selectedIdx >= 0) loadBoulderEditor();
-    }
-    toast('JSON imported!');
-  } catch (e) {
-    toast('Invalid JSON file');
-  }
-  input.value = '';
-}
-
 // --- Helpers ---
-function downloadBlob(blob, filename) {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.head.appendChild(s);
-  });
-}
-
 function imgFallback(el) {
   el.outerHTML = '<div class="area-card-img-placeholder">&#9968;</div>';
 }
@@ -1329,6 +1253,466 @@ function imgFallback(el) {
 function escapeHtml(str) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+
+// ============================================================
+// Submit PR — GitHub Device Flow Auth + GitHub API
+// ============================================================
+
+const GITHUB_CLIENT_ID = 'Ov23li50Yg84vF69MZKh'; // Replace after registering OAuth App
+const WORKER_URL = 'https://community-areas-auth.9way-community.workers.dev';
+const REPO_OWNER = 'NineWayClimbing';
+const REPO_NAME = 'community-areas';
+
+// --- GitHub API helper ---
+function ghApi(path, opts = {}) {
+  const token = localStorage.getItem('gh_token');
+  return fetch('https://api.github.com' + path, {
+    ...opts,
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Authorization': 'Bearer ' + token,
+      ...(opts.headers || {}),
+    },
+  });
+}
+
+// --- Auth modal ---
+let deviceFlowAbort = null;
+
+function showAuthModal(title, bodyHtml) {
+  document.getElementById('authModalTitle').textContent = title;
+  document.getElementById('authModalBody').innerHTML = bodyHtml;
+  document.getElementById('authModal').classList.remove('hidden');
+}
+
+function closeAuthModal() {
+  document.getElementById('authModal').classList.add('hidden');
+  if (deviceFlowAbort) { deviceFlowAbort.abort = true; deviceFlowAbort = null; }
+}
+
+// --- Device Flow Auth ---
+async function getGitHubToken() {
+  const existing = localStorage.getItem('gh_token');
+  if (existing) {
+    // Validate token
+    const resp = await fetch('https://api.github.com/user', {
+      headers: { 'Authorization': 'Bearer ' + existing, 'Accept': 'application/vnd.github+json' },
+    });
+    if (resp.ok) {
+      const user = await resp.json();
+      showGitHubUser(user);
+      return existing;
+    }
+    localStorage.removeItem('gh_token');
+  }
+  return startDeviceFlow();
+}
+
+function showGitHubUser(user) {
+  const badge = document.getElementById('ghUserBadge');
+  badge.style.display = '';
+  badge.innerHTML = `<img src="${user.avatar_url}" alt=""> Signed in as <strong>${escapeHtml(user.login)}</strong> <a onclick="logoutGitHub()">Sign out</a>`;
+}
+
+function logoutGitHub() {
+  localStorage.removeItem('gh_token');
+  document.getElementById('ghUserBadge').style.display = 'none';
+  toast('Signed out of GitHub');
+}
+
+async function startDeviceFlow() {
+  if (GITHUB_CLIENT_ID === 'YOUR_CLIENT_ID' || WORKER_URL === 'YOUR_WORKER_URL') {
+    showAuthModal('Setup Required', `
+      <p style="color:var(--text-dim);font-size:14px;line-height:1.6;">
+        To enable PR submission, you need to:<br>
+        1. Register a GitHub OAuth App with Device Flow enabled<br>
+        2. Deploy the Cloudflare Worker (worker.js)<br>
+        3. Set <code>GITHUB_CLIENT_ID</code> and <code>WORKER_URL</code> in index.html
+      </p>
+    `);
+    return null;
+  }
+
+  // Request device code
+  const codeResp = await fetch(WORKER_URL + '/device/code', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ client_id: GITHUB_CLIENT_ID, scope: 'public_repo' }),
+  });
+  if (!codeResp.ok) {
+    toast('Failed to start auth flow');
+    return null;
+  }
+  const codeData = await codeResp.json();
+  const { device_code, user_code, verification_uri, interval, expires_in } = codeData;
+
+  showAuthModal('Sign in with GitHub', `
+    <p style="color:var(--text-dim);font-size:14px;margin-bottom:12px;">Enter this code at GitHub:</p>
+    <div class="modal-code">${escapeHtml(user_code)}</div>
+    <a class="modal-link" href="${verification_uri}" target="_blank" rel="noopener">Open GitHub &rarr;</a>
+    <div class="modal-status" id="authStatus">Waiting for authorization...</div>
+  `);
+
+  // Poll for token
+  const controller = { abort: false };
+  deviceFlowAbort = controller;
+  const pollInterval = (interval || 5) * 1000;
+  const deadline = Date.now() + (expires_in || 900) * 1000;
+
+  while (!controller.abort && Date.now() < deadline) {
+    await new Promise(r => setTimeout(r, pollInterval));
+    if (controller.abort) return null;
+
+    try {
+      const tokenResp = await fetch(WORKER_URL + '/device/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_id: GITHUB_CLIENT_ID,
+          device_code,
+          grant_type: 'urn:ietf:params:oauth:grant-type:device_code',
+        }),
+      });
+      const tokenData = await tokenResp.json();
+
+      if (tokenData.access_token) {
+        localStorage.setItem('gh_token', tokenData.access_token);
+        closeAuthModal();
+        // Fetch user info
+        const userResp = await fetch('https://api.github.com/user', {
+          headers: { 'Authorization': 'Bearer ' + tokenData.access_token, 'Accept': 'application/vnd.github+json' },
+        });
+        if (userResp.ok) showGitHubUser(await userResp.json());
+        toast('Signed in to GitHub!');
+        return tokenData.access_token;
+      }
+      if (tokenData.error === 'slow_down') {
+        await new Promise(r => setTimeout(r, 5000));
+      }
+      // authorization_pending — keep polling
+    } catch (e) {
+      // Network error — keep trying
+    }
+  }
+
+  if (!controller.abort) {
+    const statusEl = document.getElementById('authStatus');
+    if (statusEl) statusEl.textContent = 'Authorization expired. Please try again.';
+  }
+  return null;
+}
+
+// --- Blob helper ---
+function blobToBase64(blob) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.readAsDataURL(blob);
+  });
+}
+
+// --- Submit PR ---
+async function submitPR() {
+  const data = buildDataJSON();
+  const slug = currentSlug || (data.name || 'area').replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+  if (!data.name || data.name === 'Unnamed Area') {
+    toast('Please set an area name first');
+    return;
+  }
+
+  // Check we have at least some content
+  if (!data.boulders || data.boulders.length === 0) {
+    toast('Add at least one boulder before submitting');
+    return;
+  }
+
+  const btn = document.getElementById('submitPRBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const steps = [
+    'Authenticating with GitHub',
+    'Forking repository',
+    'Preparing files',
+    'Creating commit',
+    'Opening pull request',
+  ];
+  let currentStep = 0;
+
+  function updateProgress(stepIdx, status) {
+    currentStep = stepIdx;
+    const html = steps.map((s, i) => {
+      const cls = i < stepIdx ? 'done' : i === stepIdx ? (status === 'error' ? 'error' : 'active') : '';
+      const icon = i < stepIdx ? '&#10003;' : i === stepIdx ? (status === 'error' ? '&#10007;' : '&#9679;') : '&#9675;';
+      return `<div class="pr-step ${cls}">${icon} ${s}</div>`;
+    }).join('');
+    showAuthModal('Submitting Pull Request', `<div class="pr-progress">${html}</div>`);
+  }
+
+  try {
+    // Step 0: Auth
+    updateProgress(0);
+    const token = await getGitHubToken();
+    if (!token) { btn.disabled = false; btn.textContent = 'Submit PR'; return; }
+
+    // Get current user
+    const userResp = await ghApi('/user');
+    if (!userResp.ok) throw new Error('Failed to get user info');
+    const user = await userResp.json();
+    const fork = user.login;
+
+    // Step 1: Fork
+    updateProgress(1);
+    const forkResp = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/forks`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ default_branch_only: true }),
+    });
+    if (!forkResp.ok && forkResp.status !== 202) {
+      // 422 means fork already exists, that's fine
+      const forkErr = await forkResp.json();
+      if (!forkErr.message?.includes('already exists')) throw new Error('Failed to fork: ' + forkErr.message);
+    }
+
+    // Wait for fork to be ready (up to 30s)
+    for (let i = 0; i < 10; i++) {
+      const check = await ghApi(`/repos/${fork}/${REPO_NAME}`);
+      if (check.ok) break;
+      await new Promise(r => setTimeout(r, 3000));
+    }
+
+    // Sync fork with upstream
+    await ghApi(`/repos/${fork}/${REPO_NAME}/merge-upstream`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ branch: 'main' }),
+    });
+
+    // Step 2: Prepare files
+    updateProgress(2);
+
+    // Get latest commit SHA from upstream
+    const refResp = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/git/ref/heads/main`);
+    if (!refResp.ok) throw new Error('Failed to get main branch ref');
+    const refData = await refResp.json();
+    const baseSha = refData.object.sha;
+
+    // Get the base tree
+    const commitResp = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/git/commits/${baseSha}`);
+    if (!commitResp.ok) throw new Error('Failed to get base commit');
+    const commitData = await commitResp.json();
+    const baseTreeSha = commitData.tree.sha;
+
+    // Build tree entries
+    const treeEntries = [];
+
+    // data.json
+    const dataJsonContent = JSON.stringify(data, null, 2);
+    const dataBlob = await ghApi(`/repos/${fork}/${REPO_NAME}/git/blobs`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: dataJsonContent, encoding: 'utf-8' }),
+    });
+    if (!dataBlob.ok) throw new Error('Failed to create data.json blob');
+    const dataBlobData = await dataBlob.json();
+    treeEntries.push({
+      path: `areas/${slug}/data.json`,
+      mode: '100644',
+      type: 'blob',
+      sha: dataBlobData.sha,
+    });
+
+    // Cover image
+    if (coverImageData) {
+      const b64 = await blobToBase64(coverImageData.blob);
+      const coverBlob = await ghApi(`/repos/${fork}/${REPO_NAME}/git/blobs`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: b64, encoding: 'base64' }),
+      });
+      if (!coverBlob.ok) throw new Error('Failed to upload cover image');
+      const coverBlobData = await coverBlob.json();
+      treeEntries.push({
+        path: `areas/${slug}/images/cover.jpg`,
+        mode: '100644',
+        type: 'blob',
+        sha: coverBlobData.sha,
+      });
+    }
+
+    // Boulder images
+    const uploadedImages = new Set();
+    for (const b of boulders) {
+      if (b.imageData && b.imageFilename && !uploadedImages.has(b.imageFilename)) {
+        const b64 = await blobToBase64(b.imageData.blob);
+        const imgBlob = await ghApi(`/repos/${fork}/${REPO_NAME}/git/blobs`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: b64, encoding: 'base64' }),
+        });
+        if (!imgBlob.ok) throw new Error('Failed to upload image: ' + b.imageFilename);
+        const imgBlobData = await imgBlob.json();
+        treeEntries.push({
+          path: `areas/${slug}/images/${b.imageFilename}`,
+          mode: '100644',
+          type: 'blob',
+          sha: imgBlobData.sha,
+        });
+        uploadedImages.add(b.imageFilename);
+      }
+    }
+
+    // Update index.json
+    let indexEntries = [];
+    try {
+      const indexResp = await fetch(`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/index.json`);
+      if (indexResp.ok) indexEntries = await indexResp.json();
+    } catch (e) { /* start fresh */ }
+
+    const indexEntry = {
+      slug,
+      name: data.name,
+      country: data.country || null,
+      city: data.city || null,
+      type: data.type,
+      status: data.status,
+      boulderCount: data.boulders.length,
+      imageFilename: data.imageFilename || (data.boulders[0]?.imageFilename || null),
+    };
+
+    // Find existing version to bump
+    const existingIdx = indexEntries.findIndex(e => e.slug === slug);
+    if (existingIdx >= 0) {
+      indexEntry.version = (indexEntries[existingIdx].version || 1) + 1;
+      indexEntries[existingIdx] = indexEntry;
+    } else {
+      indexEntry.version = 1;
+      indexEntries.push(indexEntry);
+    }
+
+    const indexBlob = await ghApi(`/repos/${fork}/${REPO_NAME}/git/blobs`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: JSON.stringify(indexEntries, null, 2), encoding: 'utf-8' }),
+    });
+    if (!indexBlob.ok) throw new Error('Failed to create index.json blob');
+    const indexBlobData = await indexBlob.json();
+    treeEntries.push({
+      path: 'index.json',
+      mode: '100644',
+      type: 'blob',
+      sha: indexBlobData.sha,
+    });
+
+    // Step 3: Create commit
+    updateProgress(3);
+
+    // Create tree
+    const treeResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/trees`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ base_tree: baseTreeSha, tree: treeEntries }),
+    });
+    if (!treeResp.ok) throw new Error('Failed to create tree');
+    const treeData = await treeResp.json();
+
+    // Create commit
+    const isNew = existingIdx < 0;
+    const commitMessage = isNew ? `feat: add ${data.name}` : `feat: update ${data.name}`;
+    const newCommitResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/commits`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: commitMessage,
+        tree: treeData.sha,
+        parents: [baseSha],
+      }),
+    });
+    if (!newCommitResp.ok) throw new Error('Failed to create commit');
+    const newCommitData = await newCommitResp.json();
+
+    // Create or update branch
+    const branchName = `area/${slug}`;
+    const branchResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/refs`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: `refs/heads/${branchName}`, sha: newCommitData.sha }),
+    });
+    if (!branchResp.ok) {
+      // Branch might already exist — update it
+      const updateResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/refs/heads/${branchName}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sha: newCommitData.sha, force: true }),
+      });
+      if (!updateResp.ok) throw new Error('Failed to create/update branch');
+    }
+
+    // Step 4: Open PR
+    updateProgress(4);
+    const prResp = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/pulls`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: commitMessage,
+        head: `${fork}:${branchName}`,
+        base: 'main',
+        body: `${isNew ? 'Add' : 'Update'} area **${data.name}**\n\n` +
+              `- ${data.boulders.length} boulder(s)\n` +
+              `- ${data.country || 'Unknown country'}` + (data.city ? `, ${data.city}` : '') + '\n' +
+              `- Status: ${data.status}\n\n` +
+              `Submitted from the [9Way Community Areas editor](https://ninewayclimbing.github.io/community-areas/).`,
+      }),
+    });
+
+    let prUrl;
+    if (prResp.ok || prResp.status === 201) {
+      const prData = await prResp.json();
+      prUrl = prData.html_url;
+    } else {
+      // PR might already exist — find it
+      const existingPR = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/pulls?head=${fork}:${branchName}&state=open`);
+      if (existingPR.ok) {
+        const prs = await existingPR.json();
+        if (prs.length > 0) {
+          prUrl = prs[0].html_url;
+        } else {
+          throw new Error('Failed to create pull request');
+        }
+      }
+    }
+
+    // Success!
+    showAuthModal('Pull Request Created!', `
+      <p style="color:var(--success);font-size:16px;font-weight:700;margin-bottom:12px;">&#10003; Success!</p>
+      <p style="color:var(--text-dim);font-size:14px;margin-bottom:16px;">Your changes have been submitted for review.</p>
+      <a class="modal-link" href="${prUrl}" target="_blank" rel="noopener">View Pull Request &rarr;</a>
+    `);
+    toast('PR created!');
+
+  } catch (err) {
+    updateProgress(currentStep, 'error');
+    const body = document.getElementById('authModalBody');
+    body.innerHTML += `<p style="color:var(--danger);font-size:13px;margin-top:12px;">${escapeHtml(err.message)}</p>`;
+    toast('PR submission failed');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Submit PR';
+  }
+}
+
+// Show GitHub user badge on load if token exists
+(function checkGitHubAuth() {
+  const token = localStorage.getItem('gh_token');
+  if (token) {
+    fetch('https://api.github.com/user', {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' },
+    }).then(r => r.ok ? r.json() : Promise.reject()).then(showGitHubUser).catch(() => {
+      localStorage.removeItem('gh_token');
+    });
+  }
+})();
 </script>
 </body>
 </html>
