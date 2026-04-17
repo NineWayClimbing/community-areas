@@ -1,0 +1,2391 @@
+{
+  "name": "Nossa Senhora da Assunção",
+  "type": "Bouldering",
+  "status": "READY",
+  "country": "Portugal",
+  "city": "Santo Tirso",
+  "description": "Santo Tirso bouldering area with 4 sectors: Sector Boulder, Sector Corvo, Sector Raposa, and Sector Torre de Pizza. Sombra todo o dia. Demora pra secar. Molha quando chove. Granite rock.",
+  "coordinates": {
+    "latitude": 41.3489,
+    "longitude": -8.4769
+  },
+  "imageFilename": "cover.jpg",
+  "boulders": [
+    {
+      "name": "Passeio Micológico (sit start)",
+      "grade": "7b",
+      "stars": 3,
+      "tags": [
+        "Crimpy",
+        "Cruxy"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start with both hands on opposing crimps.",
+      "routeLine": [
+        {
+          "x": 0.4367,
+          "y": 0.6245
+        },
+        {
+          "x": 0.4066,
+          "y": 0.5522
+        },
+        {
+          "x": 0.3825,
+          "y": 0.4799
+        },
+        {
+          "x": 0.4217,
+          "y": 0.4257
+        },
+        {
+          "x": 0.4518,
+          "y": 0.3735
+        },
+        {
+          "x": 0.4744,
+          "y": 0.3072
+        }
+      ]
+    },
+    {
+      "name": "Passeio micológico (high start)",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Left hand on the crimp, right hand on the crystal above it.",
+      "routeLine": [
+        {
+          "x": 0.4096,
+          "y": 0.5482
+        },
+        {
+          "x": 0.3825,
+          "y": 0.4779
+        },
+        {
+          "x": 0.4111,
+          "y": 0.4357
+        },
+        {
+          "x": 0.4473,
+          "y": 0.3815
+        },
+        {
+          "x": 0.4744,
+          "y": 0.3112
+        }
+      ]
+    },
+    {
+      "name": "Mancha negra",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start. Unknown starting position. Warning: The start foothold rock has disappeared.",
+      "routeLine": [
+        {
+          "x": 0.5587,
+          "y": 0.5843
+        },
+        {
+          "x": 0.5753,
+          "y": 0.4859
+        },
+        {
+          "x": 0.5723,
+          "y": 0.4056
+        },
+        {
+          "x": 0.5377,
+          "y": 0.3454
+        },
+        {
+          "x": 0.5075,
+          "y": 0.3052
+        }
+      ]
+    },
+    {
+      "name": "Passeio aplatológico",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start with both hands on the beginning of the slopers.",
+      "routeLine": [
+        {
+          "x": 0.3328,
+          "y": 0.5622
+        },
+        {
+          "x": 0.3599,
+          "y": 0.512
+        },
+        {
+          "x": 0.3946,
+          "y": 0.4679
+        },
+        {
+          "x": 0.4277,
+          "y": 0.4157
+        },
+        {
+          "x": 0.4563,
+          "y": 0.3675
+        },
+        {
+          "x": 0.4744,
+          "y": 0.3032
+        }
+      ]
+    },
+    {
+      "name": "Costas à Mesa (Pela Esquerda)",
+      "grade": "6b+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Same sit start as Costas à Mesa, then exit through the left.",
+      "routeLine": [
+        {
+          "x": 0.3208,
+          "y": 0.5442
+        },
+        {
+          "x": 0.3373,
+          "y": 0.49
+        },
+        {
+          "x": 0.3705,
+          "y": 0.4378
+        },
+        {
+          "x": 0.4021,
+          "y": 0.3936
+        },
+        {
+          "x": 0.4744,
+          "y": 0.3052
+        }
+      ]
+    },
+    {
+      "name": "Costas à mesa",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start, then go straight through the slab, close to the arete of Passeio aplatológico.",
+      "routeLine": [
+        {
+          "x": 0.3148,
+          "y": 0.5462
+        },
+        {
+          "x": 0.3509,
+          "y": 0.494
+        },
+        {
+          "x": 0.3886,
+          "y": 0.4438
+        },
+        {
+          "x": 0.4217,
+          "y": 0.3876
+        },
+        {
+          "x": 0.4744,
+          "y": 0.3052
+        }
+      ]
+    },
+    {
+      "name": "Bicep's Mu!",
+      "grade": "7c",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "passeio_micol_gico__sit_start_.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Unknown starting position. Start at the left of the boulder then traverse all the way to the start of Passeio aplatológico.",
+      "routeLine": [
+        {
+          "x": 0.3178,
+          "y": 0.5141
+        },
+        {
+          "x": 0.3193,
+          "y": 0.5562
+        },
+        {
+          "x": 0.3404,
+          "y": 0.5582
+        },
+        {
+          "x": 0.363,
+          "y": 0.5382
+        },
+        {
+          "x": 0.384,
+          "y": 0.496
+        },
+        {
+          "x": 0.4337,
+          "y": 0.4277
+        },
+        {
+          "x": 0.4639,
+          "y": 0.3594
+        },
+        {
+          "x": 0.4774,
+          "y": 0.3012
+        }
+      ]
+    },
+    {
+      "name": "Micro II",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "micro_ii.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start.",
+      "routeLine": [
+        {
+          "x": 0.4337,
+          "y": 0.6888
+        },
+        {
+          "x": 0.4277,
+          "y": 0.5622
+        },
+        {
+          "x": 0.4503,
+          "y": 0.4759
+        },
+        {
+          "x": 0.4744,
+          "y": 0.4177
+        },
+        {
+          "x": 0.506,
+          "y": 0.3594
+        },
+        {
+          "x": 0.5422,
+          "y": 0.2992
+        }
+      ]
+    },
+    {
+      "name": "Travessia Assunção Bleau",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "travessia_assun__o_bleau.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start at the jug. Traverse the boulder in a anti-clockwise direction, through the top, downclimb and traverse the crack to finish in the same hold.",
+      "routeLine": [
+        {
+          "x": 0.494,
+          "y": 0.7028
+        },
+        {
+          "x": 0.5407,
+          "y": 0.5863
+        },
+        {
+          "x": 0.5753,
+          "y": 0.4699
+        },
+        {
+          "x": 0.6009,
+          "y": 0.3273
+        },
+        {
+          "x": 0.5964,
+          "y": 0.1948
+        },
+        {
+          "x": 0.4955,
+          "y": 0.1406
+        },
+        {
+          "x": 0.3569,
+          "y": 0.1365
+        },
+        {
+          "x": 0.2681,
+          "y": 0.1707
+        },
+        {
+          "x": 0.1657,
+          "y": 0.243
+        },
+        {
+          "x": 0.0964,
+          "y": 0.4096
+        },
+        {
+          "x": 0.1099,
+          "y": 0.4759
+        },
+        {
+          "x": 0.1747,
+          "y": 0.4538
+        },
+        {
+          "x": 0.2696,
+          "y": 0.4317
+        },
+        {
+          "x": 0.3539,
+          "y": 0.4217
+        },
+        {
+          "x": 0.4654,
+          "y": 0.4237
+        },
+        {
+          "x": 0.5678,
+          "y": 0.4478
+        }
+      ]
+    },
+    {
+      "name": "Dinâmico Assunção Bleau",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "travessia_assun__o_bleau.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Dyno, start with both hands from the start jug to the sloper at the top.",
+      "routeLine": [
+        {
+          "x": 0.5512,
+          "y": 0.4538
+        },
+        {
+          "x": 0.5768,
+          "y": 0.1847
+        }
+      ]
+    },
+    {
+      "name": "Directa",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "travessia_assun__o_bleau.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start from the holds at the end of the horizontal crack.",
+      "routeLine": [
+        {
+          "x": 0.4714,
+          "y": 0.6968
+        },
+        {
+          "x": 0.4955,
+          "y": 0.5422
+        },
+        {
+          "x": 0.4819,
+          "y": 0.4357
+        },
+        {
+          "x": 0.5497,
+          "y": 0.4398
+        },
+        {
+          "x": 0.5738,
+          "y": 0.1827
+        }
+      ]
+    },
+    {
+      "name": "Jump",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "travessia_assun__o_bleau.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Dyno, start with both hands on the good holds in the crack, straight to the jug at the top.",
+      "routeLine": [
+        {
+          "x": 0.2274,
+          "y": 0.4618
+        },
+        {
+          "x": 0.244,
+          "y": 0.1807
+        }
+      ]
+    },
+    {
+      "name": "Lançamento",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "travessia_assun__o_bleau.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Dyno, start with both hands on the holds in the crack more to the left, to a sloper in the top lip.",
+      "routeLine": [
+        {
+          "x": 0.1687,
+          "y": 0.4679
+        },
+        {
+          "x": 0.3223,
+          "y": 0.1426
+        }
+      ]
+    },
+    {
+      "name": "Karma",
+      "grade": "6c",
+      "stars": 3,
+      "rockType": "Granite",
+      "imageFilename": "karma.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start with left hand on small vertical crimp and right hand on big crimp.",
+      "routeLine": [
+        {
+          "x": 0.1401,
+          "y": 0.5763
+        },
+        {
+          "x": 0.2334,
+          "y": 0.3253
+        },
+        {
+          "x": 0.241,
+          "y": 0.1386
+        },
+        {
+          "x": 0.3735,
+          "y": 0.0602
+        }
+      ]
+    },
+    {
+      "name": "Karma (sit start)",
+      "grade": "7a",
+      "stars": 0,
+      "tags": [
+        "Crimpy",
+        "Cruxy"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "karma.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start with both hands on the big crimp.",
+      "routeLine": [
+        {
+          "x": 0.2018,
+          "y": 0.6546
+        },
+        {
+          "x": 0.1386,
+          "y": 0.5823
+        },
+        {
+          "x": 0.2349,
+          "y": 0.3173
+        },
+        {
+          "x": 0.2364,
+          "y": 0.1386
+        },
+        {
+          "x": 0.372,
+          "y": 0.0562
+        }
+      ]
+    },
+    {
+      "name": "Efeitos sonoros",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.1702,
+          "y": 0.5843
+        },
+        {
+          "x": 0.2289,
+          "y": 0.498
+        },
+        {
+          "x": 0.2575,
+          "y": 0.3755
+        },
+        {
+          "x": 0.3404,
+          "y": 0.3213
+        }
+      ]
+    },
+    {
+      "name": "Enxotó cão",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.2711,
+          "y": 0.7048
+        },
+        {
+          "x": 0.3358,
+          "y": 0.6526
+        },
+        {
+          "x": 0.3328,
+          "y": 0.5402
+        },
+        {
+          "x": 0.3645,
+          "y": 0.3414
+        }
+      ]
+    },
+    {
+      "name": "Devorador de lanches mistos",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.6145,
+          "y": 0.6526
+        },
+        {
+          "x": 0.4985,
+          "y": 0.6466
+        },
+        {
+          "x": 0.4277,
+          "y": 0.6205
+        },
+        {
+          "x": 0.4292,
+          "y": 0.5141
+        },
+        {
+          "x": 0.4352,
+          "y": 0.3996
+        },
+        {
+          "x": 0.3795,
+          "y": 0.3353
+        }
+      ]
+    },
+    {
+      "name": "Aquecimento",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Traverse.",
+      "routeLine": [
+        {
+          "x": 0.7274,
+          "y": 0.4538
+        },
+        {
+          "x": 0.6024,
+          "y": 0.3976
+        },
+        {
+          "x": 0.5392,
+          "y": 0.3715
+        },
+        {
+          "x": 0.375,
+          "y": 0.3293
+        }
+      ]
+    },
+    {
+      "name": "Crack",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.6973,
+          "y": 0.6827
+        },
+        {
+          "x": 0.7334,
+          "y": 0.5482
+        },
+        {
+          "x": 0.7274,
+          "y": 0.4317
+        }
+      ]
+    },
+    {
+      "name": "Chamó gato",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.7319,
+          "y": 0.6586
+        },
+        {
+          "x": 0.747,
+          "y": 0.5562
+        },
+        {
+          "x": 0.738,
+          "y": 0.4498
+        }
+      ]
+    },
+    {
+      "name": "Travessia Direita",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "efeitos_sonoros.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Start at Crack and traverse right until after Chamó gato.",
+      "routeLine": [
+        {
+          "x": 0.6943,
+          "y": 0.6908
+        },
+        {
+          "x": 0.7334,
+          "y": 0.5201
+        },
+        {
+          "x": 0.7485,
+          "y": 0.4538
+        }
+      ]
+    },
+    {
+      "name": "Limonete",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "limonete.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.6822,
+          "y": 0.5201
+        },
+        {
+          "x": 0.6627,
+          "y": 0.3795
+        },
+        {
+          "x": 0.6054,
+          "y": 0.253
+        }
+      ]
+    },
+    {
+      "name": "Bloca",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bloca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.3283,
+          "y": 0.6827
+        },
+        {
+          "x": 0.3976,
+          "y": 0.4277
+        },
+        {
+          "x": 0.4247,
+          "y": 0.3173
+        },
+        {
+          "x": 0.3946,
+          "y": 0.1466
+        }
+      ]
+    },
+    {
+      "name": "Blocada",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bloca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.5949,
+          "y": 0.5301
+        },
+        {
+          "x": 0.6024,
+          "y": 0.3514
+        },
+        {
+          "x": 0.5964,
+          "y": 0.1847
+        }
+      ]
+    },
+    {
+      "name": "Javali adormecido",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bloca.jpg",
+      "sector": "Sector Boulder",
+      "notes": "This is a small traverse between Bloca and Blocada. You should climb Bloca until the upper hold (the good one, otherwise it will be a V3/V4) and after that, you should use the last crimp of the Blocada. After that, you should do the same top-out of Blocada. Remember: when you do the traverse you have good foot holds but they're obvious.",
+      "routeLine": [
+        {
+          "x": 0.3313,
+          "y": 0.6787
+        },
+        {
+          "x": 0.4232,
+          "y": 0.3434
+        },
+        {
+          "x": 0.5889,
+          "y": 0.3434
+        },
+        {
+          "x": 0.5979,
+          "y": 0.1867
+        }
+      ]
+    },
+    {
+      "name": "Tetozinho",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "tetozinho.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.3584,
+          "y": 0.7169
+        },
+        {
+          "x": 0.3645,
+          "y": 0.5904
+        },
+        {
+          "x": 0.4142,
+          "y": 0.3594
+        }
+      ]
+    },
+    {
+      "name": "Travessia Assunção Bleau II",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "tetozinho.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.7289,
+          "y": 0.6004
+        },
+        {
+          "x": 0.6235,
+          "y": 0.498
+        },
+        {
+          "x": 0.4367,
+          "y": 0.3554
+        }
+      ]
+    },
+    {
+      "name": "Resvalanço",
+      "grade": "7c",
+      "stars": 3,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "Sem talhados (Without carved holds)."
+    },
+    {
+      "name": "Idade de Pedra",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "idade_de_pedra.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sem talhados (Without carved holds).",
+      "routeLine": [
+        {
+          "x": 0.7726,
+          "y": 0.7833
+        },
+        {
+          "x": 0.6009,
+          "y": 0.5493
+        },
+        {
+          "x": 0.5166,
+          "y": 0.4171
+        },
+        {
+          "x": 0.4352,
+          "y": 0.2696
+        }
+      ]
+    },
+    {
+      "name": "Caracol",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "caracol.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sem talhados (Without carved holds).",
+      "routeLine": [
+        {
+          "x": 0.2922,
+          "y": 0.6386
+        },
+        {
+          "x": 0.3027,
+          "y": 0.4237
+        },
+        {
+          "x": 0.3253,
+          "y": 0.2309
+        }
+      ]
+    },
+    {
+      "name": "Tá tola ná",
+      "grade": "6a",
+      "stars": 3,
+      "rockType": "Granite",
+      "imageFilename": "caracol.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sem talhados (Without carved holds).",
+      "routeLine": [
+        {
+          "x": 0.6958,
+          "y": 0.496
+        },
+        {
+          "x": 0.7681,
+          "y": 0.3173
+        },
+        {
+          "x": 0.747,
+          "y": 0.1867
+        },
+        {
+          "x": 0.7078,
+          "y": 0.1406
+        }
+      ]
+    },
+    {
+      "name": "Aresta dos básicos",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.0617,
+          "y": 0.5321
+        },
+        {
+          "x": 0.1491,
+          "y": 0.4116
+        },
+        {
+          "x": 0.3178,
+          "y": 0.2209
+        }
+      ]
+    },
+    {
+      "name": "Tabu",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.2139,
+          "y": 0.6044
+        },
+        {
+          "x": 0.2395,
+          "y": 0.4398
+        },
+        {
+          "x": 0.2636,
+          "y": 0.3273
+        },
+        {
+          "x": 0.3313,
+          "y": 0.2249
+        }
+      ]
+    },
+    {
+      "name": "Campus I",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.491,
+          "y": 0.7169
+        },
+        {
+          "x": 0.5211,
+          "y": 0.488
+        },
+        {
+          "x": 0.5407,
+          "y": 0.4157
+        },
+        {
+          "x": 0.4849,
+          "y": 0.2329
+        }
+      ]
+    },
+    {
+      "name": "Easy Rider",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Warning: Tree on top of the boulder.",
+      "routeLine": [
+        {
+          "x": 0.7048,
+          "y": 0.6928
+        },
+        {
+          "x": 0.6355,
+          "y": 0.4659
+        },
+        {
+          "x": 0.6416,
+          "y": 0.3233
+        },
+        {
+          "x": 0.6476,
+          "y": 0.2108
+        }
+      ]
+    },
+    {
+      "name": "Scarpa",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.8193,
+          "y": 0.6867
+        },
+        {
+          "x": 0.7846,
+          "y": 0.496
+        },
+        {
+          "x": 0.741,
+          "y": 0.3494
+        },
+        {
+          "x": 0.7425,
+          "y": 0.2309
+        }
+      ]
+    },
+    {
+      "name": "Geração à rasca",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "aresta_dos_b_sicos.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.887,
+          "y": 0.6807
+        },
+        {
+          "x": 0.9217,
+          "y": 0.492
+        },
+        {
+          "x": 0.8614,
+          "y": 0.3293
+        },
+        {
+          "x": 0.8253,
+          "y": 0.2169
+        }
+      ]
+    },
+    {
+      "name": "Lançamento Descola",
+      "grade": "7c+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "lan_amento_descola.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Start with feet in air (campus) and both hands on the crimp. FA: Júlio Braga, 2002.",
+      "routeLine": [
+        {
+          "x": 0.6913,
+          "y": 0.5703
+        },
+        {
+          "x": 0.6852,
+          "y": 0.4398
+        },
+        {
+          "x": 0.7289,
+          "y": 0.4277
+        },
+        {
+          "x": 0.7711,
+          "y": 0.4217
+        },
+        {
+          "x": 0.747,
+          "y": 0.3394
+        },
+        {
+          "x": 0.7093,
+          "y": 0.253
+        },
+        {
+          "x": 0.6807,
+          "y": 0.1767
+        }
+      ]
+    },
+    {
+      "name": "Descola Estático",
+      "grade": "7c",
+      "stars": 3,
+      "tags": [
+        "Crimpy",
+        "Athletic",
+        "Technical",
+        "Cruxy"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "lan_amento_descola.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Starting with right hand on the crimp, left heel hook on the big hold in the arete to the left, and left hand on the undercling below.",
+      "routeLine": [
+        {
+          "x": 0.628,
+          "y": 0.6506
+        },
+        {
+          "x": 0.6762,
+          "y": 0.5763
+        },
+        {
+          "x": 0.6732,
+          "y": 0.4478
+        },
+        {
+          "x": 0.7334,
+          "y": 0.4277
+        },
+        {
+          "x": 0.7726,
+          "y": 0.4237
+        },
+        {
+          "x": 0.756,
+          "y": 0.3775
+        },
+        {
+          "x": 0.6777,
+          "y": 0.1787
+        }
+      ]
+    },
+    {
+      "name": "Descola (cs esquerda)",
+      "grade": "8a+",
+      "stars": 3,
+      "tags": [
+        "Crimpy",
+        "Athletic",
+        "Technical",
+        "Cruxy"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "lan_amento_descola.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start, down to the left. FA: Júlio Braga, 2004.",
+      "routeLine": [
+        {
+          "x": 0.375,
+          "y": 0.7771
+        },
+        {
+          "x": 0.4307,
+          "y": 0.6727
+        },
+        {
+          "x": 0.4533,
+          "y": 0.5422
+        },
+        {
+          "x": 0.6913,
+          "y": 0.5763
+        },
+        {
+          "x": 0.6732,
+          "y": 0.4378
+        },
+        {
+          "x": 0.7696,
+          "y": 0.4257
+        },
+        {
+          "x": 0.6792,
+          "y": 0.1787
+        }
+      ]
+    },
+    {
+      "name": "Descola 21",
+      "grade": "8b+",
+      "stars": 3,
+      "rockType": "Granite",
+      "imageFilename": "lan_amento_descola.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start, to the right, starting in both underclings and going to the crimp above. FA: Júlio Braga, Fev 2021.",
+      "routeLine": [
+        {
+          "x": 0.5979,
+          "y": 0.8052
+        },
+        {
+          "x": 0.6943,
+          "y": 0.5723
+        },
+        {
+          "x": 0.6732,
+          "y": 0.4418
+        },
+        {
+          "x": 0.7696,
+          "y": 0.4337
+        },
+        {
+          "x": 0.6807,
+          "y": 0.1767
+        }
+      ]
+    },
+    {
+      "name": "Pedra Filosofal",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "Fall risk."
+    },
+    {
+      "name": "Descola Swing",
+      "grade": "7a",
+      "stars": 0,
+      "tags": [
+        "Athletic"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "lan_amento_descola.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Stand start, start with left hand on the crimp and jump to get the right hand on the big bulge.",
+      "routeLine": [
+        {
+          "x": 0.6928,
+          "y": 0.5783
+        },
+        {
+          "x": 0.6702,
+          "y": 0.4337
+        },
+        {
+          "x": 0.7696,
+          "y": 0.4317
+        },
+        {
+          "x": 0.6807,
+          "y": 0.1767
+        }
+      ]
+    },
+    {
+      "name": "Agarra-te aqui",
+      "grade": "4+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "agarra_te_aqui.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.7101,
+          "y": 0.8323
+        },
+        {
+          "x": 0.7146,
+          "y": 0.0653
+        }
+      ]
+    },
+    {
+      "name": "Força Maligna",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "for_a_maligna.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start, saída directa.",
+      "routeLine": [
+        {
+          "x": 0.305,
+          "y": 0.7942
+        },
+        {
+          "x": 0.2959,
+          "y": 0.6416
+        },
+        {
+          "x": 0.3396,
+          "y": 0.509
+        },
+        {
+          "x": 0.3758,
+          "y": 0.3544
+        }
+      ]
+    },
+    {
+      "name": "Huf huf huf",
+      "grade": "4+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "for_a_maligna.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.6002,
+          "y": 0.7098
+        },
+        {
+          "x": 0.6242,
+          "y": 0.4809
+        },
+        {
+          "x": 0.5173,
+          "y": 0.3384
+        }
+      ]
+    },
+    {
+      "name": "Zé gato",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "for_a_maligna.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.7914,
+          "y": 0.7118
+        },
+        {
+          "x": 0.7508,
+          "y": 0.509
+        },
+        {
+          "x": 0.6273,
+          "y": 0.3504
+        }
+      ]
+    },
+    {
+      "name": "Pinça",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "agarra_te_aqui.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.3742,
+          "y": 0.8765
+        },
+        {
+          "x": 0.4405,
+          "y": 0.0572
+        }
+      ]
+    },
+    {
+      "name": "Sardanisca",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "sardanisca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.2342,
+          "y": 0.8665
+        },
+        {
+          "x": 0.2342,
+          "y": 0.258
+        }
+      ]
+    },
+    {
+      "name": "Revenge from Mars",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "sardanisca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.4902,
+          "y": 0.6436
+        },
+        {
+          "x": 0.5941,
+          "y": 0.1616
+        }
+      ]
+    },
+    {
+      "name": "Tsunami",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "sardanisca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.5911,
+          "y": 0.8343
+        },
+        {
+          "x": 0.6649,
+          "y": 0.2038
+        }
+      ]
+    },
+    {
+      "name": "Quebra Noz",
+      "grade": "7b",
+      "stars": 0,
+      "tags": [
+        "Technical",
+        "Crimpy"
+      ],
+      "rockType": "Granite",
+      "imageFilename": "sardanisca.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.6649,
+          "y": 0.8564
+        },
+        {
+          "x": 0.7794,
+          "y": 0.6355
+        },
+        {
+          "x": 0.7854,
+          "y": 0.4267
+        },
+        {
+          "x": 0.7387,
+          "y": 0.2098
+        }
+      ]
+    },
+    {
+      "name": "Dedos de Aço",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "dedos_de_a_o.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.6393,
+          "y": 0.8706
+        },
+        {
+          "x": 0.5279,
+          "y": 0.3755
+        }
+      ]
+    },
+    {
+      "name": "Twister",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "twister.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.6107,
+          "y": 0.756
+        },
+        {
+          "x": 0.6032,
+          "y": 0.1958
+        }
+      ]
+    },
+    {
+      "name": "Viagra",
+      "grade": "7a+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "viagra.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.2462,
+          "y": 0.8845
+        },
+        {
+          "x": 0.2658,
+          "y": 0.5371
+        },
+        {
+          "x": 0.4179,
+          "y": 0.2741
+        },
+        {
+          "x": 0.5233,
+          "y": 0.1516
+        }
+      ]
+    },
+    {
+      "name": "Bico do Patelo I",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bico_do_patelo_i.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.436,
+          "y": 0.8283
+        },
+        {
+          "x": 0.5083,
+          "y": 0.1797
+        }
+      ]
+    },
+    {
+      "name": "Bico do Patelo II",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bico_do_patelo_i.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.6348,
+          "y": 0.8544
+        },
+        {
+          "x": 0.7252,
+          "y": 0.3604
+        },
+        {
+          "x": 0.5595,
+          "y": 0.1576
+        }
+      ]
+    },
+    {
+      "name": "Académica",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Aderência",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "ader_ncia.jpg",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Salta-lhe",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "salta_lhe.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.3095,
+          "y": 0.8624
+        },
+        {
+          "x": 0.3758,
+          "y": 0.1556
+        }
+      ]
+    },
+    {
+      "name": "Baltar",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "salta_lhe.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.558,
+          "y": 0.8243
+        },
+        {
+          "x": 0.7101,
+          "y": 0.4669
+        },
+        {
+          "x": 0.6152,
+          "y": 0.1576
+        }
+      ]
+    },
+    {
+      "name": "Chapada no Baltar",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "salta_lhe.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.8878,
+          "y": 0.7058
+        },
+        {
+          "x": 0.814,
+          "y": 0.4548
+        },
+        {
+          "x": 0.7206,
+          "y": 0.3464
+        },
+        {
+          "x": 0.6845,
+          "y": 0.2078
+        }
+      ]
+    },
+    {
+      "name": "XL de força",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "xl_de_for_a.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Warning: Rock has been burned and mostly destroyed. SS.",
+      "routeLine": [
+        {
+          "x": 0.3953,
+          "y": 0.5833
+        },
+        {
+          "x": 0.4255,
+          "y": 0.2339
+        }
+      ]
+    },
+    {
+      "name": "Investida pélvica",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "xl_de_for_a.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.5565,
+          "y": 0.7139
+        },
+        {
+          "x": 0.6739,
+          "y": 0.4046
+        },
+        {
+          "x": 0.6212,
+          "y": 0.2359
+        }
+      ]
+    },
+    {
+      "name": "Salto na lama",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "SS. FA: Sílvio Morgado."
+    },
+    {
+      "name": "Volta ao mundo",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Coxa o coelhão",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "coxa_o_coelh_o.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS. FA: Julio Braga, 2008.",
+      "routeLine": [
+        {
+          "x": 0.5761,
+          "y": 0.7882
+        },
+        {
+          "x": 0.6258,
+          "y": 0.2882
+        }
+      ]
+    },
+    {
+      "name": "Lusco fusco",
+      "grade": "7a+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "twister.jpg",
+      "sector": "Sector Boulder",
+      "notes": "SS",
+      "routeLine": [
+        {
+          "x": 0.3291,
+          "y": 0.6496
+        },
+        {
+          "x": 0.5053,
+          "y": 0.511
+        },
+        {
+          "x": 0.5324,
+          "y": 0.3143
+        },
+        {
+          "x": 0.4977,
+          "y": 0.1556
+        }
+      ]
+    },
+    {
+      "name": "Bareja verde",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bareja_verde.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.2718,
+          "y": 0.8042
+        },
+        {
+          "x": 0.32,
+          "y": 0.3163
+        }
+      ]
+    },
+    {
+      "name": "Rolinha",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "bareja_verde.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.7101,
+          "y": 0.7922
+        },
+        {
+          "x": 0.6529,
+          "y": 0.2681
+        }
+      ]
+    },
+    {
+      "name": "Coquilha",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Super bota",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "super_bota.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.7191,
+          "y": 0.7821
+        },
+        {
+          "x": 0.7267,
+          "y": 0.3143
+        }
+      ]
+    },
+    {
+      "name": "Unnamed Left",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "unnamed_left.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.3215,
+          "y": 0.5446
+        },
+        {
+          "x": 0.2206,
+          "y": 0.3178
+        },
+        {
+          "x": 0.2372,
+          "y": 0.0836
+        }
+      ]
+    },
+    {
+      "name": "Unnamed Right",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "unnamed_left.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.8125,
+          "y": 0.6183
+        },
+        {
+          "x": 0.6483,
+          "y": 0.3768
+        },
+        {
+          "x": 0.7267,
+          "y": 0.1291
+        }
+      ]
+    },
+    {
+      "name": "Moto-Serra",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "moto_serra.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.1694,
+          "y": 0.5392
+        },
+        {
+          "x": 0.2718,
+          "y": 0.5291
+        },
+        {
+          "x": 0.4014,
+          "y": 0.5231
+        },
+        {
+          "x": 0.567,
+          "y": 0.4809
+        },
+        {
+          "x": 0.7733,
+          "y": 0.3785
+        },
+        {
+          "x": 0.8095,
+          "y": 0.3323
+        }
+      ]
+    },
+    {
+      "name": "? 147",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "moto_serra.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start.",
+      "routeLine": [
+        {
+          "x": 0.7914,
+          "y": 0.7902
+        },
+        {
+          "x": 0.7718,
+          "y": 0.4869
+        },
+        {
+          "x": 0.7899,
+          "y": 0.3805
+        },
+        {
+          "x": 0.8155,
+          "y": 0.3022
+        }
+      ]
+    },
+    {
+      "name": "? 156",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "? 157",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "? 158",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "? 159",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "__159.jpg",
+      "sector": "Sector Boulder",
+      "routeLine": [
+        {
+          "x": 0.2884,
+          "y": 0.6576
+        },
+        {
+          "x": 0.3517,
+          "y": 0.2038
+        }
+      ]
+    },
+    {
+      "name": "? 160",
+      "grade": "7a+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "Dynamic jump to top."
+    },
+    {
+      "name": "? 161",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Força",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "Monstro",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder"
+    },
+    {
+      "name": "? 95",
+      "grade": "7a+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "Sit start."
+    },
+    {
+      "name": "? 155",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Boulder",
+      "notes": "Traverse."
+    },
+    {
+      "name": "Rala Canelas",
+      "grade": "7a+",
+      "stars": 0,
+      "rockType": "Granite",
+      "imageFilename": "rala_canelas.jpg",
+      "sector": "Sector Boulder",
+      "notes": "Sit start.",
+      "routeLine": [
+        {
+          "x": 0.4465,
+          "y": 0.7913
+        },
+        {
+          "x": 0.3833,
+          "y": 0.5299
+        },
+        {
+          "x": 0.5113,
+          "y": 0.2706
+        }
+      ]
+    },
+    {
+      "name": "Bico",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Espinha",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "O olho",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Crista",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Solta-se o peido",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "This boulder probably has a different name. It has been climbed since at least 2011 with a sit start."
+    },
+    {
+      "name": "Rapidinha da Manhã",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "SS. SDS."
+    },
+    {
+      "name": "Abre Costas",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "SS. SDS."
+    },
+    {
+      "name": "Agora com Calma",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "SS. SDS."
+    },
+    {
+      "name": "S.M.",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "SS. SDS."
+    },
+    {
+      "name": "Pão Pão Queijo Queijo",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Highball."
+    },
+    {
+      "name": "Bimbo",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Highball."
+    },
+    {
+      "name": "Bocadinho",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Highball."
+    },
+    {
+      "name": "Micro",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Travessia do Corvo",
+      "grade": "4+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Unnamed Slab",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "Dunfer",
+      "grade": "8b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo"
+    },
+    {
+      "name": "The Ear",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Starts on a jug in the crack, after - move up, using crack and crimps in Ear area. Be careful - side crimp on the top left part of the boulder - playing little bit. Could be extended with sit start, but this part should be investigated little bit more. FA: Dima Chok, 8 Jun 2025."
+    },
+    {
+      "name": "Milky Way",
+      "grade": "6c",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Starting with hands on good crystals - you going up to the right, by Milky Way white line of crystals up to the jug and top-out. The crux is first move - transition with left hand up to next hold. Difficult to place feet for taller people. Lot of finger-strength needed. FA: @claravincii, 8 Jun 2025."
+    },
+    {
+      "name": "Milky Way - SS",
+      "grade": "6c+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Corvo",
+      "notes": "Sit Start Extension for Milky Way. Same hand holds as on route The Ear, traverse to the right, and continue as Milky Way. Assigned grade 6C+, waiting for more ascents to validate. FA: Climbing Samurai."
+    },
+    {
+      "name": "Limonete Podre",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Regletes Voadoras",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Salto da Raposa",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Crack da Raposa",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa"
+    },
+    {
+      "name": "Crack",
+      "grade": "4",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Risky landing zone, there is a gap between the wall and the ground so using several pads is advised to cover the gap."
+    },
+    {
+      "name": "Cobra Mirona",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Buraco Chato",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Musgosida",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa"
+    },
+    {
+      "name": "BMX",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Projecto",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa"
+    },
+    {
+      "name": "Senhor Palaco",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Start with left crimp on wall face and right juggy crimp. After that just go up to crack and top-out. No arreite allowed. FA: Dima Chok & Vladyslav Liubov, 12 Jul 2025."
+    },
+    {
+      "name": "Salto de Palhaco",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Raposa",
+      "notes": "Start same as Senhor Palhaco, but instead of going to the crack - just jump and top-out."
+    },
+    {
+      "name": "Gioconda",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Torre de Pizza",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Garfield",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "My Fair Lady",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Golias",
+      "grade": "5+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Quimera",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Saramela",
+      "grade": "3",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Pizzart",
+      "grade": "4+",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Gritos",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Gritos (sit start)",
+      "grade": "6a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza",
+      "notes": "Sit start for Gritos, down and to the right."
+    },
+    {
+      "name": "Blair Witch Project",
+      "grade": "7b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Guilhotina",
+      "grade": "6b",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Pelo tronco acima",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza",
+      "notes": "Sit start."
+    },
+    {
+      "name": "Carrocel Humano",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Cubo",
+      "grade": "5",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza"
+    },
+    {
+      "name": "Papa Reformas",
+      "grade": "7a",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza",
+      "notes": "Sit start with both hands on the crimp below at the left side of the boulder."
+    },
+    {
+      "name": "?",
+      "grade": "Project",
+      "stars": 0,
+      "rockType": "Granite",
+      "sector": "Sector Torre de Pizza",
+      "notes": "Through the crack."
+    }
+  ]
+}
