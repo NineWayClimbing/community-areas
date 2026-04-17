@@ -15,6 +15,10 @@
       "name": "Passeio Micológico (sit start)",
       "grade": "7b",
       "stars": 3,
+      "tags": [
+        "Crimpy",
+        "Cruxy"
+      ],
       "rockType": "Granite",
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
