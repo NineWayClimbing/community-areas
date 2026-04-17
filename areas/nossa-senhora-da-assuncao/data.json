@@ -2153,15 +2153,57 @@
       "grade": "6c",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "bico.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.0233,
+          "y": 0.9649
+        },
+        {
+          "x": 0.0429,
+          "y": 0.6175
+        },
+        {
+          "x": 0.0309,
+          "y": 0.4207
+        },
+        {
+          "x": 0.0474,
+          "y": 0.2841
+        },
+        {
+          "x": 0.1273,
+          "y": 0.2078
+        }
+      ]
     },
     {
       "id": "69441234-45ce-4e7b-a00b-216d0279d11e",
       "name": "Espinha",
-      "grade": "5",
+      "grade": "6a",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "bico.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.305,
+          "y": 0.9689
+        },
+        {
+          "x": 0.2703,
+          "y": 0.4046
+        },
+        {
+          "x": 0.2568,
+          "y": 0.1456
+        },
+        {
+          "x": 0.3095,
+          "y": 0.1014
+        }
+      ]
     },
     {
       "id": "089add19-43a9-4e4c-b7b3-462184bbc9fb",
@@ -2169,15 +2211,49 @@
       "grade": "7a",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "bico.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.5354,
+          "y": 0.8624
+        },
+        {
+          "x": 0.6077,
+          "y": 0.26
+        },
+        {
+          "x": 0.5881,
+          "y": 0.0612
+        }
+      ]
     },
     {
       "id": "9f525d46-74b8-4580-b7c3-64ea05682765",
       "name": "Crista",
-      "grade": "7a",
+      "grade": "7a+",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "bico.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.7267,
+          "y": 0.8604
+        },
+        {
+          "x": 0.7131,
+          "y": 0.4769
+        },
+        {
+          "x": 0.7462,
+          "y": 0.4207
+        },
+        {
+          "x": 0.7733,
+          "y": 0.1416
+        }
+      ]
     },
     {
       "id": "f97d656d-ce55-483b-8dee-306b872775d9",
@@ -2185,8 +2261,31 @@
       "grade": "6a",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "solta_se_o_peido.jpg",
       "sector": "Sector Corvo",
-      "notes": "This boulder probably has a different name. It has been climbed since at least 2011 with a sit start."
+      "notes": "This boulder probably has a different name. It has been climbed since at least 2011 with a sit start.",
+      "routeLine": [
+        {
+          "x": 0.4857,
+          "y": 0.6978
+        },
+        {
+          "x": 0.5414,
+          "y": 0.497
+        },
+        {
+          "x": 0.5324,
+          "y": 0.26
+        },
+        {
+          "x": 0.4887,
+          "y": 0.1556
+        },
+        {
+          "x": 0.4179,
+          "y": 0.0693
+        }
+      ]
     },
     {
       "id": "96f88764-6b61-4717-88e0-8fefc51f0634",
@@ -2273,7 +2372,26 @@
       "grade": "5+",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "unnamed_slab.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.4962,
+          "y": 0.5308
+        },
+        {
+          "x": 0.5128,
+          "y": 0.3161
+        },
+        {
+          "x": 0.4616,
+          "y": 0.1449
+        },
+        {
+          "x": 0.4134,
+          "y": 0.0425
+        }
+      ]
     },
     {
       "id": "fc4d191c-f369-4c62-9104-7b322f75c4d4",
@@ -2281,7 +2399,42 @@
       "grade": "8b",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Corvo"
+      "imageFilename": "solta_se_o_peido.jpg",
+      "sector": "Sector Corvo",
+      "routeLine": [
+        {
+          "x": 0.2764,
+          "y": 0.6918
+        },
+        {
+          "x": 0.3502,
+          "y": 0.6396
+        },
+        {
+          "x": 0.5068,
+          "y": 0.5853
+        },
+        {
+          "x": 0.5384,
+          "y": 0.4829
+        },
+        {
+          "x": 0.5459,
+          "y": 0.3604
+        },
+        {
+          "x": 0.5233,
+          "y": 0.2319
+        },
+        {
+          "x": 0.4752,
+          "y": 0.1456
+        },
+        {
+          "x": 0.4134,
+          "y": 0.0793
+        }
+      ]
     },
     {
       "id": "7abd04ef-3189-47a4-b5f4-dd7578070047",
@@ -2289,8 +2442,27 @@
       "grade": "6b",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "the_ear.jpg",
       "sector": "Sector Corvo",
-      "notes": "Starts on a jug in the crack, after - move up, using crack and crimps in Ear area. Be careful - side crimp on the top left part of the boulder - playing little bit. Could be extended with sit start, but this part should be investigated little bit more. FA: Dima Chok, 8 Jun 2025."
+      "notes": "Starts on a jug in the crack, after - move up, using crack and crimps in Ear area. Be careful - side crimp on the top left part of the boulder - playing little bit. Could be extended with sit start, but this part should be investigated little bit more. FA: Dima Chok, 8 Jun 2025.",
+      "routeLine": [
+        {
+          "x": 0.3517,
+          "y": 0.6497
+        },
+        {
+          "x": 0.3667,
+          "y": 0.5146
+        },
+        {
+          "x": 0.2101,
+          "y": 0.3504
+        },
+        {
+          "x": 0.1619,
+          "y": 0.1091
+        }
+      ]
     },
     {
       "id": "8fb65c9b-bacf-4307-8954-5865ff4868bb",
@@ -2298,8 +2470,31 @@
       "grade": "6c",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "the_ear.jpg",
       "sector": "Sector Corvo",
-      "notes": "Starting with hands on good crystals - you going up to the right, by Milky Way white line of crystals up to the jug and top-out. The crux is first move - transition with left hand up to next hold. Difficult to place feet for taller people. Lot of finger-strength needed. FA: @claravincii, 8 Jun 2025."
+      "notes": "Starting with hands on good crystals - you going up to the right, by Milky Way white line of crystals up to the jug and top-out. The crux is first move - transition with left hand up to next hold. Difficult to place feet for taller people. Lot of finger-strength needed. FA: @claravincii, 8 Jun 2025.",
+      "routeLine": [
+        {
+          "x": 0.5745,
+          "y": 0.53
+        },
+        {
+          "x": 0.6167,
+          "y": 0.4431
+        },
+        {
+          "x": 0.6679,
+          "y": 0.3659
+        },
+        {
+          "x": 0.686,
+          "y": 0.3041
+        },
+        {
+          "x": 0.6664,
+          "y": 0.2307
+        }
+      ]
     },
     {
       "id": "2647282e-c2eb-4002-b23e-f959a1b05dab",
@@ -2307,8 +2502,35 @@
       "grade": "6c+",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "the_ear.jpg",
       "sector": "Sector Corvo",
-      "notes": "Sit Start Extension for Milky Way. Same hand holds as on route The Ear, traverse to the right, and continue as Milky Way. Assigned grade 6C+, waiting for more ascents to validate. FA: Climbing Samurai."
+      "notes": "Sit Start Extension for Milky Way. Same hand holds as on route The Ear, traverse to the right, and continue as Milky Way. Assigned grade 6C+, waiting for more ascents to validate. FA: Climbing Samurai.",
+      "routeLine": [
+        {
+          "x": 0.4059,
+          "y": 0.6864
+        },
+        {
+          "x": 0.5158,
+          "y": 0.642
+        },
+        {
+          "x": 0.573,
+          "y": 0.5377
+        },
+        {
+          "x": 0.6303,
+          "y": 0.42
+        },
+        {
+          "x": 0.6845,
+          "y": 0.3215
+        },
+        {
+          "x": 0.6664,
+          "y": 0.2307
+        }
+      ]
     },
     {
       "id": "3e5f1870-e694-41f1-b99d-7cedb9a36875",
