@@ -6,8 +6,8 @@
   "city": "Santo Tirso",
   "description": "Santo Tirso bouldering area with 4 sectors: Sector Boulder, Sector Corvo, Sector Raposa, and Sector Torre de Pizza. Sombra todo o dia. Demora pra secar. Molha quando chove. Granite rock.",
   "coordinates": {
-    "latitude": 41.3489,
-    "longitude": -8.4769
+    "latitude": 41.324873,
+    "longitude": -8.446966
   },
   "imageFilename": "cover.jpg",
   "boulders": [
@@ -21,6 +21,10 @@
         "Cruxy"
       ],
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Sit start with both hands on opposing crimps.",
@@ -60,6 +64,10 @@
         "Cruxy"
       ],
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Left hand on the crimp, right hand on the crystal above it.",
@@ -92,6 +100,10 @@
       "grade": "5+",
       "stars": 0,
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Stand start. Unknown starting position. Warning: The start foothold rock has disappeared.",
@@ -128,6 +140,10 @@
         "Athletic"
       ],
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Sit start with both hands on the beginning of the slopers.",
@@ -164,6 +180,10 @@
       "grade": "6b+",
       "stars": 0,
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Same sit start as Costas à Mesa, then exit through the left.",
@@ -196,6 +216,10 @@
       "grade": "5+",
       "stars": 0,
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Sit start, then go straight through the slab, close to the arete of Passeio aplatológico.",
@@ -232,6 +256,10 @@
         "Athletic"
       ],
       "rockType": "Granite",
+      "coordinates": {
+        "latitude": 41.328093,
+        "longitude": -8.446202
+      },
       "imageFilename": "passeio_micol_gico__sit_start_.jpg",
       "sector": "Sector Boulder",
       "notes": "Unknown starting position. Start at the left of the boulder then traverse all the way to the start of Passeio aplatológico.",
