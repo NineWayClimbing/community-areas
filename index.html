@@ -223,6 +223,13 @@
 
   .empty-msg { text-align: center; color: var(--text-hint); padding: 40px 0; }
 
+  /* Croqui */
+  #croquiCanvas {
+    width: 100%; aspect-ratio: 4/3; display: block;
+    border: 2px solid var(--border); border-radius: var(--radius);
+    background: #fafafa;
+  }
+
   /* FAB */
   .fab-group {
     position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column-reverse; align-items: center; gap: 12px; z-index: 40;
@@ -363,6 +370,17 @@
         <input type="file" id="coverInput" accept="image/*" style="display:none" onchange="handleCoverImage(this)">
       </div>
 
+      <div class="card" id="croquiCard">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h2 style="margin:0;">Croqui</h2>
+          <button class="btn btn-dim btn-sm" id="croquiToggleBtn" onclick="toggleCroquiCard()">Show</button>
+        </div>
+        <div id="croquiBody" style="display:none;">
+          <div id="croquiEmpty" class="draw-hint" style="margin-bottom:8px;">Add coordinates to boulders to see them on the croqui</div>
+          <canvas id="croquiCanvas"></canvas>
+        </div>
+      </div>
+
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <h2 style="margin:0;">Boulders</h2>
         <button class="btn btn-gold btn-sm" onclick="addBoulder()">+ Add</button>
@@ -408,10 +426,8 @@
           <label>Notes</label>
           <textarea id="bNotes" placeholder="Optional notes" oninput="saveBoulderField('notes', this.value)"></textarea>
 
-          <label>Latitude</label>
-          <input type="number" id="bLat" step="any" placeholder="Optional" oninput="saveBoulderCoord()">
-          <label>Longitude</label>
-          <input type="number" id="bLng" step="any" placeholder="Optional" oninput="saveBoulderCoord()">
+          <label>Coordinates</label>
+          <input type="text" id="bCoords" placeholder="e.g. 41.3456, -8.4789" oninput="saveBoulderCoord()">
         </div>
 
         <div class="card">
@@ -615,6 +631,7 @@ function resetEditor() {
   selectedIdx = -1;
   coverImageData = null;
   existingCoverFilename = null;
+  croquiCanvasReady = false;
   document.getElementById('areaName').value = '';
   document.getElementById('areaCountry').value = '';
   document.getElementById('areaCity').value = '';
@@ -624,6 +641,12 @@ function resetEditor() {
   document.getElementById('areaLat').value = '';
   document.getElementById('areaLng').value = '';
   document.getElementById('coverInfo').textContent = 'No image';
+
+  // Reset croqui UI
+  const croquiBody = document.getElementById('croquiBody');
+  if (croquiBody) croquiBody.style.display = 'none';
+  const croquiBtn = document.getElementById('croquiToggleBtn');
+  if (croquiBtn) croquiBtn.textContent = 'Show';
 
   renderBoulderList();
   document.getElementById('boulderEditor').style.display = 'none';
@@ -985,12 +1008,12 @@ function loadBoulderEditor() {
   document.getElementById('bRockType').value = b.rockType;
   document.getElementById('bSector').value = b.sector;
   document.getElementById('bNotes').value = b.notes;
-  document.getElementById('bLat').value = b.coordinates?.latitude ?? '';
-  document.getElementById('bLng').value = b.coordinates?.longitude ?? '';
+  document.getElementById('bCoords').value = b.coordinates ? `${b.coordinates.latitude}, ${b.coordinates.longitude}` : '';
 
   renderStars();
   renderTags();
   renderDrawArea();
+  renderCroqui();
 }
 
 function saveBoulderField(field, value) {
@@ -1001,9 +1024,14 @@ function saveBoulderField(field, value) {
 
 function saveBoulderCoord() {
   if (selectedIdx < 0) return;
-  const lat = parseFloat(document.getElementById('bLat').value);
-  const lng = parseFloat(document.getElementById('bLng').value);
-  boulders[selectedIdx].coordinates = (!isNaN(lat) && !isNaN(lng)) ? { latitude: lat, longitude: lng } : null;
+  const raw = document.getElementById('bCoords').value.trim();
+  const parts = raw.split(/[,\s]+/).map(Number);
+  const coords = (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1]))
+    ? { latitude: parts[0], longitude: parts[1] } : null;
+  boulders[selectedIdx].coordinates = coords;
+  // Sync coordinates to siblings (boulders sharing the same image)
+  getSiblings(selectedIdx).forEach(({ boulder }) => { boulder.coordinates = coords ? { ...coords } : null; });
+  renderCroqui();
 }
 
 function toggleTag(tag) {
@@ -1311,6 +1339,150 @@ function drawRoute() {
       ctx.fillStyle = '#E6BD00'; ctx.fill();
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
     }
+  });
+}
+
+// --- Croqui (auto-generated from boulder coordinates) ---
+let croquiCanvasReady = false;
+
+function toggleCroquiCard() {
+  const body = document.getElementById('croquiBody');
+  const btn = document.getElementById('croquiToggleBtn');
+  const showing = body.style.display === 'none';
+  body.style.display = showing ? '' : 'none';
+  btn.textContent = showing ? 'Hide' : 'Show';
+  if (showing && !croquiCanvasReady) {
+    initCroquiCanvas();
+    croquiCanvasReady = true;
+  }
+  if (showing) renderCroqui();
+}
+
+function initCroquiCanvas() {
+  const canvas = document.getElementById('croquiCanvas');
+  if (!canvas) return;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * (window.devicePixelRatio || 1);
+  canvas.height = rect.height * (window.devicePixelRatio || 1);
+
+  canvas.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    const cx = (e.clientX - rect.left) / rect.width;
+    const cy = (e.clientY - rect.top) / rect.height;
+    const groups = getCroquiGroups();
+    if (groups.length === 0) return;
+    const positions = getCroquiPositions(groups.map(g => ({ coordinates: g.coords })));
+    let closest = -1, closestDist = Infinity;
+    positions.forEach((pos, pi) => {
+      const d = Math.hypot(pos.x - cx, pos.y - cy);
+      if (d < closestDist) { closestDist = d; closest = pi; }
+    });
+    if (closest >= 0 && closestDist < 0.08) {
+      // Cycle through boulders in the group on repeated clicks
+      const group = groups[closest];
+      const curPos = group.indices.indexOf(selectedIdx);
+      const nextIdx = curPos >= 0 ? group.indices[(curPos + 1) % group.indices.length] : group.indices[0];
+      selectBoulder(nextIdx);
+    }
+  });
+}
+
+function getCroquiPositions(bouldersWithCoords) {
+  if (bouldersWithCoords.length === 0) return [];
+  if (bouldersWithCoords.length === 1) return [{ x: 0.5, y: 0.5 }];
+
+  const lats = bouldersWithCoords.map(b => b.coordinates.latitude);
+  const lngs = bouldersWithCoords.map(b => b.coordinates.longitude);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+  const rangeLat = maxLat - minLat || 0.0001;
+  const rangeLng = maxLng - minLng || 0.0001;
+
+  // Padding so markers don't sit on edges
+  const pad = 0.1;
+  const usable = 1 - 2 * pad;
+
+  return bouldersWithCoords.map(b => {
+    // lng → x (left-right), lat → y (inverted: higher lat = top)
+    const x = pad + ((b.coordinates.longitude - minLng) / rangeLng) * usable;
+    const y = pad + ((maxLat - b.coordinates.latitude) / rangeLat) * usable;
+    return { x, y };
+  });
+}
+
+function getCroquiGroups() {
+  // Group boulders that share the same image into a single marker
+  const groups = []; // each: { indices: [boulderIdx, ...], coords }
+  const assigned = new Set();
+  boulders.forEach((b, i) => {
+    if (assigned.has(i) || !b.coordinates) return;
+    const group = [i];
+    assigned.add(i);
+    getSiblings(i).forEach(({ index: si }) => {
+      if (!assigned.has(si) && boulders[si].coordinates) {
+        group.push(si);
+        assigned.add(si);
+      }
+    });
+    groups.push({ indices: group, coords: b.coordinates });
+  });
+  return groups;
+}
+
+function renderCroqui() {
+  const canvas = document.getElementById('croquiCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const groups = getCroquiGroups();
+  const emptyMsg = document.getElementById('croquiEmpty');
+
+  if (groups.length === 0) {
+    if (emptyMsg) emptyMsg.style.display = '';
+    return;
+  }
+  if (emptyMsg) emptyMsg.style.display = 'none';
+
+  const positions = getCroquiPositions(groups.map(g => ({ coordinates: g.coords })));
+  const dpr = window.devicePixelRatio || 1;
+
+  positions.forEach((pos, gi) => {
+    const group = groups[gi];
+    const isSelected = group.indices.includes(selectedIdx);
+    const px = pos.x * w, py = pos.y * h;
+
+    // Build label: e.g. "1" or "1-3" for grouped boulders
+    const nums = group.indices.map(i => i + 1);
+    const label = nums.length === 1 ? String(nums[0])
+      : nums.length <= 3 ? nums.join(',')
+      : nums[0] + '-' + nums[nums.length - 1];
+
+    const r = Math.max(14, 7 + label.length * 3.5) * dpr;
+
+    // Circle
+    ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2);
+    ctx.fillStyle = isSelected ? '#fff' : '#E6BD00';
+    ctx.fill();
+    ctx.strokeStyle = isSelected ? '#E6BD00' : '#fff';
+    ctx.lineWidth = 2 * dpr;
+    ctx.stroke();
+
+    // Number label
+    ctx.fillStyle = isSelected ? '#E6BD00' : '#fff';
+    ctx.font = `bold ${11 * dpr}px -apple-system, sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(label, px, py);
+
+    // Boulder name(s) below
+    ctx.fillStyle = '#E6BD00';
+    ctx.font = `600 ${9 * dpr}px -apple-system, sans-serif`;
+    const firstName = boulders[group.indices[0]].name || 'Unnamed';
+    const displayName = group.indices.length === 1
+      ? (firstName.length > 14 ? firstName.slice(0, 13) + '…' : firstName)
+      : `${firstName.length > 10 ? firstName.slice(0, 9) + '…' : firstName} +${group.indices.length - 1}`;
+    ctx.fillText(displayName, px, py + r + 8 * dpr);
   });
 }
 
