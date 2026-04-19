@@ -921,8 +921,31 @@
         "Cruxy"
       ],
       "rockType": "Granite",
+      "imageFilename": "resvalan_o.jpg",
       "sector": "Sector Boulder",
-      "notes": "Sem talhados (Without carved holds)."
+      "notes": "Sem talhados (Without carved holds).",
+      "routeLine": [
+        {
+          "x": 0.4721,
+          "y": 0.5845
+        },
+        {
+          "x": 0.4215,
+          "y": 0.3189
+        },
+        {
+          "x": 0.4176,
+          "y": 0.2411
+        },
+        {
+          "x": 0.3671,
+          "y": 0.1362
+        },
+        {
+          "x": 0.428,
+          "y": 0.0702
+        }
+      ]
     },
     {
       "id": "35bfa3f0-abd8-47b8-9cf0-f4b91727a309",
