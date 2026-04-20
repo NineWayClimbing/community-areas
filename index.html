@@ -652,6 +652,7 @@ async function openArea(slug) {
     if (data.boulders && Array.isArray(data.boulders)) {
       boulders = data.boulders.map(b => ({
         id: b.id || crypto.randomUUID(),
+        version: b.version ?? 1,
         name: b.name || '',
         grade: b.grade || '6a',
         stars: b.stars ?? 0,
@@ -768,6 +769,7 @@ async function importArea(input) {
     if (data.boulders && Array.isArray(data.boulders)) {
       boulders = data.boulders.map(b => ({
         id: b.id || crypto.randomUUID(),
+        version: b.version ?? 1,
         name: b.name || '',
         grade: b.grade || '6a',
         stars: b.stars ?? 0,
@@ -869,6 +871,7 @@ async function handleCoverImage(input) {
 function addBoulder() {
   boulders.push({
     id: crypto.randomUUID(),
+    version: 1,
     name: '', grade: '6a', stars: 0, tags: [], rockType: 'Granite',
     sector: '', notes: '', coordinates: null,
     imageData: null,
@@ -988,6 +991,7 @@ function loadBoulderEditor() {
 function saveBoulderField(field, value) {
   if (selectedIdx < 0) return;
   boulders[selectedIdx][field] = value;
+  boulders[selectedIdx].version = (boulders[selectedIdx].version ?? 0) + 1;
   renderBoulderList();
 }
 
@@ -998,6 +1002,7 @@ function saveBoulderCoord() {
   const coords = (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1]))
     ? { latitude: parts[0], longitude: parts[1] } : null;
   boulders[selectedIdx].coordinates = coords;
+  boulders[selectedIdx].version = (boulders[selectedIdx].version ?? 0) + 1;
   // Sync coordinates to siblings (boulders sharing the same image)
   getSiblings(selectedIdx).forEach(({ boulder }) => { boulder.coordinates = coords ? { ...coords } : null; });
 }
@@ -1026,6 +1031,7 @@ async function handleBoulderImage(input) {
   const result = await compressImage(input.files[0]);
   boulders[selectedIdx].imageData = result;
   boulders[selectedIdx].routeLine = null;
+  boulders[selectedIdx].version = (boulders[selectedIdx].version ?? 0) + 1;
   renderDrawArea();
   renderBoulderList();
   toast('Image compressed: ' + formatSize(result.compressedSize));
@@ -1182,6 +1188,7 @@ function pickBoulderImage(sourceIdx) {
   const source = boulders[sourceIdx];
   boulders[selectedIdx].imageData = source.imageData;
   boulders[selectedIdx].imageFilename = source.imageFilename;
+  boulders[selectedIdx].version = (boulders[selectedIdx].version ?? 0) + 1;
   // Don't clear routeLine - user wants to draw a different line on the same image
   document.getElementById('imagePicker').style.display = 'none';
   renderDrawArea();
@@ -1355,7 +1362,7 @@ function buildDataJSON() {
     const filename = b._exportFilename || null;
     b.imageFilename = filename;
 
-    const boulder = { id: b.id, name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
+    const boulder = { id: b.id, version: b.version ?? 1, name: b.name || `Boulder ${i + 1}`, grade: b.grade, stars: b.stars };
     if (b.tags.length > 0) boulder.tags = b.tags;
     boulder.rockType = b.rockType;
     if (b.coordinates) boulder.coordinates = b.coordinates;

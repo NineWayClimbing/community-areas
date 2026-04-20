@@ -273,6 +273,40 @@ jobs:
 
           echo "All images are in JPG format."
 
+      - name: Validate boulder version fields
+        id: validate-boulder-version
+        if: always()
+        run: |
+          errors=0
+          error_messages=""
+
+          for data_file in areas/*/data.json; do
+            [ -f "$data_file" ] || continue
+            slug="$(basename "$(dirname "$data_file")")"
+
+            # Check all boulders have a version field that is a positive integer
+            invalid=$(jq '[.boulders[] | select(.version == null or (.version | type != "number") or .version < 1 or (.version | floor != .))] | length' "$data_file")
+            if [ "$invalid" -gt 0 ]; then
+              msg="Area '$slug': $invalid boulder(s) have missing or invalid 'version' field (must be a positive integer)"
+              echo "::error::$msg"
+              error_messages="$error_messages- $msg\n"
+              errors=$((errors + 1))
+            else
+              echo "✓ $slug — all boulder versions valid"
+            fi
+          done
+
+          # Save errors to file for the comment step
+          printf "%b" "$error_messages" >> "$RUNNER_TEMP/validation_errors.txt"
+
+          if [ "$errors" -gt 0 ]; then
+            echo ""
+            echo "Found $errors error(s). Every boulder must have a 'version' field (positive integer)."
+            exit 1
+          fi
+
+          echo "All boulder version fields are valid."
+
       - name: Validate boulder IDs are stable
         id: validate-boulder-ids
         if: always()
@@ -332,7 +366,7 @@ jobs:
           echo "All boulder IDs are valid and stable."
 
       - name: Comment on PR with validation errors
-        if: always() && (steps.validate-index.outcome == 'failure' || steps.validate-version.outcome == 'failure' || steps.validate-image-size.outcome == 'failure' || steps.validate-image-format.outcome == 'failure' || steps.validate-boulder-ids.outcome == 'failure')
+        if: always() && (steps.validate-index.outcome == 'failure' || steps.validate-version.outcome == 'failure' || steps.validate-image-size.outcome == 'failure' || steps.validate-image-format.outcome == 'failure' || steps.validate-boulder-version.outcome == 'failure' || steps.validate-boulder-ids.outcome == 'failure')
         uses: actions/github-script@v7
         with:
           script: |
@@ -356,6 +390,9 @@ jobs:
             }
             if ('${{ steps.validate-image-format.outcome }}' === 'failure') {
               sections.push('### Image Format\nOnly `.jpg`/`.jpeg` images are allowed in `images/` directories.');
+            }
+            if ('${{ steps.validate-boulder-version.outcome }}' === 'failure') {
+              sections.push('### Boulder Version\nEvery boulder must have a `version` field (positive integer). New boulders should start at `1`, and the version should increment on each update.');
             }
             if ('${{ steps.validate-boulder-ids.outcome }}' === 'failure') {
               sections.push('### Boulder IDs\nEvery boulder must have a unique `id` field (UUID). Existing IDs must never be changed or removed.');
@@ -396,7 +433,7 @@ jobs:
             }
 
       - name: Remove validation comment on success
-        if: always() && steps.validate-index.outcome == 'success' && steps.validate-version.outcome == 'success' && steps.validate-image-size.outcome == 'success' && steps.validate-image-format.outcome == 'success' && steps.validate-boulder-ids.outcome == 'success'
+        if: always() && steps.validate-index.outcome == 'success' && steps.validate-version.outcome == 'success' && steps.validate-image-size.outcome == 'success' && steps.validate-image-format.outcome == 'success' && steps.validate-boulder-version.outcome == 'success' && steps.validate-boulder-ids.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |

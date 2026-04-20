@@ -17,7 +17,8 @@
       "grade": "7a+",
       "notes": "Start with side pull and micro crimp on the left. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "misterio_do_joao.jpg"
+      "imageFilename": "misterio_do_joao.jpg",
+      "version": 1
     },
     {
       "id": "5f0a9e2e-8b20-4634-9a9b-7763ae07e4c2",
@@ -25,7 +26,8 @@
       "grade": "Project",
       "notes": "Start on side pull and white crimp above right. Exit straight between Fissura Pingada and Mistério do João",
       "sector": "Sobreiro",
-      "imageFilename": "miserio.jpg"
+      "imageFilename": "miserio.jpg",
+      "version": 1
     },
     {
       "id": "860ce091-aab2-4069-8e02-40c7838ad5f5",
@@ -33,7 +35,8 @@
       "grade": "6b+",
       "notes": "Sit start. Follow the crack",
       "sector": "Sobreiro",
-      "imageFilename": "fissura_pingada.jpg"
+      "imageFilename": "fissura_pingada.jpg",
+      "version": 1
     },
     {
       "id": "324553be-01aa-42ad-bd18-3225f01fd3ee",
@@ -41,7 +44,8 @@
       "grade": "6c",
       "notes": "Start on the pinches. Follow the crack. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "sobreiro_morto.jpg"
+      "imageFilename": "sobreiro_morto.jpg",
+      "version": 1
     },
     {
       "id": "a4f1c8ff-8065-4dbc-82ce-eccfc4761ead",
@@ -49,7 +53,8 @@
       "grade": "Project",
       "notes": "Start on crimp. Tra4+erse right and finish on Sobreiro Morto",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_1.jpg"
+      "imageFilename": "sem_nome_1.jpg",
+      "version": 1
     },
     {
       "id": "7653b1c6-a2d6-4430-bcab-5e99258385c6",
@@ -57,7 +62,8 @@
       "grade": "6a+",
       "notes": "Start on the crimp. Follow the arete and exit on Placa da Estrada after the jug",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_2.jpg"
+      "imageFilename": "sem_nome_2.jpg",
+      "version": 1
     },
     {
       "id": "241cd2fe-ff35-4899-8a9e-b9cc1f46f93a",
@@ -65,7 +71,8 @@
       "grade": "5+",
       "notes": "Sit start. Follow the crack",
       "sector": "Sobreiro",
-      "imageFilename": "placa_da_estrada.jpg"
+      "imageFilename": "placa_da_estrada.jpg",
+      "version": 1
     },
     {
       "id": "896ad9d0-a907-4f3f-b2a0-126d3cfc3421",
@@ -73,7 +80,8 @@
       "grade": "4+",
       "notes": "Start on the pinches. Follow the crack. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_3.jpg"
+      "imageFilename": "sem_nome_3.jpg",
+      "version": 1
     },
     {
       "id": "f1cdd2c3-b209-4e96-8f09-28864bb61f39",
@@ -81,7 +89,8 @@
       "grade": "6a",
       "notes": "Start on the jugs. Exit straight with the crystals",
       "sector": "Sobreiro",
-      "imageFilename": "pseudo_dinamico.jpg"
+      "imageFilename": "pseudo_dinamico.jpg",
+      "version": 1
     },
     {
       "id": "209630ec-1a44-49bc-8489-86d1fa8e3fb2",
@@ -89,7 +98,8 @@
       "grade": "Project",
       "notes": "Sit start with the undercling. Tra4+erse right into Pseudo Dinâmico",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_4.jpg"
+      "imageFilename": "sem_nome_4.jpg",
+      "version": 1
     },
     {
       "id": "405f5d89-bd2c-4eab-81ae-e78b880d87cf",
@@ -97,7 +107,8 @@
       "grade": "Project",
       "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_5.jpg"
+      "imageFilename": "sem_nome_5.jpg",
+      "version": 1
     },
     {
       "id": "94d199e5-d75d-4559-8ca9-ae8ecc28c52e",
@@ -105,7 +116,8 @@
       "grade": "Project",
       "notes": "Sit start with the undercling. Exit straight with the big crystal on the left",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_6.jpg"
+      "imageFilename": "sem_nome_6.jpg",
+      "version": 1
     },
     {
       "id": "c36b1230-68d2-4df6-9b18-a85ab41069e3",
@@ -113,7 +125,8 @@
       "grade": "5+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_7.jpg"
+      "imageFilename": "sem_nome_7.jpg",
+      "version": 1
     },
     {
       "id": "5f9fe199-aa97-44e2-8c48-37db057ed780",
@@ -121,7 +134,8 @@
       "grade": "5+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_8.jpg"
+      "imageFilename": "sem_nome_8.jpg",
+      "version": 1
     },
     {
       "id": "7e368060-9ac9-48f4-9a2a-59a59b023c8c",
@@ -129,7 +143,8 @@
       "grade": "5+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_9.jpg"
+      "imageFilename": "sem_nome_9.jpg",
+      "version": 1
     },
     {
       "id": "ff1a78a6-74a0-431f-ae8e-2473eede3c11",
@@ -137,7 +152,8 @@
       "grade": "5+",
       "notes": "Sit start. Dynamic mo4+e into the jug",
       "sector": "Sobreiro",
-      "imageFilename": "mini_lancamento.jpg"
+      "imageFilename": "mini_lancamento.jpg",
+      "version": 1
     },
     {
       "id": "b6a1d4db-9dea-49a8-bc2c-0ae7f6c425bf",
@@ -145,7 +161,8 @@
       "grade": "4+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_10.jpg"
+      "imageFilename": "sem_nome_10.jpg",
+      "version": 1
     },
     {
       "id": "58aef325-463e-4f31-aa12-70b7ab5084aa",
@@ -153,7 +170,8 @@
       "grade": "4+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_11.jpg"
+      "imageFilename": "sem_nome_11.jpg",
+      "version": 1
     },
     {
       "id": "83df571c-98d3-4f21-9563-6a93f10cf41c",
@@ -161,7 +179,8 @@
       "grade": "4+",
       "notes": "Feet only",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_12.jpg"
+      "imageFilename": "sem_nome_12.jpg",
+      "version": 1
     },
     {
       "id": "3ac1a36b-c9ce-4f75-84e0-da9db61ff006",
@@ -169,7 +188,8 @@
       "grade": "6a",
       "notes": "Start on the crimp. Exit straight with crystals",
       "sector": "Sobreiro",
-      "imageFilename": "full_house.jpg"
+      "imageFilename": "full_house.jpg",
+      "version": 1
     },
     {
       "id": "3d3f5ddf-d749-4201-b8f8-8a7436b08882",
@@ -177,7 +197,8 @@
       "grade": "5+",
       "notes": "Sit start with the crimps. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "salsa.jpg"
+      "imageFilename": "salsa.jpg",
+      "version": 1
     },
     {
       "id": "e29aeb78-28b8-4103-af0e-31997971357d",
@@ -185,7 +206,8 @@
       "grade": "Project",
       "notes": "Left of Pé Sujo",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_13.jpg"
+      "imageFilename": "sem_nome_13.jpg",
+      "version": 1
     },
     {
       "id": "df23a4cf-c19d-413b-b0d9-8c94798131b6",
@@ -193,7 +215,8 @@
       "grade": "6a+",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "clyde.jpg"
+      "imageFilename": "clyde.jpg",
+      "version": 1
     },
     {
       "id": "add537ab-779a-4827-855f-97f2bc4e12bf",
@@ -201,7 +224,8 @@
       "grade": "Project",
       "notes": "Sit start. Follow the crack",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_14.jpg"
+      "imageFilename": "sem_nome_14.jpg",
+      "version": 1
     },
     {
       "id": "9059b6d1-051b-4fef-966f-f3eb1c666bb7",
@@ -209,7 +233,8 @@
       "grade": "Project",
       "notes": "Start with left side pull and right crystal. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "pe_sujo.jpg"
+      "imageFilename": "pe_sujo.jpg",
+      "version": 1
     },
     {
       "id": "8e5a6bcd-6a95-4cf0-9229-56f228ca9889",
@@ -217,7 +242,8 @@
       "grade": "5+",
       "notes": "Sit start. Follow the arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_15.jpg"
+      "imageFilename": "sem_nome_15.jpg",
+      "version": 1
     },
     {
       "id": "2cbc8e42-e6e0-4a74-9b09-9974d68d23c3",
@@ -225,7 +251,8 @@
       "grade": "6a+",
       "notes": "Arete",
       "sector": "Sobreiro",
-      "imageFilename": "bonnie.jpg"
+      "imageFilename": "bonnie.jpg",
+      "version": 1
     },
     {
       "id": "e2a67bde-5a65-4880-9c9b-c10a1da9c9d7",
@@ -233,7 +260,8 @@
       "grade": "Project",
       "notes": "Sit start, follow the arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_16.jpg"
+      "imageFilename": "sem_nome_16.jpg",
+      "version": 1
     },
     {
       "id": "4cf8bdf7-8eda-41e0-9d11-c0218aafc11b",
@@ -241,7 +269,8 @@
       "grade": "Project",
       "notes": "Start with big undercling, follow the arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_17.jpg"
+      "imageFilename": "sem_nome_17.jpg",
+      "version": 1
     },
     {
       "id": "58fc7899-4fed-4852-924f-08136fb830f4",
@@ -249,7 +278,8 @@
       "grade": "Project",
       "notes": "Start on the crimp. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_18.jpg"
+      "imageFilename": "sem_nome_18.jpg",
+      "version": 1
     },
     {
       "id": "abdecd29-b279-46c7-917a-de635c5f1804",
@@ -257,7 +287,8 @@
       "grade": "Project",
       "notes": "Slab",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_19.jpg"
+      "imageFilename": "sem_nome_19.jpg",
+      "version": 1
     },
     {
       "id": "439ea105-755a-44ac-9472-1ee31e642bba",
@@ -265,7 +296,8 @@
       "grade": "Project",
       "notes": "Start on the slab, exit on Parmigiano",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_20.jpg"
+      "imageFilename": "sem_nome_20.jpg",
+      "version": 1
     },
     {
       "id": "e2da4354-8fdd-47c3-be20-99870b55833a",
@@ -273,7 +305,8 @@
       "grade": "Project",
       "notes": "Start on Parmigiano, tra4+erse right from the big undercling",
       "sector": "Sobreiro",
-      "imageFilename": "parmigiano_right.jpg"
+      "imageFilename": "parmigiano_right.jpg",
+      "version": 1
     },
     {
       "id": "aab0425e-cc55-47de-be50-0d8f8655ee32",
@@ -281,7 +314,8 @@
       "grade": "6b+",
       "notes": "Sit start on crimp and side pull. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "parmigiano.jpg"
+      "imageFilename": "parmigiano.jpg",
+      "version": 1
     },
     {
       "id": "be0cd857-5e99-401c-9c4a-d6894f87d9d7",
@@ -289,7 +323,8 @@
       "grade": "Project",
       "notes": "Sit start. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_21.jpg"
+      "imageFilename": "sem_nome_21.jpg",
+      "version": 1
     },
     {
       "id": "eff4c1dc-e7b5-4244-9b6b-ea17a5257807",
@@ -297,7 +332,8 @@
       "grade": "5+",
       "notes": "Sit start. Follow the arete",
       "sector": "Sobreiro",
-      "imageFilename": "mini_motoserra.jpg"
+      "imageFilename": "mini_motoserra.jpg",
+      "version": 1
     },
     {
       "id": "11591966-a1a1-4233-8072-eda54bf68dde",
@@ -305,7 +341,8 @@
       "grade": "5+",
       "notes": "Sit start (??) exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "micro_motoserra.jpg"
+      "imageFilename": "micro_motoserra.jpg",
+      "version": 1
     },
     {
       "id": "0f5fa54b-a867-40d2-8bcc-b41c7f71663e",
@@ -313,7 +350,8 @@
       "grade": "6a",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "dona_rosa.jpg"
+      "imageFilename": "dona_rosa.jpg",
+      "version": 1
     },
     {
       "id": "80fbeb31-769a-4387-91e7-39d7212ed346",
@@ -321,7 +359,8 @@
       "grade": "Project",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_22.jpg"
+      "imageFilename": "sem_nome_22.jpg",
+      "version": 1
     },
     {
       "id": "e1ac1856-dd83-46d6-8dc2-f193ce0aa0ac",
@@ -329,7 +368,8 @@
       "grade": "Project",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_23.jpg"
+      "imageFilename": "sem_nome_23.jpg",
+      "version": 1
     },
     {
       "id": "8afe1a04-6a9f-4d7e-80d7-dd6b286a8215",
@@ -337,7 +377,8 @@
       "grade": "Project",
       "notes": "Start on the cramp. Exit straight following the arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_24.jpg"
+      "imageFilename": "sem_nome_24.jpg",
+      "version": 1
     },
     {
       "id": "dacd54ba-0a03-4c67-bf5c-e997eb58aabb",
@@ -345,7 +386,8 @@
       "grade": "Project",
       "notes": "Start on crack, tra4+erse left. Exit on the opposite arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_25.jpg"
+      "imageFilename": "sem_nome_25.jpg",
+      "version": 1
     },
     {
       "id": "7fc8c974-8ff4-4ffc-96bf-42d8981f6653",
@@ -353,7 +395,8 @@
       "grade": "Project",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_26.jpg"
+      "imageFilename": "sem_nome_26.jpg",
+      "version": 1
     },
     {
       "id": "8c7a8f64-0b7d-4463-bc6d-1ad571bde4b9",
@@ -361,7 +404,8 @@
       "grade": "Project",
       "notes": "Start with undercling. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "toca.jpg"
+      "imageFilename": "toca.jpg",
+      "version": 1
     },
     {
       "id": "a9adba13-d72a-4e66-b91d-32e66258f34a",
@@ -369,7 +413,8 @@
       "grade": "6b",
       "notes": "Sit start. Traverse right into Complicometro",
       "sector": "Sobreiro",
-      "imageFilename": "toca_stand.jpg"
+      "imageFilename": "toca_stand.jpg",
+      "version": 1
     },
     {
       "id": "0e28025a-765b-4d37-9809-c09404917ee5",
@@ -377,7 +422,8 @@
       "grade": "Project",
       "notes": "Sit start. Use only left arete",
       "sector": "Sobreiro",
-      "imageFilename": "historia_de_dois_mundos.jpg"
+      "imageFilename": "historia_de_dois_mundos.jpg",
+      "version": 1
     },
     {
       "id": "00a9818e-1d1a-4c62-bd72-ca9ed03e4635",
@@ -385,7 +431,8 @@
       "grade": "6c",
       "notes": "Sit start. Use both aretes",
       "sector": "Sobreiro",
-      "imageFilename": "complicometro.jpg"
+      "imageFilename": "complicometro.jpg",
+      "version": 1
     },
     {
       "id": "553a38d4-656e-4421-b7a8-8dd9583badf7",
@@ -393,7 +440,8 @@
       "grade": "6c",
       "notes": "Sit start. Use right arete",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_27.jpg"
+      "imageFilename": "sem_nome_27.jpg",
+      "version": 1
     },
     {
       "id": "d1981690-a83b-4968-951b-ed7c71a212e0",
@@ -401,7 +449,8 @@
       "grade": "5+",
       "notes": "Sit start tra4+erse left",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_28.jpg"
+      "imageFilename": "sem_nome_28.jpg",
+      "version": 1
     },
     {
       "id": "620f0329-4006-484a-9cde-196fcce10e94",
@@ -409,7 +458,8 @@
       "grade": "Project",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "ninho.jpg"
+      "imageFilename": "ninho.jpg",
+      "version": 1
     },
     {
       "id": "a36be2e5-1976-4384-aeac-b98649047480",
@@ -417,7 +467,8 @@
       "grade": "Project",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_29.jpg"
+      "imageFilename": "sem_nome_29.jpg",
+      "version": 1
     },
     {
       "id": "b94cea34-72e5-4a91-a464-78a5dcc36373",
@@ -425,7 +476,8 @@
       "grade": "5+",
       "notes": "Sit start traverse left",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_30.jpg"
+      "imageFilename": "sem_nome_30.jpg",
+      "version": 1
     },
     {
       "id": "55962ecb-2248-41cd-807a-4f22a014122c",
@@ -433,7 +485,8 @@
       "grade": "6a",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "pe_roto.jpg"
+      "imageFilename": "pe_roto.jpg",
+      "version": 1
     },
     {
       "id": "dde1b853-b5cf-4fe4-b769-5290d99b14fa",
@@ -441,7 +494,8 @@
       "grade": "7b",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "pes_de_rosa.jpg"
+      "imageFilename": "pes_de_rosa.jpg",
+      "version": 1
     },
     {
       "id": "410aa1d6-bac6-4d57-9c0e-5b9c9297d96e",
@@ -449,7 +503,8 @@
       "grade": "6a",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "presa_temido.jpg"
+      "imageFilename": "presa_temido.jpg",
+      "version": 1
     },
     {
       "id": "9ee08845-d075-49a9-913f-2c89ac47dd4c",
@@ -457,7 +512,8 @@
       "grade": "6b",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "fa_educado.jpg"
+      "imageFilename": "fa_educado.jpg",
+      "version": 1
     },
     {
       "id": "f31c31a4-bda4-42fd-b99f-d0970a72f90c",
@@ -465,7 +521,8 @@
       "grade": "6a+",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "raspa_queixos.jpg"
+      "imageFilename": "raspa_queixos.jpg",
+      "version": 1
     },
     {
       "id": "6f9fad0c-6a67-44ae-a337-7ddf78795864",
@@ -473,7 +530,8 @@
       "grade": "5+",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_31.jpg"
+      "imageFilename": "sem_nome_31.jpg",
+      "version": 1
     },
     {
       "id": "eb06b676-f75a-4657-a200-122d5387fcab",
@@ -481,7 +539,8 @@
       "grade": "5+",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_32.jpg"
+      "imageFilename": "sem_nome_32.jpg",
+      "version": 1
     },
     {
       "id": "cb1ddbcc-9bef-439f-9a9d-9a6366f781b0",
@@ -489,7 +548,8 @@
       "grade": "Project",
       "notes": "Sit start on the left crimp",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_33.jpg"
+      "imageFilename": "sem_nome_33.jpg",
+      "version": 1
     },
     {
       "id": "1ec2ec93-b128-4bdb-a688-675c5912a217",
@@ -497,7 +557,8 @@
       "grade": "5+",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_34.jpg"
+      "imageFilename": "sem_nome_34.jpg",
+      "version": 1
     },
     {
       "id": "2604d72d-987a-4b9c-969a-e0be0dc7aefa",
@@ -505,7 +566,8 @@
       "grade": "5+",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_35.jpg"
+      "imageFilename": "sem_nome_35.jpg",
+      "version": 1
     },
     {
       "id": "197a78ae-50f4-4053-9697-2f5b90fe2a1b",
@@ -513,7 +575,8 @@
       "grade": "Project",
       "notes": "Sit start. Exit straight",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_36.jpg"
+      "imageFilename": "sem_nome_36.jpg",
+      "version": 1
     },
     {
       "id": "95a917af-1ab2-4764-a209-b32fe6e79fdc",
@@ -521,7 +584,8 @@
       "grade": "Project",
       "notes": "Sit start. Exit left",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_37.jpg"
+      "imageFilename": "sem_nome_37.jpg",
+      "version": 1
     },
     {
       "id": "cacf810e-5152-413e-b55e-49060e0293f3",
@@ -529,7 +593,8 @@
       "grade": "6a+",
       "notes": "Traverse",
       "sector": "Sobreiro",
-      "imageFilename": "raspa_canelas.jpg"
+      "imageFilename": "raspa_canelas.jpg",
+      "version": 1
     },
     {
       "id": "87b38eb3-c6b8-4cde-9f28-f89e1aafbe95",
@@ -537,7 +602,8 @@
       "grade": "Project",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_38.jpg"
+      "imageFilename": "sem_nome_38.jpg",
+      "version": 1
     },
     {
       "id": "78491859-c7bf-4cd4-a320-37de4d478c90",
@@ -545,7 +611,8 @@
       "grade": "Project",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_39.jpg"
+      "imageFilename": "sem_nome_39.jpg",
+      "version": 1
     },
     {
       "id": "bd767984-9b5f-40b1-8bde-c295cea02ae4",
@@ -553,7 +620,8 @@
       "grade": "6a+",
       "notes": "Sit start",
       "sector": "Sobreiro",
-      "imageFilename": "raspa_joelhos.jpg"
+      "imageFilename": "raspa_joelhos.jpg",
+      "version": 1
     },
     {
       "id": "fcc255eb-2609-407e-9d09-e000530c3e59",
@@ -561,7 +629,8 @@
       "grade": "6a",
       "notes": "",
       "sector": "Sobreiro",
-      "imageFilename": "sem_nome_40.jpg"
+      "imageFilename": "sem_nome_40.jpg",
+      "version": 1
     },
     {
       "id": "39920abb-53a7-4b51-82c9-2a6b0d653127",
@@ -569,7 +638,8 @@
       "grade": "6b",
       "notes": "Sit start. Traverse left and exit after the corner of the prow",
       "sector": "Primatas",
-      "imageFilename": "sem_nome_41.jpg"
+      "imageFilename": "sem_nome_41.jpg",
+      "version": 1
     },
     {
       "id": "80a4e758-543a-4085-bace-471b3a195161",
@@ -577,7 +647,8 @@
       "grade": "6a",
       "notes": "Sit start. Exit straight",
       "sector": "Primatas",
-      "imageFilename": "guilhotina.jpg"
+      "imageFilename": "guilhotina.jpg",
+      "version": 1
     }
   ]
 }
