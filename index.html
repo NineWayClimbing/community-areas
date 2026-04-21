@@ -447,7 +447,7 @@
 
 <script>
 // --- Constants ---
-const GRADES = ['Project','3','4','4+','5','5+','6a','6a+','6b','6b+','6c','6c+','7a','7a+','7b','7b+','7c','7c+','8a','8a+','8b','8b+','8c','8c+','9a','9a+','9b','9b+','9c'];
+const GRADES = ['Project','Unknown','3','4','4+','5','5+','6a','6a+','6b','6b+','6c','6c+','7a','7a+','7b','7b+','7c','7c+','8a','8a+','8b','8b+','8c','8c+','9a','9a+','9b','9b+','9c'];
 const TAGS = ['Crimpy','Sloper','Athletic','Technical','Endurance','Cruxy'];
 const ROCK_TYPES = {
   'Hydrothermal': ['Quartz'],
@@ -1620,20 +1620,38 @@ async function submitPR() {
     }
 
     // Sync fork with upstream
-    await ghApi(`/repos/${fork}/${REPO_NAME}/merge-upstream`, {
+    const syncResp = await ghApi(`/repos/${fork}/${REPO_NAME}/merge-upstream`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ branch: 'main' }),
     });
+    if (!syncResp.ok) {
+      console.warn('merge-upstream failed, will use upstream ref directly');
+    }
 
     // Step 2: Prepare files
     updateProgress(2);
 
-    // Get latest commit SHA from fork (after merge-upstream sync)
-    const refResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/ref/heads/main`);
-    if (!refResp.ok) throw new Error('Failed to get main branch ref');
-    const refData = await refResp.json();
-    const baseSha = refData.object.sha;
+    // Get latest commit SHA from upstream (authoritative source)
+    const upstreamRefResp = await ghApi(`/repos/${REPO_OWNER}/${REPO_NAME}/git/ref/heads/main`);
+    if (!upstreamRefResp.ok) throw new Error('Failed to get upstream main branch ref');
+    const upstreamRefData = await upstreamRefResp.json();
+    const baseSha = upstreamRefData.object.sha;
+
+    // Ensure fork's main is at the same commit
+    const forkRefResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/ref/heads/main`);
+    if (forkRefResp.ok) {
+      const forkRefData = await forkRefResp.json();
+      if (forkRefData.object.sha !== baseSha) {
+        // Force-update fork's main to match upstream
+        const updateForkResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/refs/heads/main`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sha: baseSha, force: true }),
+        });
+        if (!updateForkResp.ok) throw new Error('Failed to sync fork main to upstream');
+      }
+    }
 
     // Get the base tree
     const commitResp = await ghApi(`/repos/${fork}/${REPO_NAME}/git/commits/${baseSha}`);
