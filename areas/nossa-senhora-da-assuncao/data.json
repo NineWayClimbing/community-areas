@@ -2930,160 +2930,391 @@
     },
     {
       "id": "206ed273-1386-44d3-b79f-2332f371be6d",
-      "version": 1,
+      "version": 2,
       "name": "Gioconda",
       "grade": "3",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "gioconda.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.5109,
+          "y": 0.8968
+        },
+        {
+          "x": 0.5173,
+          "y": 0.168
+        }
+      ]
     },
     {
       "id": "55af4dd2-6977-4e7b-ba70-8683c4cad948",
-      "version": 1,
+      "version": 2,
       "name": "Torre de Pizza",
       "grade": "Project",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "torre_de_pizza.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.8986,
+          "y": 0.9045
+        },
+        {
+          "x": 0.4763,
+          "y": 0.0496
+        }
+      ]
     },
     {
       "id": "f88a56c0-3329-462a-8edc-fd1709fb1810",
-      "version": 1,
+      "version": 2,
       "name": "Garfield",
       "grade": "5",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "garfield.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.8562,
+          "y": 0.849
+        },
+        {
+          "x": 0.5199,
+          "y": 0.1626
+        }
+      ]
     },
     {
       "id": "37983739-1417-40be-98a3-65fe741e935e",
-      "version": 1,
+      "version": 2,
       "name": "My Fair Lady",
       "grade": "3",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "my_fair_lady.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.8062,
+          "y": 0.9065
+        },
+        {
+          "x": 0.3928,
+          "y": 0.2354
+        }
+      ]
     },
     {
       "id": "4ee3b745-a88c-4f60-9db7-262f6ee7a5bf",
-      "version": 1,
+      "version": 2,
       "name": "Golias",
       "grade": "5+",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "golias.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.5494,
+          "y": 0.9912
+        },
+        {
+          "x": 0.4827,
+          "y": 0.0891
+        }
+      ]
     },
     {
       "id": "6d541221-38f3-4570-859f-be0a628cf6ed",
-      "version": 1,
+      "version": 2,
       "name": "Quimera",
       "grade": "Project",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "garfield.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.3209,
+          "y": 0.7445
+        },
+        {
+          "x": 0.4121,
+          "y": 0.166
+        }
+      ]
     },
     {
       "id": "5be14db4-2138-4fae-843f-109bd2d3e996",
-      "version": 1,
+      "version": 2,
       "name": "Saramela",
       "grade": "3",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "saramela.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.6765,
+          "y": 0.9516
+        },
+        {
+          "x": 0.665,
+          "y": 0.267
+        }
+      ]
     },
     {
       "id": "775c32c4-884b-45a6-9ceb-33565dc3e820",
-      "version": 1,
+      "version": 2,
       "name": "Pizzart",
       "grade": "4+",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "saramela.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.516,
+          "y": 0.9362
+        },
+        {
+          "x": 0.5237,
+          "y": 0.2379
+        }
+      ]
     },
     {
       "id": "6dc8be66-ab8e-4862-940f-4d86504c8627",
-      "version": 1,
+      "version": 2,
       "name": "Gritos",
       "grade": "6a",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "saramela.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.1849,
+          "y": 0.6436
+        },
+        {
+          "x": 0.1926,
+          "y": 0.469
+        },
+        {
+          "x": 0.3081,
+          "y": 0.356
+        },
+        {
+          "x": 0.3068,
+          "y": 0.2653
+        }
+      ]
     },
     {
       "id": "5d66419d-b267-4180-b1b8-dc62aa2cf4ac",
-      "version": 1,
+      "version": 2,
       "name": "Gritos (sit start)",
       "grade": "6a",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "saramela.jpg",
       "sector": "Sector Torre de Pizza",
-      "notes": "Sit start for Gritos, down and to the right."
+      "notes": "Sit start for Gritos, down and to the right.",
+      "routeLine": [
+        {
+          "x": 0.2837,
+          "y": 0.7582
+        },
+        {
+          "x": 0.1836,
+          "y": 0.6436
+        },
+        {
+          "x": 0.1913,
+          "y": 0.469
+        },
+        {
+          "x": 0.303,
+          "y": 0.3577
+        },
+        {
+          "x": 0.3094,
+          "y": 0.2653
+        }
+      ]
     },
     {
       "id": "a7b62e7b-c91e-4da8-9446-7586fc726721",
-      "version": 1,
+      "version": 3,
       "name": "Blair Witch Project",
       "grade": "7b",
-      "stars": 0,
+      "stars": 3,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "blair_witch_project.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.4018,
+          "y": 0.635
+        },
+        {
+          "x": 0.5443,
+          "y": 0.3413
+        },
+        {
+          "x": 0.516,
+          "y": 0.0948
+        },
+        {
+          "x": 0.5045,
+          "y": 0.0019
+        }
+      ]
     },
     {
       "id": "4f3cc200-dfd0-474a-8233-3f46b88824d6",
-      "version": 1,
+      "version": 2,
       "name": "Guilhotina",
       "grade": "6b",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "blair_witch_project.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.2298,
+          "y": 0.8814
+        },
+        {
+          "x": 0.335,
+          "y": 0.0477
+        }
+      ]
     },
     {
       "id": "a1b366ac-dd33-4cc6-b05f-9362b5c0a77a",
-      "version": 1,
+      "version": 2,
       "name": "Pelo tronco acima",
       "grade": "5",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "pelo_tronco_acima.jpg",
       "sector": "Sector Torre de Pizza",
-      "notes": "Sit start."
+      "notes": "Sit start.",
+      "routeLine": [
+        {
+          "x": 0.208,
+          "y": 0.7445
+        },
+        {
+          "x": 0.1399,
+          "y": 0.2139
+        }
+      ]
     },
     {
       "id": "c0f3f8f2-afc5-498e-9fdb-cfa072a81850",
-      "version": 1,
+      "version": 2,
       "name": "Carrocel Humano",
       "grade": "Project",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "pelo_tronco_acima.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.5469,
+          "y": 0.7411
+        },
+        {
+          "x": 0.5276,
+          "y": 0.1164
+        }
+      ]
     },
     {
       "id": "f5e53c56-d67e-4676-8c6f-969629c559c1",
-      "version": 1,
+      "version": 2,
       "name": "Cubo",
       "grade": "5",
       "stars": 0,
       "rockType": "Granite",
-      "sector": "Sector Torre de Pizza"
+      "imageFilename": "pelo_tronco_acima.jpg",
+      "sector": "Sector Torre de Pizza",
+      "routeLine": [
+        {
+          "x": 0.8806,
+          "y": 0.837
+        },
+        {
+          "x": 0.7882,
+          "y": 0.0719
+        }
+      ]
     },
     {
       "id": "8b960c64-d6c3-46b1-8856-cabdade1de47",
-      "version": 1,
+      "version": 3,
       "name": "Papa Reformas",
       "grade": "7a",
-      "stars": 0,
+      "stars": 1,
       "rockType": "Granite",
+      "imageFilename": "papa_reformas.jpg",
       "sector": "Sector Torre de Pizza",
-      "notes": "Sit start with both hands on the crimp below at the left side of the boulder."
+      "notes": "Sit start with both hands on the crimp below at the left side of the boulder.",
+      "routeLine": [
+        {
+          "x": 0.1309,
+          "y": 0.7317
+        },
+        {
+          "x": 0.2953,
+          "y": 0.5854
+        },
+        {
+          "x": 0.4634,
+          "y": 0.5218
+        },
+        {
+          "x": 0.7651,
+          "y": 0.3841
+        },
+        {
+          "x": 0.5327,
+          "y": 0.2705
+        },
+        {
+          "x": 0.4994,
+          "y": 0.1107
+        }
+      ]
     },
     {
       "id": "a62f49e3-f15c-4a83-b4af-3f5eeea380d8",
-      "version": 1,
+      "version": 2,
       "name": "?",
       "grade": "Project",
       "stars": 0,
       "rockType": "Granite",
+      "imageFilename": "_.jpg",
       "sector": "Sector Torre de Pizza",
-      "notes": "Through the crack."
+      "notes": "Through the crack.",
+      "routeLine": [
+        {
+          "x": 0.4827,
+          "y": 0.8883
+        },
+        {
+          "x": 0.4095,
+          "y": 0.2413
+        }
+      ]
     }
   ]
 }
