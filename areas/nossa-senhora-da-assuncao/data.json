@@ -782,9 +782,9 @@
     },
     {
       "id": "a9776a20-bbe7-4b3a-af36-2c471ce59156",
-      "version": 1,
+      "version": 2,
       "name": "Limonete",
-      "grade": "6b",
+      "grade": "6c",
       "stars": 0,
       "tags": [
         "Crimpy"
@@ -1365,9 +1365,9 @@
     },
     {
       "id": "7678441e-0d01-400b-8d89-64044e7ef233",
-      "version": 1,
+      "version": 2,
       "name": "Descola 21",
-      "grade": "8b+",
+      "grade": "8c",
       "stars": 3,
       "rockType": "Granite",
       "imageFilename": "lan_amento_descola.jpg",
@@ -1629,20 +1629,20 @@
       "sector": "Sector Boulder",
       "routeLine": [
         {
-          "x": 0.6649,
-          "y": 0.8564
+          "x": 0.647,
+          "y": 0.8421
         },
         {
-          "x": 0.7794,
-          "y": 0.6355
+          "x": 0.7022,
+          "y": 0.5118
         },
         {
-          "x": 0.7854,
-          "y": 0.4267
+          "x": 0.7214,
+          "y": 0.3098
         },
         {
-          "x": 0.7387,
-          "y": 0.2098
+          "x": 0.7009,
+          "y": 0.1712
         }
       ]
     },
@@ -2089,10 +2089,10 @@
     },
     {
       "id": "6ca9b59d-2c36-4d6b-8918-fc2d8a7b5a2c",
-      "version": 1,
+      "version": 3,
       "name": "Moto-Serra",
-      "grade": "6b",
-      "stars": 0,
+      "grade": "6b+",
+      "stars": 2,
       "tags": [
         "Sloper",
         "Athletic",
@@ -3151,9 +3151,9 @@
     },
     {
       "id": "a7b62e7b-c91e-4da8-9446-7586fc726721",
-      "version": 3,
+      "version": 4,
       "name": "Blair Witch Project",
-      "grade": "7b",
+      "grade": "7b+",
       "stars": 3,
       "rockType": "Granite",
       "imageFilename": "blair_witch_project.jpg",
