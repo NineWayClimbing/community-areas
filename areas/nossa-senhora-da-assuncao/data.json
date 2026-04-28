@@ -1824,9 +1824,9 @@
     },
     {
       "id": "bb62f812-be79-4c26-af7e-626c8181700d",
-      "version": 1,
+      "version": 2,
       "name": "Chapada no Baltar",
-      "grade": "Project",
+      "grade": "7a",
       "stars": 0,
       "rockType": "Granite",
       "imageFilename": "salta_lhe.jpg",
